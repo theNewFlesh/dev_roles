@@ -1,5 +1,5 @@
 namespace: "theNewFlesh"
-name: "dev-roles"
+name: "dev_roles"
 version: "1.0.0"
 readme: "README.md"
 authors:

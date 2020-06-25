@@ -1,0 +1,34 @@
+- name: set ansible_os_family to Windows
+  set_fact:
+    ansible_os_family: Windows
+  when: modo_config_windows_os
+
+- name: OS X | set config path
+  set_fact:
+    _modo_config_path: "{{ _modo_config_osx_path }}"
+  when: ansible_os_family == "Darwin"
+
+- name: OS X | set session path
+  set_fact:
+    _modo_config_session: "{{ _modo_config_osx_session }}"
+  when: ansible_os_family == "Darwin"
+
+- name: Debian | set config path
+  set_fact:
+    _modo_config_path: "{{ _modo_config_debian_path }}"
+  when: ansible_os_family == "Debian"
+
+- name: Debian | set session path
+  set_fact:
+    _modo_config_session: "{{ _modo_config_debian_session }}"
+  when: ansible_os_family == "Debian"
+
+- name: Windows | set config path
+  set_fact:
+    _modo_config_path: "{{ _modo_config_windows_path }}"
+  when: ansible_os_family == "Windows"
+
+- name: Windows | set session path
+  set_fact:
+    _modo_config_session: "{{ _modo_config_windows_session }}"
+  when: ansible_os_family == "Windows"

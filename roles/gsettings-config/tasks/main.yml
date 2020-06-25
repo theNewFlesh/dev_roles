@@ -1,0 +1,9 @@
+---
+- name: "Debian | set gsettings key value pairs"
+  shell:
+    cmd: "gsettings set {{ item.schema }} {{ item.key }} {{ item.value }}"
+  with_items: "{{ gsettings_config_items }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - install
+    - debian

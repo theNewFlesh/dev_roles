@@ -1,0 +1,24 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: theNewFlesh
+  description: configure sublime text 3 package control and preferences
+  license: MIT
+  min_ansible_version: 2.0.0
+  platforms:
+  - name: Debian
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+  - name: Darwin
+    versions:
+    - all
+  - name: MacOSX
+    versions:
+    - all
+  galaxy_tags:
+    - development
+    - system

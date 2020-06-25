@@ -1,0 +1,12 @@
+- hosts: dev
+  vars:
+    xkb_reboot: false
+    xkb_ev_lalt: "{{ xkb_lctl }}"
+    xkb_ev_lctl: "{{ xkb_lwin }}"
+    xkb_ev_lwin: "{{ xkb_lalt }}"
+    xkb_ev_ralt: "{{ xkb_rctl }}"
+    xkb_ev_rctl: "{{ xkb_rwin }}"
+    xkb_ev_rwin: "{{ xkb_ralt }}"
+  roles:
+    - role: ../..
+      become: true

@@ -1,0 +1,89 @@
+---
+jhc_admin: "{{ ansible_ssh_user }}"
+jhc_admin_dir: "{{ ansible_user_dir }}"
+jhc_admin_group: "{% if ansible_os_family == 'Darwin' %}staff{% else %}{{ jhc_admin }}{% endif %}"
+jhc_password: jupyter
+jhc_notebook_users: []
+jhc_country: US
+jhc_state: California
+jhc_city: San Francisco
+jhc_organization: jupyterhub
+
+jhc_application_log_datefmt: '%Y-%m-%d %H:%M:%S'
+jhc_application_log_format: '[%(name)s]%(highlevel)s %(message)s'
+jhc_application_log_level: 30
+jhc_jupyterhub_admin_access: false
+jhc_jupyterhub_answer_yes: false
+jhc_jupyterhub_api_tokens: {}
+jhc_jupyterhub_authenticator_class: jupyterhub.auth.PAMAuthenticator
+jhc_jupyterhub_base_url: /
+jhc_jupyterhub_cleanup_proxy: true
+jhc_jupyterhub_cleanup_servers: true
+jhc_jupyterhub_confirm_no_ssl: false
+jhc_jupyterhub_cookie_max_age_days: 14
+jhc_jupyterhub_cookie_secret: ''
+jhc_jupyterhub_data_files_path: /usr/local/share/jupyter/hub
+jhc_jupyterhub_db_kwargs: {}
+jhc_jupyterhub_db_url: sqlite:///jupyterhub.sqlite
+jhc_jupyterhub_debug_db: false
+jhc_jupyterhub_debug_proxy: false
+jhc_jupyterhub_extra_log_file: ''
+jhc_jupyterhub_extra_log_handlers: []
+jhc_jupyterhub_generate_config: false
+jhc_jupyterhub_hub_ip: 127.0.0.1
+jhc_jupyterhub_hub_port: 8081
+jhc_jupyterhub_hub_prefix: /hub/
+jhc_jupyterhub_ip: ''
+jhc_jupyterhub_jinja_environment_options: {}
+jhc_jupyterhub_last_activity_interval: 300
+jhc_jupyterhub_logo_file: ''
+jhc_jupyterhub_pid_file: ''
+jhc_jupyterhub_port: 8000
+jhc_jupyterhub_proxy_api_ip: 127.0.0.1
+jhc_jupyterhub_proxy_api_port: 0
+jhc_jupyterhub_proxy_auth_token: ''
+jhc_jupyterhub_proxy_check_interval: 30
+jhc_jupyterhub_proxy_cmd:
+  - configurable-http-proxy
+jhc_jupyterhub_reset_db: false
+jhc_jupyterhub_spawner_class: jupyterhub.spawner.LocalProcessSpawner
+jhc_jupyterhub_statsd_host: ''
+jhc_jupyterhub_statsd_port: 8125
+jhc_jupyterhub_statsd_prefix: jupyterhub
+jhc_jupyterhub_subdomain_host: ''
+jhc_jupyterhub_template_paths: []
+jhc_jupyterhub_tornado_settings: {}
+jhc_spawner_args: []
+jhc_spawner_cmd:
+  - jupyterhub-singleuser
+jhc_spawner_debug: false
+jhc_spawner_default_url: ''
+jhc_spawner_disable_user_config: false
+jhc_spawner_env_keep:
+  - PATH
+  - PYTHONPATH
+  - CONDA_ROOT
+  - CONDA_DEFAULT_ENV
+  - VIRTUAL_ENV
+  - LANG
+  - LC_ALL
+jhc_spawner_environment: {}
+jhc_spawner_http_timeout: 30
+jhc_spawner_ip: 127.0.0.1
+jhc_spawner_notebook_dir: ''
+jhc_spawner_options_form: ''
+jhc_spawner_poll_interval: 30
+jhc_spawner_start_timeout: 60
+jhc_local_process_spawner_interrupt_timeout: 10
+jhc_local_process_spawner_kill_timeout: 5
+jhc_local_process_spawner_term_timeout: 5
+jhc_authenticator_admin_users: []
+jhc_authenticator_username_map: {}
+jhc_authenticator_username_pattern: ''
+jhc_authenticator_whitelist: []
+jhc_local_authenticator_add_user_cmd: []
+jhc_local_authenticator_create_system_users: false
+jhc_local_authenticator_group_whitelist: []
+jhc_pam_authenticator_encoding: utf8
+jhc_pam_authenticator_open_sessions: false
+jhc_pam_authenticator_service: login

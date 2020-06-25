@@ -1,0 +1,12 @@
+[local]
+#127.0.0.1
+
+[dev-debian]
+euclid ansible_ssh_host=192.168.1.226
+
+[dev:children]
+dev-debian
+#tag_branch_dev
+
+[alex:children]
+#tag_branch_dev

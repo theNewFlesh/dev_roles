@@ -1,0 +1,37 @@
+---
+- stat:
+    path: "{{ dest }}"
+  register: __file
+
+- shell: "touch {{ dest }}"
+  args:
+    creates: "{{ dest }}"
+  when: "{{ __file.stat.exists == false }}"
+
+- name: overwrite old config
+  replace:
+    regexp: "\\n# ---.*---(.|\\n)*\\Z"
+    replace: ""
+    dest: "{{ dest }}"
+  tags:
+    - marker
+
+- include: tokens.yml
+  when: "{{ shell_config_tokens|length > 0 }}"
+  tags:
+    - tokens
+
+- include: paths.yml
+  when: "{{ shell_config_paths|length > 0 }}"
+  tags:
+    - paths
+
+- include: aliases.yml
+  when: "{{ shell_config_aliases|length > 0 }}"
+  tags:
+    - aliases
+
+- include: extras.yml
+  when: "{{ shell_config_extras|length > 0 }}"
+  tags:
+    - extras

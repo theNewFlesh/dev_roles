@@ -1,0 +1,12 @@
+---
+nuke_config_items:
+  - "{{ _nuke_config_role_path }}/files/gizmos"
+  - "{{ _nuke_config_role_path }}/files/icons"
+  - "{{ _nuke_config_role_path }}/files/python"
+nuke_config_init_paths:
+  - ./gizmos
+  - ./icons
+  - ./python
+nuke_config_zync_nuke_repo:
+nuke_config_sections: []
+nuke_config_path: "{{ ansible_user_dir }}/.nuke"

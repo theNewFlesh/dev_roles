@@ -1,0 +1,8 @@
+---
+- name: "Debian | ensure ksysguard is {{ state }}"
+  apt:
+    name: ksysguard
+    state: "{{ state }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - debian

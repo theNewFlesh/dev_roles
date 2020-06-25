@@ -1,0 +1,87 @@
+default  partial alphanumeric_keys modifier_keys
+xkb_symbols "pc105" {
+
+    key <ESC>  {	[ {{ xkb_pc_esc }} ]	};
+
+    // The extra key on many European keyboards:
+    key <LSGT> {	[ {{ xkb_pc_lsgt }}	] };
+
+    // The following keys are common to all layouts.
+    key <BKSL> {	[ {{ xkb_pc_bksl }}	]	};
+    key <SPCE> {	[ {{ xkb_pc_spce }}	]	};
+
+    include "srvr_ctrl(fkey2vt)"
+    include "pc(editing)"
+    include "keypad(x11)"
+
+    key <BKSP> {	[ {{ xkb_pc_bksp }}	]	};
+
+    key  <TAB> {	[ {{ xkb_pc_tab }}	]	};
+    key <RTRN> {	[ {{ xkb_pc_rtrn }}	]	};
+
+    key <CAPS> {	[ {{ xkb_pc_caps }}	]	};
+    key <NMLK> {	[ {{ xkb_pc_nmlk }}	]	};
+
+    key <LFSH> {	[ {{ xkb_pc_lfsh }}	]	};
+    key <LCTL> {	[ {{ xkb_pc_lctl }}	]	};
+    key <LWIN> {	[ {{ xkb_pc_lwin }}	]	};
+
+    key <RTSH> {	[ {{ xkb_pc_rtsh }}	]	};
+    key <RCTL> {	[ {{ xkb_pc_rctl }}	]	};
+    key <RWIN> {	[ {{ xkb_pc_rwin }}	]	};
+    key <MENU> {	[ {{ xkb_pc_menu }}	]	};
+
+    // Beginning of modifier mappings.
+    modifier_map Shift  { {{ xkb_pc_modifier_map_shift }} };
+    modifier_map Lock   { {{ xkb_pc_modifier_map_lock }} };
+    modifier_map Control{ {{ xkb_pc_modifier_map_control }} };
+    modifier_map Mod2   { {{ xkb_pc_modifier_map_mod2 }} };
+    modifier_map Mod4   { {{ xkb_pc_modifier_map_mod4 }} };
+
+    // Fake keys for virtual<->real modifiers mapping:
+    key <LVL3> {	[ {{ xkb_pc_lvl3 }}	]	};
+    key <MDSW> {	[ {{ xkb_pc_mdsw }}	]	};
+    modifier_map Mod5   { <LVL3>, <MDSW> };
+
+    key <ALT>  {	[ NoSymbol, {{ xkb_pc_alt }}	]	};
+    include "altwin(meta_alt)"
+
+    key <META> {	[ NoSymbol, {{ xkb_pc_meta }}	]	};
+    modifier_map Mod1   { <META> };
+
+    key <SUPR> {	[ NoSymbol, {{ xkb_pc_supr }}	]	};
+    modifier_map Mod4   { <SUPR> };
+
+    key <HYPR> {	[ NoSymbol, {{ xkb_pc_hypr }}	]	};
+    modifier_map Mod4   { <HYPR> };
+    // End of modifier mappings.
+
+    key <OUTP> { [ {{ xkb_pc_outp }} ] };
+    key <KITG> { [ {{ xkb_pc_kitg }} ] };
+    key <KIDN> { [ {{ xkb_pc_kidn }} ] };
+    key <KIUP> { [ {{ xkb_pc_kiup }} ] };
+};
+
+partial hidden alphanumeric_keys
+xkb_symbols "editing" {
+    key <PRSC> {
+	type= "xkb_PC_ALT_LEVEL2",
+	symbols[Group1]= [ Print, Sys_Req ]
+    };
+    key <SCLK> {	[  {{ xkb_pc_sclk }}		]	};
+    key <PAUS> {
+	type= "xkb_PC_CONTROL_LEVEL2",
+	symbols[Group1]= [ Pause, Break ]
+    };
+    key  <INS> {	[  {{ xkb_pc_ins }}		]	};
+    key <HOME> {	[  {{ xkb_pc_home }}		]	};
+    key <PGUP> {	[  {{ xkb_pc_pgup }}		]	};
+    key <DELE> {	[  {{ xkb_pc_dele }}		]	};
+    key  <END> {	[  {{ xkb_pc_end }}		]	};
+    key <PGDN> {	[  {{ xkb_pc_pgdn }}		]	};
+
+    key   <UP> {	[  {{ xkb_pc_up }}		]	};
+    key <LEFT> {	[  {{ xkb_pc_left }}		]	};
+    key <DOWN> {	[  {{ xkb_pc_down }}		]	};
+    key <RGHT> {	[  {{ xkb_pc_rght }}		]	};
+};

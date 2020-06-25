@@ -1,0 +1,19 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: nvidia_utils
+  author: theNewFlesh
+  description: Installs nvidia-utils
+  license: MIT
+  min_ansible_version: 2.0.0
+  platforms:
+  - name: Debian
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+  galaxy_tags:
+    - development
+    - system

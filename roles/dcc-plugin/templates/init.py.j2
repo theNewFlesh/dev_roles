@@ -1,0 +1,8 @@
+{# import sys
+{% for sys_path in dcc_plugin_sys_paths %}
+sys.path.append('{{ sys_path }}')
+{% endfor %} #}
+
+{% for import_ in dcc_plugin_imports %}
+import {{ import_ }}
+{% endfor %}

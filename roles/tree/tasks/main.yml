@@ -1,0 +1,16 @@
+---
+- name: "Debian | ensure tree is {{ state }}"
+  apt:
+    name: tree
+    state: "{{ state }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - debian
+
+- name: "OS X | ensure tree is {{ state }}"
+  homebrew:
+    name: tree
+    state: "{{ state }}"
+  when: ansible_os_family == "Darwin"
+  tags:
+    - os_x

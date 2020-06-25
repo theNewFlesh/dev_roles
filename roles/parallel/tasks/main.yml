@@ -1,0 +1,16 @@
+---
+- name: "Debian | ensure parallel is {{ state }}"
+  apt:
+    name: parallel
+    state: "{{ state }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - debian
+
+- name: "OS X | ensure parallel is {{ state }}"
+  homebrew:
+    name: parallel
+    state: "{{ state }}"
+  when: ansible_os_family == "Darwin"
+  tags:
+    - os_x

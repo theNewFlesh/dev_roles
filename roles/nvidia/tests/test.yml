@@ -1,0 +1,5 @@
+- hosts: dev
+  roles:
+    - role: ../..
+      nvidia_driver_version: 440.82
+      become: true

@@ -1,0 +1,2 @@
+---
+__conda: "{{ conda_config_dir }}/bin/conda"

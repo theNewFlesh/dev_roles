@@ -1,0 +1,12 @@
+- hosts: dev
+  roles:
+    - role: ../..
+      state: absent
+      become: true
+    - role: ../..
+      state: present
+      become: true
+    - role: ../..
+      state: latest
+      become: true
+

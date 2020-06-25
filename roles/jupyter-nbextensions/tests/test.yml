@@ -1,0 +1,6 @@
+- hosts: dev
+  roles:
+    - role: ../..
+      state: absent
+    - role: ../..
+      state: present

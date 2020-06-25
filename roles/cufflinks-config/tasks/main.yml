@@ -1,0 +1,19 @@
+---
+- name: ensure .cufflinks is present
+  file:
+    dest: "{{ ansible_user_dir }}/.cufflinks"
+    state: directory
+    mode: 0774
+  when: state == "present"
+
+- name: ensure .config is present
+  template:
+    src: ../templates/config.j2
+    dest: "{{ ansible_user_dir }}/.cufflinks/.config"
+  when: state == "present"
+
+- name: ensure .config is absent
+  file:
+    dest: "{{ ansible_user_dir }}/.cufflinks/.config"
+    state: absent
+  when: state == "absent"

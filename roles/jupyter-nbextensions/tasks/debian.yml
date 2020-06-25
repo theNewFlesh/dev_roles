@@ -1,0 +1,16 @@
+---
+- name: "Debian | ensure ~/.local/share/jupyter is present"
+  file:
+    dest: "{{ ansible_user_dir }}/.local/share/jupyter"
+    state: directory
+    recurse: true
+
+- name: "Debian | ensure notebook extensions are present"
+  shell: "pip install https://github.com/ipython-contrib/IPython-notebook-extensions/archive/master.zip --user"
+  when: state == "present"
+
+- name: "Debian | ensure notebook extensions are absent"
+  pip:
+    name: https://github.com/ipython-contrib/IPython-notebook-extensions/archive/master.zip
+    state: absent
+  when: state == "absent"

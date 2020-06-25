@@ -1,0 +1,1360 @@
+{
+  "kse_rebinds": {
+  "edit": [
+  {% if jc_key_edit_show_command_palette != "ctrl-shift-p" %}
+    {
+      "from": "ctrl-shift-p",
+      "to": "{{ jc_key_edit_show_command_palette }}",
+      "action_name": "jupyter-notebook:show-command-palette"
+    },
+  {% endif %}
+  {% if jc_key_edit_enter_command_mode != "esc" %}
+    {
+      "from": "esc",
+      "to": "{{ jc_key_edit_enter_command_mode }}",
+      "action_name": "jupyter-notebook:enter-command-mode"
+    },
+  {% endif %}
+  {% if jc_key_edit_run_cell_and_insert_below != "alt-enter" %}
+    {
+      "from": "alt-enter",
+      "to": "{{ jc_key_edit_run_cell_and_insert_below }}",
+      "action_name": "jupyter-notebook:run-cell-and-insert-below"
+    },
+  {% endif %}
+  {% if jc_key_edit_split_cell_at_cursor != "ctrl-shift-minus" %}
+    {
+      "from": "ctrl-shift-minus",
+      "to": "{{ jc_key_edit_split_cell_at_cursor }}",
+      "action_name": "jupyter-notebook:split-cell-at-cursor"
+    },
+  {% endif %}
+  {% if jc_key_edit_save_notebook != "ctrl-s" %}
+    {
+      "from": "ctrl-s",
+      "to": "{{ jc_key_edit_save_notebook }}",
+      "action_name": "jupyter-notebook:save-notebook"
+    },
+  {% endif %}
+  {% if jc_key_edit_move_cursor_down != "down" %}
+    {
+      "from": "down",
+      "to": "{{ jc_key_edit_move_cursor_down }}",
+      "action_name": "jupyter-notebook:move-cursor-down"
+    },
+  {% endif %}
+  {% if jc_key_edit_move_cursor_up != "up" %}
+    {
+      "from": "up",
+      "to": "{{ jc_key_edit_move_cursor_up }}",
+      "action_name": "jupyter-notebook:move-cursor-up"
+    },
+  {% endif %}
+  {% if jc_key_edit_auto_run_initialization_cells != '' %}
+    {
+      "to": "{{ jc_key_edit_auto_run_initialization_cells }}",
+      "action_name": "auto:run-initialization-cells"
+    },
+  {% endif %}
+  {% if jc_key_edit_auto_toggle_cell_style != '' %}
+    {
+      "to": "{{ jc_key_edit_auto_toggle_cell_style }}",
+      "action_name": "auto:toggle-cell-style"
+    },
+  {% endif %}
+  {% if jc_key_edit_change_cell_to_code != '' %}
+    {
+      "to": "{{ jc_key_edit_change_cell_to_code }}",
+      "action_name": "jupyter-notebook:change-cell-to-code"
+    },
+  {% endif %}
+  {% if jc_key_edit_change_cell_to_heading_1 != '' %}
+    {
+      "to": "{{ jc_key_edit_change_cell_to_heading_1 }}",
+      "action_name": "jupyter-notebook:change-cell-to-heading-1"
+    },
+  {% endif %}
+  {% if jc_key_edit_change_cell_to_heading_2 != '' %}
+    {
+      "to": "{{ jc_key_edit_change_cell_to_heading_2 }}",
+      "action_name": "jupyter-notebook:change-cell-to-heading-2"
+    },
+  {% endif %}
+  {% if jc_key_edit_change_cell_to_heading_3 != '' %}
+    {
+      "to": "{{ jc_key_edit_change_cell_to_heading_3 }}",
+      "action_name": "jupyter-notebook:change-cell-to-heading-3"
+    },
+  {% endif %}
+  {% if jc_key_edit_change_cell_to_heading_4 != '' %}
+    {
+      "to": "{{ jc_key_edit_change_cell_to_heading_4 }}",
+      "action_name": "jupyter-notebook:change-cell-to-heading-4"
+    },
+  {% endif %}
+  {% if jc_key_edit_change_cell_to_heading_5 != '' %}
+    {
+      "to": "{{ jc_key_edit_change_cell_to_heading_5 }}",
+      "action_name": "jupyter-notebook:change-cell-to-heading-5"
+    },
+  {% endif %}
+  {% if jc_key_edit_change_cell_to_heading_6 != '' %}
+    {
+      "to": "{{ jc_key_edit_change_cell_to_heading_6 }}",
+      "action_name": "jupyter-notebook:change-cell-to-heading-6"
+    },
+  {% endif %}
+  {% if jc_key_edit_change_cell_to_markdown != '' %}
+    {
+      "to": "{{ jc_key_edit_change_cell_to_markdown }}",
+      "action_name": "jupyter-notebook:change-cell-to-markdown"
+    },
+  {% endif %}
+  {% if jc_key_edit_change_cell_to_raw != '' %}
+    {
+      "to": "{{ jc_key_edit_change_cell_to_raw }}",
+      "action_name": "jupyter-notebook:change-cell-to-raw"
+    },
+  {% endif %}
+  {% if jc_key_edit_clear_all_cells_output != '' %}
+    {
+      "to": "{{ jc_key_edit_clear_all_cells_output }}",
+      "action_name": "jupyter-notebook:clear-all-cells-output"
+    },
+  {% endif %}
+  {% if jc_key_edit_clear_cell_output != '' %}
+    {
+      "to": "{{ jc_key_edit_clear_cell_output }}",
+      "action_name": "jupyter-notebook:clear-cell-output"
+    },
+  {% endif %}
+  {% if jc_key_edit_close_pager != '' %}
+    {
+      "to": "{{ jc_key_edit_close_pager }}",
+      "action_name": "jupyter-notebook:close-pager"
+    },
+  {% endif %}
+  {% if jc_key_edit_confirm_restart_kernel != '' %}
+    {
+      "to": "{{ jc_key_edit_confirm_restart_kernel }}",
+      "action_name": "jupyter-notebook:confirm-restart-kernel"
+    },
+  {% endif %}
+  {% if jc_key_edit_confirm_restart_kernel_and_clear_output != '' %}
+    {
+      "to": "{{ jc_key_edit_confirm_restart_kernel_and_clear_output }}",
+      "action_name": "jupyter-notebook:confirm-restart-kernel-and-clear-output"
+    },
+  {% endif %}
+  {% if jc_key_edit_confirm_restart_kernel_and_run_all_cells != '' %}
+    {
+      "to": "{{ jc_key_edit_confirm_restart_kernel_and_run_all_cells }}",
+      "action_name": "jupyter-notebook:confirm-restart-kernel-and-run-all-cells"
+    },
+  {% endif %}
+  {% if jc_key_edit_copy_cell != '' %}
+    {
+      "to": "{{ jc_key_edit_copy_cell }}",
+      "action_name": "jupyter-notebook:copy-cell"
+    },
+  {% endif %}
+  {% if jc_key_edit_cut_cell != '' %}
+    {
+      "to": "{{ jc_key_edit_cut_cell }}",
+      "action_name": "jupyter-notebook:cut-cell"
+    },
+  {% endif %}
+  {% if jc_key_edit_delete_cell != '' %}
+    {
+      "to": "{{ jc_key_edit_delete_cell }}",
+      "action_name": "jupyter-notebook:delete-cell"
+    },
+  {% endif %}
+  {% if jc_key_edit_duplicate_notebook != '' %}
+    {
+      "to": "{{ jc_key_edit_duplicate_notebook }}",
+      "action_name": "jupyter-notebook:duplicate-notebook"
+    },
+  {% endif %}
+  {% if jc_key_edit_enter_edit_mode != '' %}
+    {
+      "to": "{{ jc_key_edit_enter_edit_mode }}",
+      "action_name": "jupyter-notebook:enter-edit-mode"
+    },
+  {% endif %}
+  {% if jc_key_edit_extend_selection_above != '' %}
+    {
+      "to": "{{ jc_key_edit_extend_selection_above }}",
+      "action_name": "jupyter-notebook:extend-selection-above"
+    },
+  {% endif %}
+  {% if jc_key_edit_extend_selection_below != '' %}
+    {
+      "to": "{{ jc_key_edit_extend_selection_below }}",
+      "action_name": "jupyter-notebook:extend-selection-below"
+    },
+  {% endif %}
+  {% if jc_key_edit_find_and_replace != '' %}
+    {
+      "to": "{{ jc_key_edit_find_and_replace }}",
+      "action_name": "jupyter-notebook:find-and-replace"
+    },
+  {% endif %}
+  {% if jc_key_edit_ignore != '' %}
+    {
+      "to": "{{ jc_key_edit_ignore }}",
+      "action_name": "jupyter-notebook:ignore"
+    },
+  {% endif %}
+  {% if jc_key_edit_insert_cell_above != '' %}
+    {
+      "to": "{{ jc_key_edit_insert_cell_above }}",
+      "action_name": "jupyter-notebook:insert-cell-above"
+    },
+  {% endif %}
+  {% if jc_key_edit_insert_cell_below != '' %}
+    {
+      "to": "{{ jc_key_edit_insert_cell_below }}",
+      "action_name": "jupyter-notebook:insert-cell-below"
+    },
+  {% endif %}
+  {% if jc_key_edit_interrupt_kernel != '' %}
+    {
+      "to": "{{ jc_key_edit_interrupt_kernel }}",
+      "action_name": "jupyter-notebook:interrupt-kernel"
+    },
+  {% endif %}
+  {% if jc_key_edit_merge_cell_with_next_cell != '' %}
+    {
+      "to": "{{ jc_key_edit_merge_cell_with_next_cell }}",
+      "action_name": "jupyter-notebook:merge-cell-with-next-cell"
+    },
+  {% endif %}
+  {% if jc_key_edit_merge_cell_with_previous_cell != '' %}
+    {
+      "to": "{{ jc_key_edit_merge_cell_with_previous_cell }}",
+      "action_name": "jupyter-notebook:merge-cell-with-previous-cell"
+    },
+  {% endif %}
+  {% if jc_key_edit_merge_cells != '' %}
+    {
+      "to": "{{ jc_key_edit_merge_cells }}",
+      "action_name": "jupyter-notebook:merge-cells"
+    },
+  {% endif %}
+  {% if jc_key_edit_merge_selected_cells != '' %}
+    {
+      "to": "{{ jc_key_edit_merge_selected_cells }}",
+      "action_name": "jupyter-notebook:merge-selected-cells"
+    },
+  {% endif %}
+  {% if jc_key_edit_move_cell_down != '' %}
+    {
+      "to": "{{ jc_key_edit_move_cell_down }}",
+      "action_name": "jupyter-notebook:move-cell-down"
+    },
+  {% endif %}
+  {% if jc_key_edit_move_cell_up != '' %}
+    {
+      "to": "{{ jc_key_edit_move_cell_up }}",
+      "action_name": "jupyter-notebook:move-cell-up"
+    },
+  {% endif %}
+  {% if jc_key_edit_paste_cell_above != '' %}
+    {
+      "to": "{{ jc_key_edit_paste_cell_above }}",
+      "action_name": "jupyter-notebook:paste-cell-above"
+    },
+  {% endif %}
+  {% if jc_key_edit_paste_cell_below != '' %}
+    {
+      "to": "{{ jc_key_edit_paste_cell_below }}",
+      "action_name": "jupyter-notebook:paste-cell-below"
+    },
+  {% endif %}
+  {% if jc_key_edit_rename_notebook != '' %}
+    {
+      "to": "{{ jc_key_edit_rename_notebook }}",
+      "action_name": "jupyter-notebook:rename-notebook"
+    },
+  {% endif %}
+  {% if jc_key_edit_restart_kernel != '' %}
+    {
+      "to": "{{ jc_key_edit_restart_kernel }}",
+      "action_name": "jupyter-notebook:restart-kernel"
+    },
+  {% endif %}
+  {% if jc_key_edit_restart_kernel_and_clear_output != '' %}
+    {
+      "to": "{{ jc_key_edit_restart_kernel_and_clear_output }}",
+      "action_name": "jupyter-notebook:restart-kernel-and-clear-output"
+    },
+  {% endif %}
+  {% if jc_key_edit_restart_kernel_and_run_all_cells != '' %}
+    {
+      "to": "{{ jc_key_edit_restart_kernel_and_run_all_cells }}",
+      "action_name": "jupyter-notebook:restart-kernel-and-run-all-cells"
+    },
+  {% endif %}
+  {% if jc_key_edit_run_all_cells != '' %}
+    {
+      "to": "{{ jc_key_edit_run_all_cells }}",
+      "action_name": "jupyter-notebook:run-all-cells"
+    },
+  {% endif %}
+  {% if jc_key_edit_run_all_cells_above != '' %}
+    {
+      "to": "{{ jc_key_edit_run_all_cells_above }}",
+      "action_name": "jupyter-notebook:run-all-cells-above"
+    },
+  {% endif %}
+  {% if jc_key_edit_run_all_cells_below != '' %}
+    {
+      "to": "{{ jc_key_edit_run_all_cells_below }}",
+      "action_name": "jupyter-notebook:run-all-cells-below"
+    },
+  {% endif %}
+  {% if jc_key_edit_run_cell != '' %}
+    {
+      "to": "{{ jc_key_edit_run_cell }}",
+      "action_name": "jupyter-notebook:run-cell"
+    },
+  {% endif %}
+  {% if jc_key_edit_run_cell_and_select_next != '' %}
+    {
+      "to": "{{ jc_key_edit_run_cell_and_select_next }}",
+      "action_name": "jupyter-notebook:run-cell-and-select-next"
+    },
+  {% endif %}
+  {% if jc_key_edit_scroll_cell_center != '' %}
+    {
+      "to": "{{ jc_key_edit_scroll_cell_center }}",
+      "action_name": "jupyter-notebook:scroll-cell-center"
+    },
+  {% endif %}
+  {% if jc_key_edit_scroll_cell_top != '' %}
+    {
+      "to": "{{ jc_key_edit_scroll_cell_top }}",
+      "action_name": "jupyter-notebook:scroll-cell-top"
+    },
+  {% endif %}
+  {% if jc_key_edit_scroll_notebook_down != '' %}
+    {
+      "to": "{{ jc_key_edit_scroll_notebook_down }}",
+      "action_name": "jupyter-notebook:scroll-notebook-down"
+    },
+  {% endif %}
+  {% if jc_key_edit_scroll_notebook_up != '' %}
+    {
+      "to": "{{ jc_key_edit_scroll_notebook_up }}",
+      "action_name": "jupyter-notebook:scroll-notebook-up"
+    },
+  {% endif %}
+  {% if jc_key_edit_select_next_cell != '' %}
+    {
+      "to": "{{ jc_key_edit_select_next_cell }}",
+      "action_name": "jupyter-notebook:select-next-cell"
+    },
+  {% endif %}
+  {% if jc_key_edit_select_previous_cell != '' %}
+    {
+      "to": "{{ jc_key_edit_select_previous_cell }}",
+      "action_name": "jupyter-notebook:select-previous-cell"
+    },
+  {% endif %}
+  {% if jc_key_edit_show_keyboard_shortcuts != '' %}
+    {
+      "to": "{{ jc_key_edit_show_keyboard_shortcuts }}",
+      "action_name": "jupyter-notebook:show-keyboard-shortcuts"
+    },
+  {% endif %}
+  {% if jc_key_edit_toggle_all_cells_output_collapsed != '' %}
+    {
+      "to": "{{ jc_key_edit_toggle_all_cells_output_collapsed }}",
+      "action_name": "jupyter-notebook:toggle-all-cells-output-collapsed"
+    },
+  {% endif %}
+  {% if jc_key_edit_toggle_all_cells_output_scrolled != '' %}
+    {
+      "to": "{{ jc_key_edit_toggle_all_cells_output_scrolled }}",
+      "action_name": "jupyter-notebook:toggle-all-cells-output-scrolled"
+    },
+  {% endif %}
+  {% if jc_key_edit_toggle_cell_line_numbers != '' %}
+    {
+      "to": "{{ jc_key_edit_toggle_cell_line_numbers }}",
+      "action_name": "jupyter-notebook:toggle-cell-line-numbers"
+    },
+  {% endif %}
+  {% if jc_key_edit_toggle_cell_output_collapsed != '' %}
+    {
+      "to": "{{ jc_key_edit_toggle_cell_output_collapsed }}",
+      "action_name": "jupyter-notebook:toggle-cell-output-collapsed"
+    },
+  {% endif %}
+  {% if jc_key_edit_toggle_cell_output_scrolled != '' %}
+    {
+      "to": "{{ jc_key_edit_toggle_cell_output_scrolled }}",
+      "action_name": "jupyter-notebook:toggle-cell-output-scrolled"
+    },
+  {% endif %}
+  {% if jc_key_edit_toggle_header != '' %}
+    {
+      "to": "{{ jc_key_edit_toggle_header }}",
+      "action_name": "jupyter-notebook:toggle-header"
+    },
+  {% endif %}
+  {% if jc_key_edit_toggle_toolbar != '' %}
+    {
+      "to": "{{ jc_key_edit_toggle_toolbar }}",
+      "action_name": "jupyter-notebook:toggle-toolbar"
+    },
+  {% endif %}
+  {% if jc_key_edit_trust_notebook != '' %}
+    {
+      "to": "{{ jc_key_edit_trust_notebook }}",
+      "action_name": "jupyter-notebook:trust-notebook"
+    },
+  {% endif %}
+  {% if jc_key_edit_undo_cell_deletion != '' %}
+    {
+      "to": "{{ jc_key_edit_undo_cell_deletion }}",
+      "action_name": "jupyter-notebook:undo-cell-deletion"
+    },
+  {% endif %}
+  {% if jc_key_edit_func_1 != "ctrl-y" %}
+    {
+      "from": "ctrl-y",
+      "to": "{{ jc_key_edit_func_1 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    var cell = IPython.notebook.get_selected_cell();\n                    var cur = cell.code_mirror.getCursor();\n                    if (cell.cell_type == 'code') {\n                        IPython.notebook.command_mode();\n                        IPython.notebook.to_markdown();\n                        IPython.notebook.edit_mode();\n                        cell = IPython.notebook.get_selected_cell();\n                        cell.code_mirror.setCursor(cur);\n                    } else if (cell.cell_type == 'markdown') {\n                        IPython.notebook.command_mode();\n                        IPython.notebook.to_code();\n                        IPython.notebook.edit_mode();\n                        cell = IPython.notebook.get_selected_cell();\n                        cell.code_mirror.setCursor(cur);\n                    }\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_edit_func_2 != "ctrl-enter" %}
+    {
+      "from": "ctrl-enter",
+      "to": "{{ jc_key_edit_func_2 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    var cell = IPython.notebook.get_selected_cell();\n                    var mode = cell.mode;\n                    cell.execute();\n                    if (mode === \"edit\") IPython.notebook.edit_mode();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_edit_func_3 != "shift-enter" %}
+    {
+      "from": "shift-enter",
+      "to": "{{ jc_key_edit_func_3 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    IPython.notebook.execute_cell_and_select_below();\n                    var rendered = IPython.notebook.get_selected_cell().rendered;\n                    var ccell = IPython.notebook.get_selected_cell().cell_type;\n                    if (rendered === false || ccell === 'code') IPython.notebook.edit_mode();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_edit_func_4 != "alt-add" %}
+    {
+      "from": "alt-add",
+      "to": "{{ jc_key_edit_func_4 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    IPython.notebook.split_cell();\n                    IPython.notebook.edit_mode();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_edit_func_5 != "alt-subtract" %}
+    {
+      "from": "alt-subtract",
+      "to": "{{ jc_key_edit_func_5 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    var i = IPython.notebook.get_selected_index();\n                    if (i > 0) {\n                        var l = IPython.notebook.get_cell(i-1).code_mirror.lineCount();\n                        IPython.notebook.merge_cell_above();\n                        IPython.notebook.get_selected_cell().code_mirror.setCursor(l,0);\n                        }\n                }"
+    },
+  {% endif %}
+  {% if jc_key_edit_func_6 != "alt-n" %}
+    {
+      "from": "alt-n",
+      "to": "{{ jc_key_edit_func_6 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    var cell = IPython.notebook.get_selected_cell();\n                    cell.toggle_line_numbers();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_edit_func_7 != "pagedown" %}
+    {
+      "from": "pagedown",
+      "to": "{{ jc_key_edit_func_7 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n\n                    var ic = IPython.notebook.get_selected_index();\n                    var cells = IPython.notebook.get_cells();\n                    var i, h=0;\n                    for (i=0; i < ic; i ++) {\n                        h += cells[i].element.height();\n                        }\n                    var cur = cells[ic].code_mirror.getCursor();\n                    h += cells[ic].code_mirror.defaultTextHeight() * cur.line;\n                    IPython.notebook.element.animate({scrollTop:h}, 0);\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_edit_func_8 != "pageup" %}
+    {
+      "from": "pageup",
+      "to": "{{ jc_key_edit_func_8 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n\n                    var ic = IPython.notebook.get_selected_index();\n                    var cells = IPython.notebook.get_cells();\n                    var i, h=0;\n                    for (i=0; i < ic; i ++) {\n                        h += cells[i].element.height();\n                        }\n                    var cur =cells[ic].code_mirror.getCursor();\n                    h += cells[ic].code_mirror.defaultTextHeight() * cur.line;\n                    IPython.notebook.element.animate({scrollTop:h}, 0);\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_edit_func_9 != '' %}
+    {
+      "to": "{{ jc_key_edit_func_9 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n\n                /* jump to bottom if we are already in the last cell */\n                var ncells = IPython.notebook.ncells();\n                if ( IPython.notebook.get_selected_index()+1 == ncells) {\n                    IPython.notebook.scroll_to_bottom();\n                    return false;\n                }\n\n                var wh = 0.6*$(window).height();\n                var cell = IPython.notebook.get_selected_cell();\n                var h = 0;\n\n                /* loop until we have enough cells to span the size of the notebook window (= one page) */\n                do {\n                    h += cell.element.height();\n                    IPython.notebook.select_next();\n                    cell = IPython.notebook.get_selected_cell();\n                } while ( h < wh );\n                cell.focus_cell();\n                return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_edit_func_10 != '' %}
+    {
+      "to": "{{ jc_key_edit_func_10 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    IPython.notebook.edit_mode();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_edit_func_11 != '' %}
+    {
+      "to": "{{ jc_key_edit_func_11 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    IPython.notebook.select(0);\n                    IPython.notebook.scroll_to_top();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_edit_func_12 != '' %}
+    {
+      "to": "{{ jc_key_edit_func_12 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    var index = IPython.notebook.get_selected_index();\n                    if (index !== (IPython.notebook.ncells()-1) && index !== null) {\n                        IPython.notebook.extend_selection('down');\n                        IPython.notebook.focus_cell();\n                    }\n                return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_edit_func_13 != '' %}
+    {
+      "to": "{{ jc_key_edit_func_13 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    var index = IPython.notebook.get_selected_index();\n                    if (index !== 0 && index !== null) {\n                        IPython.notebook.extend_selection('up');\n                        IPython.notebook.focus_cell();\n                    }\n                return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_edit_func_14 != '' %}
+    {
+      "to": "{{ jc_key_edit_func_14 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    var ncells = IPython.notebook.ncells();\n                    IPython.notebook.select(ncells-1);\n                    IPython.notebook.scroll_to_bottom();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_edit_func_15 != '' %}
+    {
+      "to": "{{ jc_key_edit_func_15 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                var wh = 0.6 * $(window).height();\n                var cell = IPython.notebook.get_selected_cell();\n                var h = 0;\n                /* loop until we have enough cells to span the size of the notebook window (= one page) */\n                do {\n                    h += cell.element.height();\n                    IPython.notebook.select_prev();\n                    cell = IPython.notebook.get_selected_cell();\n                } while ( h < wh );\n                var cp = cell.element.position();\n                var sp = $('body').scrollTop();\n                if ( cp.top < sp) {\n                    IPython.notebook.scroll_to_cell(IPython.notebook.get_selected_index(), 0);\n                }\n                cell.focus_cell();\n                return false;\n                }"
+    },
+  {% endif %}
+    {}
+  ],
+  "command": [
+  {% if jc_key_command_auto_scratchpad_toggle != "ctrl-b" %}
+    {
+      "from": "ctrl-b",
+      "to": "{{ jc_key_command_auto_scratchpad_toggle }}",
+      "action_name": "auto:scratchpad-toggle"
+    },
+  {% endif %}
+  {% if jc_key_command_auto_scratchpad_execute != "shift-enter" %}
+    {
+      "from": "shift-enter",
+      "to": "{{ jc_key_command_auto_scratchpad_execute }}",
+      "action_name": "auto:scratchpad-execute"
+    },
+  {% endif %}
+  {% if jc_key_command_show_command_palette != "ctrl-shift-p" %}
+    {
+      "from": "ctrl-shift-p",
+      "to": "{{ jc_key_command_show_command_palette }}",
+      "action_name": "jupyter-notebook:show-command-palette"
+    },
+  {% endif %}
+  {% if jc_key_command_enter_edit_mode != "enter" %}
+    {
+      "from": "enter",
+      "to": "{{ jc_key_command_enter_edit_mode }}",
+      "action_name": "jupyter-notebook:enter-edit-mode"
+    },
+  {% endif %}
+  {% if jc_key_command_run_cell != "ctrl-enter" %}
+    {
+      "from": "ctrl-enter",
+      "to": "{{ jc_key_command_run_cell }}",
+      "action_name": "jupyter-notebook:run-cell"
+    },
+  {% endif %}
+  {% if jc_key_command_run_cell_and_insert_below != "alt-enter" %}
+    {
+      "from": "alt-enter",
+      "to": "{{ jc_key_command_run_cell_and_insert_below }}",
+      "action_name": "jupyter-notebook:run-cell-and-insert-below"
+    },
+  {% endif %}
+  {% if jc_key_command_collapse_heading != "left" %}
+    {
+      "from": "left",
+      "to": "{{ jc_key_command_collapse_heading }}",
+      "action_name": "collapsible_headings:collapse_heading"
+    },
+  {% endif %}
+  {% if jc_key_command_uncollapse_heading != "right" %}
+    {
+      "from": "right",
+      "to": "{{ jc_key_command_uncollapse_heading }}",
+      "action_name": "collapsible_headings:uncollapse_heading"
+    },
+  {% endif %}
+  {% if jc_key_command_select_heading_section != "shift-right" %}
+    {
+      "from": "shift-right",
+      "to": "{{ jc_key_command_select_heading_section }}",
+      "action_name": "collapsible_headings:select_heading_section"
+    },
+  {% endif %}
+  {% if jc_key_command_change_cell_to_code != "y" %}
+    {
+      "from": "y",
+      "to": "{{ jc_key_command_change_cell_to_code }}",
+      "action_name": "jupyter-notebook:change-cell-to-code"
+    },
+  {% endif %}
+  {% if jc_key_command_change_cell_to_markdown != "m" %}
+    {
+      "from": "m",
+      "to": "{{ jc_key_command_change_cell_to_markdown }}",
+      "action_name": "jupyter-notebook:change-cell-to-markdown"
+    },
+  {% endif %}
+  {% if jc_key_command_change_cell_to_heading_1 != "1" %}
+    {
+      "from": "1",
+      "to": "{{ jc_key_command_change_cell_to_heading_1 }}",
+      "action_name": "jupyter-notebook:change-cell-to-heading-1"
+    },
+  {% endif %}
+  {% if jc_key_command_change_cell_to_heading_2 != "2" %}
+    {
+      "from": "2",
+      "to": "{{ jc_key_command_change_cell_to_heading_2 }}",
+      "action_name": "jupyter-notebook:change-cell-to-heading-2"
+    },
+  {% endif %}
+  {% if jc_key_command_change_cell_to_heading_3 != "3" %}
+    {
+      "from": "3",
+      "to": "{{ jc_key_command_change_cell_to_heading_3 }}",
+      "action_name": "jupyter-notebook:change-cell-to-heading-3"
+    },
+  {% endif %}
+  {% if jc_key_command_change_cell_to_heading_4 != "4" %}
+    {
+      "from": "4",
+      "to": "{{ jc_key_command_change_cell_to_heading_4 }}",
+      "action_name": "jupyter-notebook:change-cell-to-heading-4"
+    },
+  {% endif %}
+  {% if jc_key_command_change_cell_to_heading_6 != "6" %}
+    {
+      "from": "6",
+      "to": "{{ jc_key_command_change_cell_to_heading_6 }}",
+      "action_name": "jupyter-notebook:change-cell-to-heading-6"
+    },
+  {% endif %}
+  {% if jc_key_command_select_previous_cell != "up" %}
+    {
+      "from": "up",
+      "to": "{{ jc_key_command_select_previous_cell }}",
+      "action_name": "jupyter-notebook:select-previous-cell"
+    },
+  {% endif %}
+  {% if jc_key_command_select_next_cell != "down" %}
+    {
+      "from": "down",
+      "to": "{{ jc_key_command_select_next_cell }}",
+      "action_name": "jupyter-notebook:select-next-cell"
+    },
+  {% endif %}
+  {% if jc_key_command_extend_selection_above != "shift-k" %}
+    {
+      "from": "shift-k",
+      "to": "{{ jc_key_command_extend_selection_above }}",
+      "action_name": "jupyter-notebook:extend-selection-above"
+    },
+  {% endif %}
+  {% if jc_key_command_extend_selection_below != "shift-j" %}
+    {
+      "from": "shift-j",
+      "to": "{{ jc_key_command_extend_selection_below }}",
+      "action_name": "jupyter-notebook:extend-selection-below"
+    },
+  {% endif %}
+  {% if jc_key_command_auto_toggle_cell_style != "shift-s" %}
+    {
+      "from": "shift-s",
+      "to": "{{ jc_key_command_auto_toggle_cell_style }}",
+      "action_name": "auto:toggle-cell-style"
+    },
+  {% endif %}
+  {% if jc_key_command_insert_cell_above != "a" %}
+    {
+      "from": "a",
+      "to": "{{ jc_key_command_insert_cell_above }}",
+      "action_name": "jupyter-notebook:insert-cell-above"
+    },
+  {% endif %}
+  {% if jc_key_command_cut_cell != "x" %}
+    {
+      "from": "x",
+      "to": "{{ jc_key_command_cut_cell }}",
+      "action_name": "jupyter-notebook:cut-cell"
+    },
+  {% endif %}
+  {% if jc_key_command_insert_cell_below != "b" %}
+    {
+      "from": "b",
+      "to": "{{ jc_key_command_insert_cell_below }}",
+      "action_name": "jupyter-notebook:insert-cell-below"
+    },
+  {% endif %}
+  {% if jc_key_command_copy_cell != "c" %}
+    {
+      "from": "c",
+      "to": "{{ jc_key_command_copy_cell }}",
+      "action_name": "jupyter-notebook:copy-cell"
+    },
+  {% endif %}
+  {% if jc_key_command_paste_cell_above != "shift-v" %}
+    {
+      "from": "shift-v",
+      "to": "{{ jc_key_command_paste_cell_above }}",
+      "action_name": "jupyter-notebook:paste-cell-above"
+    },
+  {% endif %}
+  {% if jc_key_command_paste_cell_below != "v" %}
+    {
+      "from": "v",
+      "to": "{{ jc_key_command_paste_cell_below }}",
+      "action_name": "jupyter-notebook:paste-cell-below"
+    },
+  {% endif %}
+  {% if jc_key_command_undo_cell_deletion != "z" %}
+    {
+      "from": "z",
+      "to": "{{ jc_key_command_undo_cell_deletion }}",
+      "action_name": "jupyter-notebook:undo-cell-deletion"
+    },
+  {% endif %}
+  {% if jc_key_command_delete_cell != "d,d" %}
+    {
+      "from": "d,d",
+      "to": "{{ jc_key_command_delete_cell }}",
+      "action_name": "jupyter-notebook:delete-cell"
+    },
+  {% endif %}
+  {% if jc_key_command_merge_cells != "shift-m" %}
+    {
+      "from": "shift-m",
+      "to": "{{ jc_key_command_merge_cells }}",
+      "action_name": "jupyter-notebook:merge-cells"
+    },
+  {% endif %}
+  {% if jc_key_command_save_notebook != "ctrl-s" %}
+    {
+      "from": "ctrl-s",
+      "to": "{{ jc_key_command_save_notebook }}",
+      "action_name": "jupyter-notebook:save-notebook"
+    },
+  {% endif %}
+  {% if jc_key_command_toggle_cell_line_numbers != "l" %}
+    {
+      "from": "l",
+      "to": "{{ jc_key_command_toggle_cell_line_numbers }}",
+      "action_name": "jupyter-notebook:toggle-cell-line-numbers"
+    },
+  {% endif %}
+  {% if jc_key_command_toggle_cell_output_collapsed != "o" %}
+    {
+      "from": "o",
+      "to": "{{ jc_key_command_toggle_cell_output_collapsed }}",
+      "action_name": "jupyter-notebook:toggle-cell-output-collapsed"
+    },
+  {% endif %}
+  {% if jc_key_command_change_cell_to_heading_5 != "5" %}
+    {
+      "from": "5",
+      "to": "{{ jc_key_command_change_cell_to_heading_5 }}",
+      "action_name": "jupyter-notebook:change-cell-to-heading-5"
+    },
+  {% endif %}
+  {% if jc_key_command_toggle_cell_output_scrolled != "shift-o" %}
+    {
+      "from": "shift-o",
+      "to": "{{ jc_key_command_toggle_cell_output_scrolled }}",
+      "action_name": "jupyter-notebook:toggle-cell-output-scrolled"
+    },
+  {% endif %}
+  {% if jc_key_command_show_keyboard_shortcuts != "h" %}
+    {
+      "from": "h",
+      "to": "{{ jc_key_command_show_keyboard_shortcuts }}",
+      "action_name": "jupyter-notebook:show-keyboard-shortcuts"
+    },
+  {% endif %}
+  {% if jc_key_command_interrupt_kernel != "i,i" %}
+    {
+      "from": "i,i",
+      "to": "{{ jc_key_command_interrupt_kernel }}",
+      "action_name": "jupyter-notebook:interrupt-kernel"
+    },
+  {% endif %}
+  {% if jc_key_command_confirm_restart_kernel != "0,0" %}
+    {
+      "from": "0,0",
+      "to": "{{ jc_key_command_confirm_restart_kernel }}",
+      "action_name": "jupyter-notebook:confirm-restart-kernel"
+    },
+  {% endif %}
+  {% if jc_key_command_auto_toggle_all_line_numbers != "alt-n" %}
+    {
+      "from": "alt-n",
+      "to": "{{ jc_key_command_auto_toggle_all_line_numbers }}",
+      "action_name": "auto:toggle-all-line-numbers"
+    },
+  {% endif %}
+  {% if jc_key_command_close_pager != "q" %}
+    {
+      "from": "q",
+      "to": "{{ jc_key_command_close_pager }}",
+      "action_name": "jupyter-notebook:close-pager"
+    },
+  {% endif %}
+  {% if jc_key_command_scroll_notebook_up != "shift-space" %}
+    {
+      "from": "shift-space",
+      "to": "{{ jc_key_command_scroll_notebook_up }}",
+      "action_name": "jupyter-notebook:scroll-notebook-up"
+    },
+  {% endif %}
+  {% if jc_key_command_scroll_notebook_down != "space" %}
+    {
+      "from": "space",
+      "to": "{{ jc_key_command_scroll_notebook_down }}",
+      "action_name": "jupyter-notebook:scroll-notebook-down"
+    },
+  {% endif %}
+  {% if jc_key_command_auto_run_initialization_cells != '' %}
+    {
+      "to": "{{ jc_key_command_auto_run_initialization_cells }}",
+      "action_name": "auto:run-initialization-cells"
+    },
+  {% endif %}
+  {% if jc_key_command_change_cell_to_raw != '' %}
+    {
+      "to": "{{ jc_key_command_change_cell_to_raw }}",
+      "action_name": "jupyter-notebook:change-cell-to-raw"
+    },
+  {% endif %}
+  {% if jc_key_command_clear_all_cells_output != '' %}
+    {
+      "to": "{{ jc_key_command_clear_all_cells_output }}",
+      "action_name": "jupyter-notebook:clear-all-cells-output"
+    },
+  {% endif %}
+  {% if jc_key_command_clear_cell_output != '' %}
+    {
+      "to": "{{ jc_key_command_clear_cell_output }}",
+      "action_name": "jupyter-notebook:clear-cell-output"
+    },
+  {% endif %}
+  {% if jc_key_command_confirm_restart_kernel_and_clear_output != '' %}
+    {
+      "to": "{{ jc_key_command_confirm_restart_kernel_and_clear_output }}",
+      "action_name": "jupyter-notebook:confirm-restart-kernel-and-clear-output"
+    },
+  {% endif %}
+  {% if jc_key_command_confirm_restart_kernel_and_run_all_cells != '' %}
+    {
+      "to": "{{ jc_key_command_confirm_restart_kernel_and_run_all_cells }}",
+      "action_name": "jupyter-notebook:confirm-restart-kernel-and-run-all-cells"
+    },
+  {% endif %}
+  {% if jc_key_command_duplicate_notebook != '' %}
+    {
+      "to": "{{ jc_key_command_duplicate_notebook }}",
+      "action_name": "jupyter-notebook:duplicate-notebook"
+    },
+  {% endif %}
+  {% if jc_key_command_enter_command_mode != '' %}
+    {
+      "to": "{{ jc_key_command_enter_command_mode }}",
+      "action_name": "jupyter-notebook:enter-command-mode"
+    },
+  {% endif %}
+  {% if jc_key_command_find_and_replace != '' %}
+    {
+      "to": "{{ jc_key_command_find_and_replace }}",
+      "action_name": "jupyter-notebook:find-and-replace"
+    },
+  {% endif %}
+  {% if jc_key_command_ignore != '' %}
+    {
+      "to": "{{ jc_key_command_ignore }}",
+      "action_name": "jupyter-notebook:ignore"
+    },
+  {% endif %}
+  {% if jc_key_command_merge_cell_with_next_cell != '' %}
+    {
+      "to": "{{ jc_key_command_merge_cell_with_next_cell }}",
+      "action_name": "jupyter-notebook:merge-cell-with-next-cell"
+    },
+  {% endif %}
+  {% if jc_key_command_merge_cell_with_previous_cell != '' %}
+    {
+      "to": "{{ jc_key_command_merge_cell_with_previous_cell }}",
+      "action_name": "jupyter-notebook:merge-cell-with-previous-cell"
+    },
+  {% endif %}
+  {% if jc_key_command_merge_selected_cells != '' %}
+    {
+      "to": "{{ jc_key_command_merge_selected_cells }}",
+      "action_name": "jupyter-notebook:merge-selected-cells"
+    },
+  {% endif %}
+  {% if jc_key_command_move_cell_down != '' %}
+    {
+      "to": "{{ jc_key_command_move_cell_down }}",
+      "action_name": "jupyter-notebook:move-cell-down"
+    },
+  {% endif %}
+  {% if jc_key_command_move_cell_up != '' %}
+    {
+      "to": "{{ jc_key_command_move_cell_up }}",
+      "action_name": "jupyter-notebook:move-cell-up"
+    },
+  {% endif %}
+  {% if jc_key_command_move_cursor_down != '' %}
+    {
+      "to": "{{ jc_key_command_move_cursor_down }}",
+      "action_name": "jupyter-notebook:move-cursor-down"
+    },
+  {% endif %}
+  {% if jc_key_command_move_cursor_up != '' %}
+    {
+      "to": "{{ jc_key_command_move_cursor_up }}",
+      "action_name": "jupyter-notebook:move-cursor-up"
+    },
+  {% endif %}
+  {% if jc_key_command_rename_notebook != '' %}
+    {
+      "to": "{{ jc_key_command_rename_notebook }}",
+      "action_name": "jupyter-notebook:rename-notebook"
+    },
+  {% endif %}
+  {% if jc_key_command_restart_kernel != '' %}
+    {
+      "to": "{{ jc_key_command_restart_kernel }}",
+      "action_name": "jupyter-notebook:restart-kernel"
+    },
+  {% endif %}
+  {% if jc_key_command_restart_kernel_and_clear_output != '' %}
+    {
+      "to": "{{ jc_key_command_restart_kernel_and_clear_output }}",
+      "action_name": "jupyter-notebook:restart-kernel-and-clear-output"
+    },
+  {% endif %}
+  {% if jc_key_command_restart_kernel_and_run_all_cells != '' %}
+    {
+      "to": "{{ jc_key_command_restart_kernel_and_run_all_cells }}",
+      "action_name": "jupyter-notebook:restart-kernel-and-run-all-cells"
+    },
+  {% endif %}
+  {% if jc_key_command_run_all_cells != '' %}
+    {
+      "to": "{{ jc_key_command_run_all_cells }}",
+      "action_name": "jupyter-notebook:run-all-cells"
+    },
+  {% endif %}
+  {% if jc_key_command_run_all_cells_above != '' %}
+    {
+      "to": "{{ jc_key_command_run_all_cells_above }}",
+      "action_name": "jupyter-notebook:run-all-cells-above"
+    },
+  {% endif %}
+  {% if jc_key_command_run_all_cells_below != '' %}
+    {
+      "to": "{{ jc_key_command_run_all_cells_below }}",
+      "action_name": "jupyter-notebook:run-all-cells-below"
+    },
+  {% endif %}
+  {% if jc_key_command_run_cell_and_select_next != '' %}
+    {
+      "to": "{{ jc_key_command_run_cell_and_select_next }}",
+      "action_name": "jupyter-notebook:run-cell-and-select-next"
+    },
+  {% endif %}
+  {% if jc_key_command_scroll_cell_center != '' %}
+    {
+      "to": "{{ jc_key_command_scroll_cell_center }}",
+      "action_name": "jupyter-notebook:scroll-cell-center"
+    },
+  {% endif %}
+  {% if jc_key_command_scroll_cell_top != '' %}
+    {
+      "to": "{{ jc_key_command_scroll_cell_top }}",
+      "action_name": "jupyter-notebook:scroll-cell-top"
+    },
+  {% endif %}
+  {% if jc_key_command_split_cell_at_cursor != '' %}
+    {
+      "to": "{{ jc_key_command_split_cell_at_cursor }}",
+      "action_name": "jupyter-notebook:split-cell-at-cursor"
+    },
+  {% endif %}
+  {% if jc_key_command_toggle_all_cells_output_collapsed != '' %}
+    {
+      "to": "{{ jc_key_command_toggle_all_cells_output_collapsed }}",
+      "action_name": "jupyter-notebook:toggle-all-cells-output-collapsed"
+    },
+  {% endif %}
+  {% if jc_key_command_toggle_all_cells_output_scrolled != '' %}
+    {
+      "to": "{{ jc_key_command_toggle_all_cells_output_scrolled }}",
+      "action_name": "jupyter-notebook:toggle-all-cells-output-scrolled"
+    },
+  {% endif %}
+  {% if jc_key_command_toggle_header != '' %}
+    {
+      "to": "{{ jc_key_command_toggle_header }}",
+      "action_name": "jupyter-notebook:toggle-header"
+    },
+  {% endif %}
+  {% if jc_key_command_toggle_toolbar != '' %}
+    {
+      "to": "{{ jc_key_command_toggle_toolbar }}",
+      "action_name": "jupyter-notebook:toggle-toolbar"
+    },
+  {% endif %}
+  {% if jc_key_command_trust_notebook != '' %}
+    {
+      "to": "{{ jc_key_command_trust_notebook }}",
+      "action_name": "jupyter-notebook:trust-notebook"
+    },
+  {% endif %}
+  {% if jc_key_command_func_1 != "alt-b" %}
+    {
+      "from": "alt-b",
+      "to": "{{ jc_key_command_func_1 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    var mode = IPython.notebook.get_selected_cell().mode;               \n                    IPython.notebook.execute_cells_below();\n                    var type = IPython.notebook.get_selected_cell().cell_type;\n                    if (mode == \"edit\" && type == \"code\") IPython.notebook.edit_mode();                   \n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_2 != "esc" %}
+    {
+      "from": "esc",
+      "to": "{{ jc_key_command_func_2 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    IPython.notebook.edit_mode();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_3 != "pagedown" %}
+    {
+      "from": "pagedown",
+      "to": "{{ jc_key_command_func_3 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n\n                /* jump to bottom if we are already in the last cell */\n                var ncells = IPython.notebook.ncells();\n                if ( IPython.notebook.get_selected_index()+1 == ncells) {\n                    IPython.notebook.scroll_to_bottom();\n                    return false;\n                }\n\n                var wh = 0.6*$(window).height();\n                var cell = IPython.notebook.get_selected_cell();\n                var h = 0;\n\n                /* loop until we have enough cells to span the size of the notebook window (= one page) */\n                do {\n                    h += cell.element.height();\n                    IPython.notebook.select_next();\n                    cell = IPython.notebook.get_selected_cell();\n                } while ( h < wh );\n                cell.focus_cell();\n                return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_4 != "pageup" %}
+    {
+      "from": "pageup",
+      "to": "{{ jc_key_command_func_4 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                var wh = 0.6 * $(window).height();\n                var cell = IPython.notebook.get_selected_cell();\n                var h = 0;\n                /* loop until we have enough cells to span the size of the notebook window (= one page) */\n                do {\n                    h += cell.element.height();\n                    IPython.notebook.select_prev();\n                    cell = IPython.notebook.get_selected_cell();\n                } while ( h < wh );\n                var cp = cell.element.position();\n                var sp = $('body').scrollTop();\n                if ( cp.top < sp) {\n                    IPython.notebook.scroll_to_cell(IPython.notebook.get_selected_index(), 0);\n                }\n                cell.focus_cell();\n                return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_5 != "shift-down" %}
+    {
+      "from": "shift-down",
+      "to": "{{ jc_key_command_func_5 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    var index = IPython.notebook.get_selected_index();\n                    if (index !== (IPython.notebook.ncells()-1) && index !== null) {\n                        IPython.notebook.extend_selection('down');\n                        IPython.notebook.focus_cell();\n                    }\n                return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_6 != "shift-up" %}
+    {
+      "from": "shift-up",
+      "to": "{{ jc_key_command_func_6 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    var index = IPython.notebook.get_selected_index();\n                    if (index !== 0 && index !== null) {\n                        IPython.notebook.extend_selection('up');\n                        IPython.notebook.focus_cell();\n                    }\n                return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_7 != "end" %}
+    {
+      "from": "end",
+      "to": "{{ jc_key_command_func_7 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    var ncells = IPython.notebook.ncells();\n                    IPython.notebook.select(ncells-1);\n                    IPython.notebook.scroll_to_bottom();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_8 != "home" %}
+    {
+      "from": "home",
+      "to": "{{ jc_key_command_func_8 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    IPython.notebook.select(0);\n                    IPython.notebook.scroll_to_top();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_9 != "alt-up" %}
+    {
+      "from": "alt-up",
+      "to": "{{ jc_key_command_func_9 }}",
+      "action_name": "auto:autogenerated-function (event) {\n\"use strict\";\n\n            var s = IPython.notebook.get_selected_indices();\n            //ensure cells indices are sorted \n            var ss = s.sort(function(x, y) {return x - y});\n            if (ss[0] - 1 >= 0) {\n                for (var k in ss) {\n                    IPython.notebook.move_cell_up(ss[k]);\n                };\n                for (var k in ss) {\n                    IPython.notebook.get_cell(ss[k] - 1).select();\n                }\n            }\n        }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_10 != "alt-h" %}
+    {
+      "from": "alt-h",
+      "to": "{{ jc_key_command_func_10 }}",
+      "action_name": "auto:autogenerated-function (event) {\n            highlightInCmdMode(\"\", burk);\n            return false;\n        }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_11 != "alt-down" %}
+    {
+      "from": "alt-down",
+      "to": "{{ jc_key_command_func_11 }}",
+      "action_name": "auto:autogenerated-function (event) {\n\"use strict\";\n\n            var ncells = IPython.notebook.ncells();\n            var s = IPython.notebook.get_selected_indices();\n            //ensure cells indices are reverse sorted\n            var ss = s.sort(function(x, y) {return x - y}).reverse(); \n            if (ss[0] + 1 < ncells) {\n                for (var k in ss) {\n                    IPython.notebook.move_cell_down(ss[k]);\n                }; //The second loop is needed because move_cell deselect\n                for (var k in ss) {\n                    IPython.notebook.get_cell(ss[k] + 1).select();\n                }\n            }\n        }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_12 != "alt-g" %}
+    {
+      "from": "alt-g",
+      "to": "{{ jc_key_command_func_12 }}",
+      "action_name": "auto:autogenerated-function (event) {\n            highlightInCmdMode(\"\", mark);\n            return false;\n        }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_13 != "alt-s" %}
+    {
+      "from": "alt-s",
+      "to": "{{ jc_key_command_func_13 }}",
+      "action_name": "auto:autogenerated-function (event) {\n\"use strict\";\n\n                hide_solutions();\n                return false;\n            }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_14 != "alt-d" %}
+    {
+      "from": "alt-d",
+      "to": "{{ jc_key_command_func_14 }}",
+      "action_name": "auto:autogenerated-function (event) {\n\"use strict\";\n\n            process_solution();\n            return false;\n        }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_15 != "alt-m" %}
+    {
+      "from": "alt-m",
+      "to": "{{ jc_key_command_func_15 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    mark_all();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_16 != "alt-t" %}
+    {
+      "from": "alt-t",
+      "to": "{{ jc_key_command_func_16 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    toggle_marker();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_17 != "alt-u" %}
+    {
+      "from": "alt-u",
+      "to": "{{ jc_key_command_func_17 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    mark_none();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_18 != "alt-x" %}
+    {
+      "from": "alt-x",
+      "to": "{{ jc_key_command_func_18 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    var pos = IPython.notebook.element.scrollTop();\n                    var ic = IPython.notebook.get_selected_index();\n                    IPython.notebook.execute_all_cells();\n                    IPython.notebook.select(ic);\n                    IPython.notebook.element.animate({scrollTop:pos}, 100);\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_19 != "r" %}
+    {
+      "from": "r",
+      "to": "{{ jc_key_command_func_19 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    if (!$('#toggle_searchbar').hasClass('active')) {\n                        toggle_toolbar();\n                    }\n                    $('#searchbar_replace_text').focus();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_20 != "alt-f" %}
+    {
+      "from": "alt-f",
+      "to": "{{ jc_key_command_func_20 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    execute_all_cells_ignore_errors();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_21 != "alt-r" %}
+    {
+      "from": "alt-r",
+      "to": "{{ jc_key_command_func_21 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    run_marked();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_22 != "f" %}
+    {
+      "from": "f",
+      "to": "{{ jc_key_command_func_22 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    if (!$('#toggle_searchbar').hasClass('active')) {\n                        toggle_toolbar();\n                    }\n                    $('#searchbar_search_text').focus();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_23 != "alt-a" %}
+    {
+      "from": "alt-a",
+      "to": "{{ jc_key_command_func_23 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    var mode = IPython.notebook.get_selected_cell().mode;\n                    IPython.notebook.execute_cells_above();\n                    IPython.notebook.select_next();\n                    var type = IPython.notebook.get_selected_cell().cell_type;\n                    if (mode == \"edit\" && type == \"code\") IPython.notebook.edit_mode();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_24 != '' %}
+    {
+      "to": "{{ jc_key_command_func_24 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n\n                    var ic = IPython.notebook.get_selected_index();\n                    var cells = IPython.notebook.get_cells();\n                    var i, h=0;\n                    for (i=0; i < ic; i ++) {\n                        h += cells[i].element.height();\n                        }\n                    var cur = cells[ic].code_mirror.getCursor();\n                    h += cells[ic].code_mirror.defaultTextHeight() * cur.line;\n                    IPython.notebook.element.animate({scrollTop:h}, 0);\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_25 != '' %}
+    {
+      "to": "{{ jc_key_command_func_25 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    IPython.notebook.execute_cell_and_select_below();\n                    var rendered = IPython.notebook.get_selected_cell().rendered;\n                    var ccell = IPython.notebook.get_selected_cell().cell_type;\n                    if (rendered === false || ccell === 'code') IPython.notebook.edit_mode();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_26 != '' %}
+    {
+      "to": "{{ jc_key_command_func_26 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    IPython.notebook.split_cell();\n                    IPython.notebook.edit_mode();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_27 != '' %}
+    {
+      "to": "{{ jc_key_command_func_27 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    var cell = IPython.notebook.get_selected_cell();\n                    cell.toggle_line_numbers();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_28 != '' %}
+    {
+      "to": "{{ jc_key_command_func_28 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    var cell = IPython.notebook.get_selected_cell();\n                    var cur = cell.code_mirror.getCursor();\n                    if (cell.cell_type == 'code') {\n                        IPython.notebook.command_mode();\n                        IPython.notebook.to_markdown();\n                        IPython.notebook.edit_mode();\n                        cell = IPython.notebook.get_selected_cell();\n                        cell.code_mirror.setCursor(cur);\n                    } else if (cell.cell_type == 'markdown') {\n                        IPython.notebook.command_mode();\n                        IPython.notebook.to_code();\n                        IPython.notebook.edit_mode();\n                        cell = IPython.notebook.get_selected_cell();\n                        cell.code_mirror.setCursor(cur);\n                    }\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_29 != '' %}
+    {
+      "to": "{{ jc_key_command_func_29 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    var cell = IPython.notebook.get_selected_cell();\n                    var mode = cell.mode;\n                    cell.execute();\n                    if (mode === \"edit\") IPython.notebook.edit_mode();\n                    return false;\n                }"
+    },
+  {% endif %}
+  {% if jc_key_command_func_30 != '' %}
+    {
+      "to": "{{ jc_key_command_func_30 }}",
+      "action_name": "auto:autogenerated-function () {\n\"use strict\";\n\n                    var i = IPython.notebook.get_selected_index();\n                    if (i > 0) {\n                        var l = IPython.notebook.get_cell(i-1).code_mirror.lineCount();\n                        IPython.notebook.merge_cell_above();\n                        IPython.notebook.get_selected_cell().code_mirror.setCursor(l,0);\n                        }\n                }"
+    },
+  {% endif %}
+    {}
+    ]
+  },
+  "kse_show_rebinds": true,
+  "load_extensions": {
+  {% if jc_nbextension_limit_output == true %}
+    "usability/limit_output/main": true,
+  {% endif %}
+  {% if jc_nbextension_chrome_clipboard == true %}
+    "usability/chrome-clipboard/main": true,
+  {% endif %}
+  {% if jc_nbextension_exercise == true %}
+    "usability/exercise/main": true,
+  {% endif %}
+  {% if jc_nbextension_splitcell == true %}
+    "usability/splitcell/splitcell": true,
+  {% endif %}
+  {% if jc_nbextension_autoscroll == true %}
+    "usability/autoscroll/main": true,
+  {% endif %}
+  {% if jc_nbextension_equation_numbering == true %}
+    "usability/equation-numbering/main": true,
+  {% endif %}
+  {% if jc_nbextension_exercise2 == true %}
+    "usability/exercise2/main": true,
+  {% endif %}
+  {% if jc_nbextension_dragdrop == true %}
+    "usability/dragdrop/main": true,
+  {% endif %}
+  {% if jc_nbextension_collapsible_headings == true %}
+    "usability/collapsible_headings/main": true,
+  {% endif %}
+  {% if jc_nbextension_keyboard_shortcut_editor == true %}
+    "usability/keyboard_shortcut_editor/main": true,
+  {% endif %}
+  {% if jc_nbextension_notify == true %}
+    "usability/notify/notify": true,
+  {% endif %}
+  {% if jc_nbextension_init_cell == true %}
+    "usability/init_cell/main": true,
+  {% endif %}
+  {% if jc_nbextension_latex_envs == true %}
+    "usability/latex_envs/latex_envs": true,
+  {% endif %}
+  {% if jc_nbextension_runtools == true %}
+    "usability/runtools/main": true,
+  {% endif %}
+  {% if jc_nbextension_spellchecker == true %}
+    "usability/spellchecker/main": true,
+  {% endif %}
+  {% if jc_nbextension_gist_it == true %}
+    "publishing/gist_it/main": true,
+  {% endif %}
+  {% if jc_nbextension_code_font_size == true %}
+    "usability/code_font_size/code_font_size": true,
+  {% endif %}
+  {% if jc_nbextension_highlighter == true %}
+    "usability/highlighter/highlighter": true,
+  {% endif %}
+  {% if jc_nbextension_config_menu == true %}
+    "config/config_menu/main": true,
+  {% endif %}
+  {% if jc_nbextension_comment_uncomment == true %}
+    "usability/comment-uncomment/main": true,
+  {% endif %}
+  {% if jc_nbextension_rubberband == true %}
+    "usability/rubberband/main": true,
+  {% endif %}
+  {% if jc_nbextension_table_beautifier == true %}
+    "styling/table_beautifier/main": true,
+  {% endif %}
+  {% if jc_nbextension_python_markdown == true %}
+    "usability/python-markdown/main": true,
+  {% endif %}
+  {% if jc_nbextension_printview == true %}
+    "publishing/printview/main": true,
+  {% endif %}
+  {% if jc_nbextension_ruler == true %}
+    "usability/ruler/main": true,
+  {% endif %}
+  {% if jc_nbextension_code_folding == true %}
+    "usability/codefolding/main": true,
+  {% endif %}
+  {% if jc_nbextension_move_selected_cells == true %}
+    "usability/move_selected_cells/main": true,
+  {% endif %}
+  {% if jc_nbextension_search_replace == true %}
+    "usability/search-replace/main": true,
+  {% endif %}
+  {% if jc_nbextension_hide_input == true %}
+    "usability/hide_input/main": true,
+  {% endif %}
+  {% if jc_nbextension_autosavetime == true %}
+    "usability/autosavetime/main": true,
+  {% endif %}
+  {% if jc_nbextension_qtconsole == true %}
+    "usability/qtconsole/qtconsole": true,
+  {% endif %}
+  {% if jc_nbextension_toc2 == true %}
+    "usability/toc2/main": true,
+  {% endif %}
+  {% if jc_nbextension_freeze == true %}
+    "usability/freeze/main": true,
+  {% endif %}
+  {% if jc_nbextension_datestamper == true %}
+    "usability/datestamper/main": true,
+  {% endif %}
+  {% if jc_nbextension_zenmode == true %}
+    "styling/zenmode/main": true,
+  {% endif %}
+  {% if jc_nbextension_navigation_hotkeys == true %}
+    "usability/navigation-hotkeys/main": true,
+  {% endif %}
+  {% if jc_nbextension_execute_time == true %}
+    "usability/execute_time/ExecuteTime": true,
+  {% endif %}
+  {% if jc_nbextension_toggle_all_line_numbers == true %}
+    "usability/toggle_all_line_numbers/main": true,
+  {% endif %}
+  {% if jc_nbextension_hinterland == true %}
+    "usability/hinterland/hinterland": true,
+  {% endif %}
+  {% if jc_nbextension_skip_traceback == true %}
+    "usability/skip-traceback/main": true,
+  {% endif %}
+  {% if jc_nbextension_help_panel == true %}
+    "usability/help_panel/help_panel": true,
+  {% endif %}
+  {% if jc_nbextension_scratchpad == true %}
+    "usability/scratchpad/main": true,
+  {% endif %}
+  {% if jc_nbextension_skill == true %}
+    "codemirrormode/skill/skill": true,
+  {% endif %}
+  {% if jc_nbextension_hide_input_all == true %}
+    "usability/hide_input_all/main": true,
+  {% endif %}
+  "": ""
+  }
+}

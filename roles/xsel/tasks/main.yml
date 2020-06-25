@@ -1,0 +1,9 @@
+---
+- name: "Debian | ensure xsel is {{ state }}"
+  apt:
+    name: xsel
+    state: "{{ state }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - install
+    - debian

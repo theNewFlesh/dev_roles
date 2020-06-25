@@ -1,0 +1,8 @@
+---
+- name: ensure config is present
+  template:
+    src: ../templates/jupyterhub_config.py.j2
+    dest: "{{ _jhc_dir }}/config.py"
+    mode: 0770
+    owner: "{{ jhc_admin }}"
+    group: "{{ jhc_admin_group }}"

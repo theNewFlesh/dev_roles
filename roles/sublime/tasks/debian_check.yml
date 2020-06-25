@@ -1,0 +1,8 @@
+---
+- name: "Debian | check sublime build"
+  command: "/usr/bin/subl --version"
+  register: __build
+  ignore_errors: true
+
+- include: debian_install.yml
+  when: "{{ __build.stdout | default('') | regex_replace('[^\\d]+', '') | int }} != sublime_build"

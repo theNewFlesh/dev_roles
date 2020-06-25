@@ -1,0 +1,16 @@
+HOST <server_name> server-mcserverface 4101
+ISV foundry
+
+
+LICENSE foundry foundry_production_i 2019.0331 permanent 1 share=h
+        min_timeout=30 start=01-jan-2020 issuer=sf
+        contract=V1:aaaaaaaa-0000-1111-abcd-efghijklmnop issued=01-jan-2020
+        replace options=cc6 _ck=07d664a602 sig="ABCDEFGHIJKLMNOPQRSTUVWXYZ0
+        123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0ABCDEFGHIJKLMN"
+
+
+LICENSE foundry foundry_nuke_i 2019.0331 permanent 1 share=h
+        min_timeout=30 start=01-jan-2020 issuer=sf
+        contract=V1:aaaaaaaa-0000-1111-abcd-efghijklmnop issued=01-jan-2020
+        replace options=cc6 _ck=07d664a602 sig="ABCDEFGHIJKLMNOPQRSTUVWXYZ0
+        123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0ABCDEFGHIJKLMN"

@@ -1,0 +1,8 @@
+---
+- name: "OS X | check sublime build"
+  command: "/Applications/Sublime\\ Text.app/Contents/MacOS/Sublime\\ Text --version"
+  register: __build
+  ignore_errors: true
+
+- include: osx_install.yml
+  when: "{{ __build.stdout | default('') | regex_replace('[^\\d]+', '') | int }} != sublime_build"

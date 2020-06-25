@@ -1,0 +1,7 @@
+- name: "ensure that nvidia-utils-{{ nvidia_utils_version }} is {{ state }}"
+  apt:
+    name: "nvidia-utils-{{ nvidia_utils_version }}"
+    state: "{{ state }}"
+  become: true
+  tags:
+    - install

@@ -1,0 +1,8 @@
+---
+- name: "Debian | ensure hardinfo is {{ state }}"
+  apt:
+    name: hardinfo
+    state: "{{ state }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - debian

@@ -1,0 +1,10 @@
+---
+- name: "Debian | ensure Blender is {{ state }}"
+  snap:
+    name: blender
+    classic: true
+    state: "{{ state }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - install
+    - debian

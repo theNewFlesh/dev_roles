@@ -1,0 +1,5 @@
+- hosts: dev
+  roles:
+    - role: ../..
+      flu_config_license_file: test-foundry.lic
+      become: true

@@ -1,0 +1,18 @@
+---
+- name: "ensure jupyter and ipython dirs are present"
+  file:
+    dest: "{{ item }}"
+    # mode: "u=rwx,g=rx,o=rx"
+    # owner: "{{ ansible_ssh_user }}"
+    state: directory
+  with_items:
+    - "{{ jc_jupyter_dir }}"
+    - "{{ jc_jupyter_dir }}/custom"
+    - "{{ jc_jupyter_dir }}/nbconfig"
+    - "{{ jc_ipython_dir }}"
+    - "{{ jc_ipython_dir }}/profile_default"
+    - "{{ jc_ipython_dir }}/profile_default/startup"
+  tags:
+    - debian
+    - config
+    - mkdir

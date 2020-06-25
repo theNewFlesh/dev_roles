@@ -1,0 +1,21 @@
+---
+- name: ensure condarc file is present
+  copy:
+    src: "{{ conda_config_condarc_file }}"
+    dest: "{{ ansible_user_dir }}/.condarc"
+  when: conda_config_condarc_file is defined
+
+- name: ensure conda environments are present
+  include: create.yml
+  with_items: "{{ conda_config_envs | conda_to_vars }}"
+  when: state == 'present'
+
+- name: ensure conda environments are latest
+  include: update.yml
+  with_items: "{{ conda_config_envs | conda_to_vars }}"
+  when: state == 'latest'
+
+- name: ensure conda environments are absent
+  include: remove.yml
+  with_items: "{{ conda_config_envs | conda_to_vars }}"
+  when: state == 'absent'

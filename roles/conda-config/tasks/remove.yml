@@ -1,0 +1,3 @@
+---
+- name: "remove conda environment | {{ item.__name }}"
+  shell: "{{ __conda }} env remove -q -y -n {{ item.__name }}"

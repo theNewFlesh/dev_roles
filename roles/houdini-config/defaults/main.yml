@@ -1,0 +1,7 @@
+houdini_config_root: "{{ ansible_user_dir }}"
+houdini_config_version: "17.0"
+houdini_config_asset_store_dir: ""
+houdini_config_desktop_dir: ""
+houdini_config_environment_file: ""
+houdini_config_otls_dir: ""
+houdini_config_preferences_dir: ""

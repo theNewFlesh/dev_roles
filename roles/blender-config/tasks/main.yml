@@ -1,0 +1,43 @@
+- name: "Ensure ~/.config/blender/{{ blender_config_version }}/config directory exists"
+  file:
+    path: "{{ ansible_user_dir }}/.config/blender/{{ blender_config_version }}/config"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    state: directory
+    recurse: true
+  tags: config
+
+- name: "Copy bookmarks.txt file to ~/.config/blender/{{ blender_config_version }}/config/bookmarks.txt"
+  copy:
+    src: "{{ blender_config_bookmarks_file }}"
+    dest: "{{ ansible_user_dir }}/.config/blender/{{ blender_config_version }}/config/bookmarks.txt"
+  when: blender_config_bookmarks_file != ""
+  tags: config
+
+- name: "Copy recent-files.txt file to ~/.config/blender/{{ blender_config_version }}/config/recent-files.txt"
+  copy:
+    src: "{{ blender_config_recent_files_file }}"
+    dest: "{{ ansible_user_dir }}/.config/blender/{{ blender_config_version }}/config/recent-files.txt"
+  when: blender_config_recent_files_file != ""
+  tags: config
+
+- name: "Copy startup.blend file to ~/.config/blender/{{ blender_config_version }}/config/startup.blend"
+  copy:
+    src: "{{ blender_config_startup_file }}"
+    dest: "{{ ansible_user_dir }}/.config/blender/{{ blender_config_version }}/config/startup.blend"
+  when: blender_config_startup_file != ""
+  tags: config
+
+- name: "Copy userpref.blend file to ~/.config/blender/{{ blender_config_version }}/config/userpref.blend"
+  copy:
+    src: "{{ blender_config_userpref_file }}"
+    dest: "{{ ansible_user_dir }}/.config/blender/{{ blender_config_version }}/config/userpref.blend"
+  when: blender_config_userpref_file != ""
+  tags: config
+
+- name: "Copy scripts directory to ~/.config/blender/{{ blender_config_version }}/scripts"
+  copy:
+    src: "{{ blender_config_scripts_directory }}"
+    dest: "{{ ansible_user_dir }}/.config/blender/{{ blender_config_version }}/"
+  when: blender_config_scripts_directory != ""
+  tags: config

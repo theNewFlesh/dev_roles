@@ -1,0 +1,15 @@
+
+- name: "Debian | download sublimetext .deb"
+  get_url:
+    url: "{{ __url_deb }}"
+    dest: "{{ __tmp_deb }}"
+  tags:
+    - packages
+    - sublimetext
+
+- name: "Debian | ensure sublimetext is present"
+  apt:
+    deb: "{{ __tmp_deb }}"
+  tags:
+    - packages
+    - sublimetext

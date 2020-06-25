@@ -1,0 +1,10 @@
+---
+cufflinks_config_sharing: public
+cufflinks_config_colorscale: dflt
+cufflinks_config_offline_link_text: Export to plot.ly
+cufflinks_config_theme: pearl
+cufflinks_config_offline_show_link: true
+cufflinks_config_offline_url: ''
+cufflinks_config_offline: false
+cufflinks_config_datagen_mode: stocks
+state: present

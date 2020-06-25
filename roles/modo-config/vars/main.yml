@@ -1,0 +1,8 @@
+_modo_config_debian_path: "{{ ansible_user_dir }}/.luxology"
+_modo_config_debian_session: "{{ _modo_config_debian_path }}/.modo{{ modo_config_version }}rc"
+
+_modo_config_osx_path: "{{ ansible_user_dir }}/Library/Application\ Support/Luxology"
+_modo_config_osx_session: "{{ ansible_user_dir }}/Library/Preferences/com.luxology.modo{{ modo_config_version }}"
+
+_modo_config_windows_path: "/mnt/c/Users/{{ ansible_ssh_user }}/AppData/Roaming/Luxology"
+_modo_config_windows_session: "{{ _modo_config_windows_path }}/MODO{{ modo_config_version }}.CFG"

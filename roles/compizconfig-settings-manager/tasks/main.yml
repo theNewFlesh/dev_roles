@@ -1,0 +1,19 @@
+---
+- name: "Debian | ensure compizconfig-settings-manager is {{ state }}"
+  apt:
+    name: compizconfig-settings-manager
+    state: "{{ state }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - install
+    - debian
+
+- name: "Debian | ensure compiz plugins are {{ state }}"
+  apt:
+    name: compiz-plugins-extra
+    state: "{{ state }}"
+  when: compizconfig_plugins == true
+  tags:
+    - plugins
+    - install
+    - debian

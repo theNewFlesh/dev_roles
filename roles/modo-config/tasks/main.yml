@@ -1,0 +1,60 @@
+- include: facts.yml
+
+- name: ensure modo configs directory exists
+  file:
+    dest: "{{ _modo_config_path }}/Configs"
+    state: directory
+  become: true
+  when: "{{ modo_config_install_configs }}"
+
+- name: ensure modo template config file is present
+  template:
+    src: ../templates/template.cfg.j2
+    dest: "{{ _modo_config_path }}/Configs/template.cfg"
+  become: true
+  when: "{{ modo_config_install_template }}"
+
+- name: ensure modo config files are present
+  copy:
+    src: "{{ item }}"
+    dest: "{{ _modo_config_path }}/Configs/"
+  with_items: "{{ modo_config_config_files }}"
+  become: true
+  when: "{{ modo_config_install_configs }}"
+
+- name: ensure modo kits directory exists
+  file:
+    dest: "{{ _modo_config_path }}/Kits"
+    state: directory
+  become: true
+  when: "{{ modo_config_install_kits }}"
+
+- name: ensure modo kits are present
+  copy:
+    src: "{{ item }}"
+    dest: "{{ _modo_config_path }}/Kits/"
+  with_items: "{{ modo_config_kits }}"
+  become: true
+  when: "{{ modo_config_install_kits }}"
+
+- name: ensure modo scripts directory exists
+  file:
+    dest: "{{ _modo_config_path }}/Scripts"
+    state: directory
+  become: true
+  when: "{{ modo_config_install_scripts }}"
+
+- name: ensure modo scripts are present
+  copy:
+    src: "{{ item }}"
+    dest: "{{ _modo_config_path }}/Scripts/"
+  with_items: "{{ modo_config_scripts }}"
+  become: true
+  when: "{{ modo_config_install_scripts }}"
+
+- name: ensure modo session config is absent
+  file:
+    dest: "{{ _modo_config_session }}"
+    state: absent
+  become: true
+  when: "{{ modo_config_remove_session }}"

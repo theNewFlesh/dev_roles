@@ -1,0 +1,37 @@
+---
+- name: "Debian | package control | ensure sublime-text-3 permissions"
+  file:
+    state: directory
+    path: "{{ __deb_dir }}"
+    recurse: true
+    mode: 0774
+    owner: "{{ sublime_user }}"
+    group: "{{ sublime_user_group }}"
+
+- name: "Debian | package control | ensure package control permissions"
+  file:
+    state: directory
+    path: "{{ item }}"
+    recurse: true
+    mode: 0774
+    owner: "{{ sublime_user }}"
+    group: "{{ sublime_user_group }}"
+  with_items:
+    - "{{ __deb_pc_dir }}"
+    - "{{ __deb_pc_user_dir }}"
+
+- name: "Debian | package control | ensure 'Package Control.sublime-package' is present"
+  get_url:
+    url: "{{ __pc_url }}"
+    dest: "{{ __deb_pc_dir }}/Package Control.sublime-package"
+    mode: 0774
+    owner: "{{ sublime_user }}"
+    group: "{{ sublime_user_group }}"
+
+- name: "Debian | package control | generate 'Package Control.sublime-settings'"
+  template:
+    src: ../templates/Package Control.sublime-settings.j2
+    dest: "{{ __deb_pc_user_dir }}/Package Control.sublime-settings"
+    mode: 0774
+    owner: "{{ sublime_user }}"
+    group: "{{ sublime_user_group }}"

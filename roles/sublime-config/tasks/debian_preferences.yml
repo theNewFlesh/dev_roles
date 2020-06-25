@@ -1,0 +1,16 @@
+---
+- name: "Debian | ensure user directory is present"
+  file:
+    dest: "{{ ansible_user_dir }}/.config/sublime-text-3/Packages/User"
+    state: directory
+    mode: 0774
+    owner: "{{ sublime_user }}"
+    group: "{{ sublime_user_group }}"
+
+- name: "Debian | configure sublime user settings"
+  template:
+    src: ../templates/Preferences.sublime-settings.j2
+    dest: "{{ ansible_user_dir }}/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
+    mode: 0774
+    owner: "{{ sublime_user }}"
+    group: "{{ sublime_user_group }}"

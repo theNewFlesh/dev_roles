@@ -1,0 +1,13 @@
+---
+- name: create local install-pip.sh script
+  template:
+    src: ../templates/pip-install.sh.j2
+    dest: /tmp/pip-install.sh
+
+- name: "ensure pip packages are present | {{ item.__name }}"
+  shell: bash /tmp/pip-install.sh
+
+- name: remove pip-install.sh
+  file:
+    dest: /tmp/pip-install.sh
+    state: absent

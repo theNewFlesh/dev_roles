@@ -1,0 +1,32 @@
+macpro ansible_ssh_host=192.168.1.127
+parallels1 ansible_ssh_host=192.168.1.185
+parallels2 ansible_ssh_host=10.211.55.3
+parallels3 ansible_ssh_host=10.0.0.134
+parallels4 ansible_ssh_host=192.168.1.220
+parallels5 ansible_ssh_host=192.168.1.148
+parallels6 ansible_ssh_host=192.168.1.215
+parallels7 ansible_ssh_host=192.168.1.177
+parallels8 ansible_ssh_host=172.20.10.3
+
+[local]
+127.0.0.1
+
+[tag_branch_dev]
+
+[dev-debian]
+#tag_branch_dev
+parallels1
+parallels2
+parallels3
+parallels4
+parallels5
+parallels6
+parallels7
+parallels8
+
+[dev-osx]
+macpro
+
+[dev:children]
+dev-debian
+# dev-osx

@@ -1,0 +1,9 @@
+---
+# you can create a conda environment specification by running:
+# conda env export -n [env] -f [output file]
+conda_config_envs: []
+conda_config_dir: "{{ ansible_user_dir }}/miniconda"
+conda_config_envs_dir: "{{ conda_config_dir }}/envs"
+conda_config_update_all: false
+conda_config_condarc_file:
+state: present

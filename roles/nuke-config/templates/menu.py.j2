@@ -1,0 +1,88 @@
+# ---DEFAULT--------------------------------------------------------------------
+import nuke
+
+{% if nuke_config_zync_nuke_repo != None %}
+# ---ZYNC-----------------------------------------------------------------------
+nuke.pluginAddPath('{{ nuke_config_zync_nuke_repo }}')
+import zync_nuke
+menubar = nuke.menu('Nuke');
+menu = menubar.addMenu('&Render')
+menu.addCommand('Render on Zync', 'zync_nuke.submit_dialog()')
+{% endif %}
+
+{% for section in nuke_config_sections %}
+# ---{{ section['name'] }}----------------------------------------------------------------------
+{% if 'versions' in section %}
+if nuke.NUKE_VERSION_MAJOR in [ {{ section['versions'] | join(", ") }} ]:
+{% if 'python' in section %}
+{% for line in section['python'].split('\n')[:-1] %}
+    {{ line }}
+{% endfor %}
+{% if 'commands' in section %}
+    # ------------------------------------------------
+
+{% endif %}
+{% endif %}
+{% if 'commands' in section %}
+{% if 'type' not in section %}
+    toolbar = nuke.menu('Nodes')
+{% elif section['type'] in ['menu', 'toolbar'] %}
+    toolbar = nuke.{{ section['type'] }}('Nodes')
+{% if 'menu_icon' in section%}
+    item = toolbar.addMenu('{{ section['menu_name'] }}', '{{ section['menu_icon'] }}')
+{% else %}
+    item = toolbar.addMenu('{{ section['menu_name'] }}')
+{% endif %}
+{% elif section['type'] == 'pane' %}
+    item = nuke.menu('Pane')
+{% endif %}
+{% for command in section['commands'] %}
+{% if section['type'] == 'pane' %}
+    item.addCommand('{{ command['name'] }}', {{ command['pane_func'] }})
+{% elif 'icon' in command %}
+    item.addCommand('{{ command['name'] }}', lambda: nuke.createNode('{{ command['node_name'] | default( command['name'] ) }}'), icon='{{ command['icon'] }}')
+{% else %}
+    item.addCommand('{{ command['name'] }}', lambda: nuke.createNode('{{ command['node_name'] | default( command['name'] ) }}'))
+{% endif %}
+{% endfor %}
+{% if section['type'] == 'pane' %}
+    nukescripts.registerPanel('{{ section['pane_name'] }}', {{ section['pane_func'] }})
+{% endif %}
+{% endif %}
+{% else %}
+{% if 'python' in section %}
+{% for line in section['python'].split('\n')[:-1] %}
+{{ line }}
+{% endfor %}
+{% if 'commands' in section %}
+# ------------------------------------------------
+
+{% endif %}
+{% endif %}
+{% if 'commands' in section %}
+{% if 'type' not in section %}
+toolbar = nuke.menu('Nodes')
+{% elif section['type'] in ['menu', 'toolbar'] %}
+toolbar = nuke.{{ section['type'] }}('Nodes')
+{% if 'menu_icon' in section%}
+item = toolbar.addMenu('{{ section['menu_name'] }}', '{{ section['menu_icon'] }}')
+{% else %}
+item = toolbar.addMenu('{{ section['menu_name'] }}')
+{% endif %}
+{% elif section['type'] == 'pane' %}
+item = nuke.menu('Pane')
+{% endif %}
+{% for command in section['commands'] %}
+{% if 'icon' in command %}
+item.addCommand('{{ command['name'] }}', lambda: nuke.createNode('{{ command['node_name'] | default( command['name'] ) }}'), icon={{ command['icon'] }})
+{% else %}
+item.addCommand('{{ command['name'] }}', lambda: nuke.createNode('{{ command['node_name'] | default( command['name'] ) }}'))
+{% endif %}
+{% endfor %}
+{% if section['type'] == 'pane' %}
+nukescripts.registerPanel('{{ section['pane_name'] }}', {{ section['pane_func'] }})
+{% endif %}
+{% endif %}
+{% endif %}
+
+{% endfor %}

@@ -1,0 +1,18 @@
+---
+- name: check for jupyterhub key
+  stat:
+    path: "{{ _jhc_dir }}/jupyterhub.key"
+  register: key
+
+- name: check for jupyterhub csr
+  stat:
+    path: "{{ _jhc_dir }}/jupyterhub.csr"
+  register: csr
+
+- name: check for jupyterhub certificate
+  stat:
+    path: "{{ _jhc_dir }}/jupyterhub.crt"
+  register: certificate
+
+- include: credentials.yml
+  when: not key.stat.exists or not csr.stat.exists or not certificate.stat.exists

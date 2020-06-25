@@ -1,0 +1,38 @@
+---
+- name: ensure python package is present
+  file:
+    dest: "{{ dcc_plugin_path }}"
+    state: directory
+
+- name: ensure python subpackages are present
+  copy:
+    src: "{{ item }}"
+    dest: "{{ dcc_plugin_path }}"
+  with_items: "{{ dcc_plugin_subpackages }}"
+
+# - name: ensure conda environment is present
+#   copy:
+#     src: "{{ dcc_plugin_env }}"
+#     dest: "{{ dcc_plugin_path }}/env/{{ dcc_plugin_env.split('/')[-1] }}"
+
+- name: ensure __init__.py is present
+  template:
+    src: ../templates/init.py.j2
+    dest: "{{ dcc_plugin_path }}/__init__.py"
+
+- name: gather __init__.py filepaths
+  find:
+    paths: "{{ dcc_plugin_path}}"
+    patterns: "__init__.py"
+    recurse: true
+  register: init_files
+
+- name: ensure inits have sys paths
+  blockinfile:
+    path: "{{ item['path'] }}"
+    insertbefore: BOF
+    block: |
+      import sys
+      for __path in set([ '{{ dcc_plugin_sys_paths | join("', '") }}' ]).difference(sys.path):
+          sys.path.append(__path)
+  with_items: "{{ init_files['files'] }}"

@@ -1,0 +1,12 @@
+---
+__pc_url: "https://packagecontrol.io/Package%20Control.sublime-package"
+
+# debian
+__deb_dir: "{{ ansible_user_dir }}/.config/sublime-text-3"
+__deb_pc_dir: "{{ ansible_user_dir }}/.config/sublime-text-3/Installed Packages"
+__deb_pc_user_dir: "{{ ansible_user_dir }}/.config/sublime-text-3/Packages/User"
+
+# os x
+__osx_dir: "{{ ansible_user_dir }}/Library/Application Support/Sublime Text 3"
+__osx_pc_dir: "{{ ansible_user_dir }}/Library/Application Support/Sublime Text 3/Installed Packages"
+__osx_pc_user_dir: "{{ ansible_user_dir }}/Library/Application Support/Sublime Text 3/Packages/User"

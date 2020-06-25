@@ -1,0 +1,20 @@
+---
+- name: write paths spacer
+  lineinfile:
+    line: "\n# ---PATHS---------------------------------------------------------------------"
+    state: "{{ state }}"
+    dest: "{{ dest }}"
+    # insertafter: EOF
+    create: true
+  tags:
+    - paths
+
+- name: write paths
+  lineinfile:
+    line: "export {{item.key}}={{item.value}}"
+    state: "{{ state }}"
+    dest: "{{ dest }}"
+    # insertafter: EOF
+  with_dict: "{{ shell_config_paths }}"
+  tags:
+    - paths

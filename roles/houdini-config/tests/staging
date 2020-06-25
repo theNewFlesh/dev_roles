@@ -1,0 +1,4 @@
+parallels ansible_ssh_host=10.211.55.4
+
+[dev]
+parallels

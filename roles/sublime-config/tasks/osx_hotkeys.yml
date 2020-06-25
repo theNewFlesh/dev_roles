@@ -1,0 +1,8 @@
+---
+- name: "OS X | configure sublime user hotkeys"
+  template:
+    src: ../templates/user.sublime-keymap.j2
+    dest: "{{ ansible_user_dir }}/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap"
+    mode: 0774
+    owner: "{{ sublime_user }}"
+    group: "{{ sublime_user_group }}"

@@ -1,0 +1,5 @@
+- hosts: dev
+  roles:
+    - role: ../..
+      flu_version: 8.1.6
+      become: true

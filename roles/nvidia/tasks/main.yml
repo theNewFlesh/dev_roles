@@ -1,0 +1,24 @@
+- name: download nvidia driver
+  get_url:
+    url: "http://us.download.nvidia.com/XFree86/Linux-x86_64/{{ nvidia_driver_version }}/NVIDIA-Linux-x86_64-{{ nvidia_driver_version }}.run"
+    dest: /tmp/nvidia-linux-x86_64-{{ nvidia_driver_version }}.run
+    mode: "0777"
+  tags: install
+- name: install nvidia driver
+  shell:
+    cmd: /tmp/nvidia-linux-x86_64-{{ nvidia_driver_version }}.run --accept-license --silent
+  become: true
+  tags: install
+- name: blacklist nouveau drivers
+  copy:
+    content: |
+      blacklist nouveau
+      options nouveau modeset=0
+    dest: /etc/modprobe.d/blacklist-nouveau.conf
+  become: true
+  tags: install
+- name: freeze linux kernel so it cannot be updated and break driver
+  shell:
+    cmd: "apt-mark hold `uname -r`"
+  become: true
+  tags: install

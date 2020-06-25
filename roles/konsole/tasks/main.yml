@@ -1,0 +1,24 @@
+---
+- name: ensure /etc/.pwd.lock is absent
+  file:
+    dest: /etc/.pwd.lock
+    state: absent
+
+- name: ensure /var/lib/dpkg/lock is absent
+  file:
+    dest: /var/lib/dpkg/lock
+    state: absent
+
+- name: ensure /var/lib/dpkg/lock-frontend is absent
+  file:
+    dest: /var/lib/dpkg/lock-frontend
+    state: absent
+
+- name: "Debian | ensure konsole is {{ state }}"
+  apt:
+    name: konsole
+    state: "{{ state }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - install
+    - debian

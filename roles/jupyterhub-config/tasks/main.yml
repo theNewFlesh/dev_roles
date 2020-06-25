@@ -1,0 +1,24 @@
+---
+- name: ensure jupyterhub directory is present
+  file:
+    dest: "{{ _jhc_dir }}"
+    mode: 0700
+    owner: "{{ jhc_admin }}"
+    group: "{{ jhc_admin_group }}"
+    state: directory
+  tags:
+    - credentials
+    - debian
+    - os_x
+
+- include: dir.yml
+  tags:
+    - credentials
+    - debian
+    - os_x
+
+- include: config.yml
+  tags:
+    - config
+    - debian
+    - os_x

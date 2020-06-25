@@ -1,0 +1,6 @@
+- hosts: dev
+  roles:
+    - role: ../..
+      nvidia_utils_version: 440
+      state: present
+      become: true

@@ -1,0 +1,11 @@
+- hosts: dev
+  roles:
+    - role: ../..
+      autostart_items:
+        - name: foo
+          command: python foo.py
+          icon: foo-icon.png
+        - name: firefox
+          command: "firefox --new-window"
+          description: start new firefox window
+          icon: firefox

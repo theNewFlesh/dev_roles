@@ -1,0 +1,4 @@
+---
+  - include: paths.yml
+  - include: jupyter.yml
+  - include: ipython.yml

@@ -1,0 +1,12 @@
+---
+- name: "Debian | ensure {{ ansible_user_dir }}/.conkyrc is present"
+  copy:
+    src: "{{ conky_config_conkyrc }}"
+    dest: "{{ ansible_user_dir }}/.conkyrc"
+  when: conky_config_conkyrc != "none"
+
+- name: "Debian | ensure {{ ansible_user_dir }}/.conkyrc is present"
+  template:
+    src: ../templates/conkyrc.j2
+    dest: "{{ ansible_user_dir }}/.conkyrc"
+  when: conky_config_conkyrc == "none"

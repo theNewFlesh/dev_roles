@@ -1,0 +1,5 @@
+#! /bin/bash
+
+source {{ conda_config_envs_dir }}/{{ item.__name }}/bin/activate {{ conda_config_envs_dir }}/{{ item.__name }}
+{{ conda_config_envs_dir }}/{{ item.__name }}/bin/pip install {{ item.__pip_pkgs }}
+source deactivate

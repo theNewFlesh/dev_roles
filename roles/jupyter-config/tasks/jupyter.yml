@@ -1,0 +1,97 @@
+---
+- name: config jupyter_notebook_config.py
+  template:
+    src: ../templates/jupyter_notebook_config.py.j2
+    dest: "{{ jc_jupyter_dir }}/jupyter_notebook_config.py"
+  tags:
+    - notebook
+    - jupyter
+    - config
+    - debian
+    - os_x
+
+- name: "Debian | append nbextensions dir to path in jupyter_notebook_config.py"
+  replace:
+    regexp: "^import sys$"
+    replace: "import sys\\nsys.path.append('{{ ansible_user_dir }}/.local/share/jupyter/extensions')"
+    dest: "{{ jc_jupyter_dir }}/jupyter_notebook_config.py"
+  when: ansible_os_family == "Debian"
+
+- name: "Darwin | append nbextensions dir to path in jupyter_notebook_config.py"
+  replace:
+    regexp: "^import sys$"
+    replace: "import sys\\nsys.path.append('{{ ansible_user_dir }}/Library/Jupyter/extensions')"
+    dest: "{{ jc_jupyter_dir }}/jupyter_notebook_config.py"
+  when: ansible_os_family == "Darwin"
+
+
+- name: config jupyter_nbconvert_config.py
+  template:
+    src: ../templates/jupyter_nbconvert_config.py.j2
+    dest: "{{ jc_jupyter_dir }}/jupyter_nbconvert_config.py"
+  tags:
+    - nbconvert
+    - jupyter
+    - config
+    - debian
+    - os_x
+
+- name: ensure custom.css is present
+  copy:
+    src: "{{ jc_custom_css }}"
+    dest: "{{ jc_jupyter_dir }}/custom/custom.css"
+  when: jc_custom_css != ''
+  tags:
+    - custom_css
+    - jupyter
+    - config
+    - debian
+    - os_x
+
+- name: ensure custom.js is present
+  copy:
+    src: "{{ jc_custom_js }}"
+    dest: "{{ jc_jupyter_dir }}/custom/custom.js"
+  when: jc_custom_js != ''
+  tags:
+    - custom_js
+    - jupyter
+    - config
+    - debian
+    - os_x
+
+- name: ensure edit.json is present
+  copy:
+    src: "{{ jc_edit_json }}"
+    dest: "{{ jc_jupyter_dir }}/nbconfig/edit.json"
+  when: jc_edit_json != ''
+  tags:
+    - edit_json
+    - jupyter
+    - config
+    - debian
+    - os_x
+
+- name: ensure tree.json is present
+  copy:
+    src: "{{ jc_tree_json }}"
+    dest: "{{ jc_jupyter_dir }}/nbconfig/tree.json"
+  when: jc_tree_json != ''
+  tags:
+    - tree_json
+    - jupyter
+    - config
+    - debian
+    - os_x
+
+- name: ensure notebook.json is present
+  template:
+    src: ../templates/notebook.json.j2
+    dest: "{{ jc_jupyter_dir }}/nbconfig/notebook.json"
+  when: jc_include_notebook_json == true
+  tags:
+    - notebook_json
+    - jupyter
+    - config
+    - debian
+    - os_x

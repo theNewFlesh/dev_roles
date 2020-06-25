@@ -1,0 +1,80 @@
+---
+- name: create ~/.config/
+  file:
+    dest: "{{ ansible_user_dir }}/.config"
+    state: directory
+    owner: "{{ konsole_user }}"
+    group: "{{ konsole_user_group }}"
+  tags:
+    - debian
+    - config
+    - mkdir
+
+- name: create ~/.local/share/konsole/
+  file:
+    dest: "{{ ansible_user_dir }}/.local/share/konsole"
+    state: directory
+    owner: "{{ konsole_user }}"
+    group: "{{ konsole_user_group }}"
+  tags:
+    - debian
+    - config
+    - mkdir
+
+- name: config-konsolerc
+  template:
+    src: ../templates/konsolerc.j2
+    dest: "{{ ansible_user_dir }}/.config/konsolerc"
+    force: true
+  tags:
+    - debian
+    - config
+    - konsolerc
+
+- name: create ~/.local/share/konsole/
+  file:
+    dest: "{{ ansible_user_dir }}/.local/share/konsole"
+    state: directory
+  tags:
+    - debian
+    - config
+    - mkdir
+
+- name: config-profile
+  template:
+    src: ../templates/dev.profile.j2
+    dest: "{{ ansible_user_dir }}/.local/share/konsole/dev.profile"
+    force: true
+  tags:
+    - debian
+    - config
+    - profile
+
+- name: config-colorscheme
+  template:
+    src: ../templates/dev.colorscheme.j2
+    dest: "{{ ansible_user_dir }}/.local/share/konsole/{{ konsole_color_scheme_name }}.colorscheme"
+    force: true
+  tags:
+    - debian
+    - config
+    - colorscheme
+
+- name: config-shortcuts
+  template:
+    src: ../templates/konsoledevshortcuts.rc.j2
+    dest: "{{ ansible_user_dir }}/.local/share/konsole/konsoledevshortcuts.rc"
+    force: true
+  tags:
+    - debian
+    - config
+    - shortcuts
+
+- name: config-konsoleui
+  copy:
+    src: ../files/konsoleui.rc
+    dest: "{{ ansible_user_dir }}/.local/share/konsole/konsoleui.rc"
+  tags:
+    - debian
+    - config
+    - konsoleui

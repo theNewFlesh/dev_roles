@@ -1,0 +1,9 @@
+{
+    "installed_packages":
+    [
+{% for package in sublime_packages %}
+        "{{ package }}"{% if not loop.last %},{% endif %}
+
+{% endfor %}
+    ]
+}

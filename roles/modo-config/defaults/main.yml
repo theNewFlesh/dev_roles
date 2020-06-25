@@ -1,0 +1,32 @@
+modo_config_install_template: true
+modo_config_install_configs: true
+modo_config_install_kits: true
+modo_config_install_scripts: true
+modo_config_config_files: []
+modo_config_kits: []
+modo_config_scripts: []
+modo_config_imports: []
+modo_config_windows_os: false
+modo_config_version: "10.2"
+modo_config_remove_session: true
+
+# config items
+modo_config_user_values: []
+modo_config_check_for_updates: []
+modo_config_preferences: []
+modo_config_input_remapping: []
+modo_config_file_system: []
+modo_config_game_input_mode_mappings: []
+modo_config_tool_snap_settings: []
+modo_config_color_picker: []
+modo_config_fbx_presets: []
+modo_config_game_presets: []
+modo_config_window: []
+modo_config_post_usage_stats: []
+modo_config_dir_browser: []
+modo_config_command_history: []
+modo_config_render_window: []
+modo_config_schematic_global_prefs: []
+modo_config_dir_thumb_browser: []
+modo_config_app_global: []
+modo_config_layout_favorites: []

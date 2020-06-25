@@ -1,0 +1,73 @@
+background yes
+use_xft yes
+xftfont HandelGotD:size=8
+xftalpha 1
+update_interval 1.0
+total_run_times 0
+own_window yes
+own_window_type normal
+own_window_transparent no
+own_window_hints below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 200 5
+maximum_width 220
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color a4a4a4
+default_shade_color red
+default_outline_color green
+alignment top_right
+gap_x 0
+gap_y 0
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale yes
+own_window_colour 242424
+default_graph_size 0 30
+default_bar_size 0 10
+
+TEXT
+
+Uptime $alignr $uptime
+
+{% for item in ansible_mounts %}
+{{ item.mount }} $alignc ${fs_used {{ item.mount }}} / ${fs_size {{ item.mount }}} $alignr ${fs_free_perc {{ item.mount }}}%
+${fs_bar {{ item.mount }}}
+{% endfor %}
+
+CPU $alignr ${cpu cpu0}%
+${cpubar cpu0}
+{% for i in range(ansible_processor_cores) %}
+Core{{ i }} $alignr ${cpu cpu{{ i }}}%
+${cpubar cpu{{ i }}}
+{% endfor %}
+
+RAM $alignc $mem / $memmax $alignr $memperc%
+$membar
+swap $alignc $swap / $swapmax $alignr $swapperc%
+$swapbar
+
+GPU 0 $alignc RAM  ${exec nvidia-smi | grep % | cut -c 37-43 | head -n 1} $alignr ${exec nvidia-smi | grep % | cut -c 62-64 | head -n 1}
+${execbar nvidia-smi | grep % | cut -c 62-64 | head -n 1}
+
+$processes processes ($running_processes running)
+
+NAME $alignr PID    CPU
+${top name 1} $alignr ${top pid 1} ${top cpu 1}
+${top name 2} $alignr ${top pid 2} ${top cpu 2}
+${top name 3} $alignr ${top pid 3} ${top cpu 3}
+
+CPU temp$alignr${hwmon temp 1}°C
+{% for i in range(ansible_processor_cores) %}
+Core{{ i }} temp$alignr${hwmon temp {{ i + 2 }}}°C
+{% endfor %}
+
+GPU 0 temp $alignr ${exec nvidia-smi | grep % | cut -c 9-11 | head -n 1}
+
+#Inbound $alignr ${downspeed eth0}
+#${downspeedgraph eth0}
+#Outbound $alignr ${upspeed eth0}
+#${upspeedgraph eth0}

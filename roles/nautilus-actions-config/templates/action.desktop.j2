@@ -1,0 +1,23 @@
+[Desktop Entry]
+Type=Action
+ToolbarLabel[en_US]={{ item.name }}
+ToolbarLabel[en]={{ item.name }}
+ToolbarLabel[C]={{ item.name }}
+Name[en_US]={{ item.name }}
+Name[en]={{ item.name }}
+Name[C]={{ item.name }}
+Profiles=profile-zero;
+
+TargetLocation={{ item.location | default('true') }}
+TargetContext={{ item.context | default('true') }}
+Tooltip[en_US]={{ item.tooltip | default('' )}}
+Tooltip[en]={{ item.tooltip | default('' )}}
+Tooltip[C]={{ item.tooltip | default('' )}}
+TargetToolbar={{ item.toolbar | default('false') }}
+
+[X-Action-Profile profile-zero]
+Exec={{ item.exec }}
+Name[en_US]={{ item.profile | default('Default profile') }}
+Name[en]={{ item.profile | default('Default profile') }}
+Name[C]={{ item.profile | default('Default profile') }}
+Path={{ item.path | default('%d') }}

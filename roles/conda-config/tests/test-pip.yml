@@ -1,0 +1,12 @@
+- hosts: dev
+  vars:
+    conda_config_dir: /opt/anaconda
+    conda_config_envs_dir: "{{ ansible_user_dir }}/.conda/envs"
+    conda_config_envs:
+      - test_env.yml
+  tasks:
+    - name: test pip-install
+      shell: "source {{ conda_config_envs_dir }}/test1/bin/activate {{ conda_config_envs_dir }}/test1"
+      register: result
+    - debug:
+        var: result

@@ -1,0 +1,47 @@
+- name: get system id
+  shell:
+    cmd: "/opt/FoundryLicensingUtility/bin/FoundryLicenseUtility --id | sed 's/.* : //'"
+  register: system_id
+  tags: config
+
+- name: create /usr/local/foundry/RLM directory
+  file:
+    dest: /usr/local/foundry/RLM
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  become: true
+  tags: config
+
+- name: copy foundry license
+  copy:
+    src: "{{ flu_config_license_file }}"
+    dest: /usr/local/foundry/RLM/foundry.lic
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  tags: config
+
+- name: modify license file system id and port
+  lineinfile:
+    path: /usr/local/foundry/RLM/foundry.lic
+    regex: "HOST <server_name> .* \\d\\d\\d\\d"
+    line: "HOST <server_name> {{ system_id.stdout }} {{ flu_config_port }}"
+  tags: config
+
+- name: ensure /tmp/foundry.log is absent
+  file:
+    dest: /tmp/foundry.log
+    state: absent
+  tags: config
+
+- name: install foundry license
+  shell:
+    cmd: "/opt/FoundryLicensingUtility/bin/FoundryLicenseUtility --licenseFile /usr/local/foundry/RLM/foundry.lic > /tmp/foundry.log &"
+  tags: config
+
+- name: determine if install succedded
+  shell:
+    cmd: cat /tmp/foundry.log | grep ERROR
+  register: log
+  failed_when: "'ERROR' in log.stdout"
+  tags: config

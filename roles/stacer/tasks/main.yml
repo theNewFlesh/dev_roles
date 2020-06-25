@@ -1,0 +1,14 @@
+---
+- name: ensure /etc/.pwd.lock is absent
+  file:
+    dest: /etc/.pwd.lock
+    state: absent
+
+- name: "Debian | ensure stacer is {{ state }}"
+  apt:
+    name: stacer
+    state: "{{ state }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - install
+    - debian

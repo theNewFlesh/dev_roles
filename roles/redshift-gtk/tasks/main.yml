@@ -1,0 +1,19 @@
+---
+- name: "Debian | ensure redshift-gtk is {{ state }}"
+  apt:
+    name: redshift-gtk
+    state: "{{ state }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - debian
+
+# - name: "Debian | ensure {{ ansible_user_dir }}/.config/autostart is present"
+#   file:
+#     dest: "{{ ansible_user_dir }}/.config/autostart"
+#     state: directory
+
+# - name: "Debian | add redshift to startup applications"
+#   copy:
+#     src: ../files/redshift.desktop
+#     dest: "{{ ansible_user_dir }}/.config/autostart/redshift.desktop"
+#   when: state != "absent"

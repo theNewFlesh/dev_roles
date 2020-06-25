@@ -1,0 +1,12 @@
+---
+- name: "Debian | ensure {{ ansible_user_dir }}/.local/share/file-manager/actions is present"
+  file:
+    dest: "{{ ansible_user_dir }}/.local/share/file-manager/actions"
+    state: directory
+
+- name: "Debian | ensure nautilus actions are present"
+  template:
+    src: ../templates/action.desktop.j2
+    dest: "{{ ansible_user_dir }}/.local/share/file-manager/actions/{{ item.name }}.desktop"
+  with_items: "{{ nautilus_actions_config_items }}"
+

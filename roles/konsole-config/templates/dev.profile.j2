@@ -1,0 +1,27 @@
+[Appearance]
+{% if konsole_color_scheme_name is defined %}
+ColorScheme={{ konsole_color_scheme_name }}
+{% endif %}
+{% if konsole_font is defined and konsole_font_size is defined %}
+Font={{ konsole_font }},{{ konsole_font_size }},-1,2,50,0,0,0,0,0
+{% endif %}
+
+[Cursor Options]
+{% if konsole_cursor_color is defined %}
+CustomCursorColor={{ konsole_cursor_color }}
+{% endif %}
+UseCustomCursorColor=true
+
+[General]
+Name=dev
+Parent=FALLBACK/
+TerminalRows=80
+
+[Interaction Options]
+CtrlRequiredForDrag=false
+MiddleClickPasteMode=1
+TripleClickMode=0
+
+[Scrolling]
+ScrollBarPosition=2
+ScrollFullPage=true

@@ -1,0 +1,444 @@
+---
+# general
+sublime_packages: []
+sublime_include_packages: true
+sublime_include_prefs: true
+sublime_include_hotkeys: true
+sublime_user: "{{ ansible_ssh_user }}"
+sublime_user_group: "{% if ansible_os_family == 'Darwin' %}staff{% else %}{{ sublime_user }}{% endif %}"
+
+# preferences
+sublime_color_scheme: 'Packages/Color Scheme - Default/Monokai.tmTheme'
+sublime_font_face: ''
+sublime_font_size: 10.0
+sublime_font_options: []
+sublime_word_separators: "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?"
+sublime_line_numbers: true
+sublime_gutter: true
+sublime_margin: 4
+sublime_fold_buttons: true
+sublime_fade_fold_buttons: true
+sublime_rulers: []
+sublime_spell_check: false
+sublime_tab_size: 4
+sublime_translate_tabs_to_spaces: false
+sublime_use_tab_stops: true
+sublime_detect_indentation: true
+sublime_auto_indent: true
+sublime_smart_indent: true
+sublime_indent_to_bracket: false
+sublime_trim_automatic_white_space: true
+sublime_word_wrap: 'auto'
+sublime_wrap_width: 0
+sublime_indent_subsequent_lines: true
+sublime_draw_centered: false
+sublime_auto_match_enabled: true
+sublime_dictionary: 'Packages/Language - English/en_US.dic'
+sublime_spelling_selector: 'markup.raw, source string.quoted - punctuation - meta.preprocessor.c.include, source comment - source comment.block.preprocessor, -(source, constant, keyword, storage, support, variable, markup.underline.link, meta.tag)'
+sublime_draw_minimap_border: false
+sublime_always_show_minimap_viewport: false
+sublime_highlight_line: false
+sublime_caret_style: 'smooth'
+sublime_caret_extra_top: 0
+sublime_caret_extra_bottom: 0
+sublime_caret_extra_width: 0
+sublime_match_brackets: true
+sublime_match_brackets_content: true
+sublime_match_brackets_square: true
+sublime_match_brackets_braces: true
+sublime_match_brackets_angle: false
+sublime_match_tags: true
+sublime_match_selection: true
+sublime_line_padding_top: 0
+sublime_line_padding_bottom: 0
+sublime_scroll_past_end: true
+sublime_move_to_limit_on_up_down: false
+sublime_draw_white_space: 'selection'
+sublime_draw_indent_guides: true
+sublime_indent_guide_options: ['draw_normal']
+sublime_trim_trailing_white_space_on_save: false
+sublime_ensure_newline_at_eof_on_save: false
+sublime_save_on_focus_lost: false
+sublime_atomic_save: false
+sublime_fallback_encoding: 'Western (Windows 1252)'
+sublime_default_encoding: 'UTF-8'
+sublime_enable_hexadecimal_encoding: true
+sublime_default_line_ending: 'system'
+sublime_show_definitions: true
+sublime_tab_completion: true
+sublime_auto_complete: true
+sublime_auto_complete_size_limit: 4194304
+sublime_auto_complete_delay: 50
+sublime_auto_complete_selector: 'meta.tag - punctuation.definition.tag.begin, source - comment - string.quoted.double.block - string.quoted.single.block - string.unquoted.heredoc'
+sublime_auto_complete_triggers: {'selector': 'text.html', 'characters': '<'}
+sublime_auto_complete_commit_on_tab: false
+sublime_auto_complete_with_fields: false
+sublime_auto_complete_cycle: false
+sublime_auto_close_tags: true
+sublime_shift_tab_unindent: false
+sublime_copy_with_empty_selection: true
+sublime_find_selected_text: true
+sublime_auto_find_in_selection: false
+sublime_drag_text: true
+sublime_theme: 'Default.sublime-theme'
+sublime_scroll_speed: 1.0
+sublime_tree_animation_enabled: true
+sublime_animation_enabled: true
+sublime_highlight_modified_tabs: false
+sublime_show_tab_close_buttons: true
+sublime_bold_folder_labels: false
+sublime_use_simple_full_screen: false
+sublime_gpu_window_buffer: 'auto'
+sublime_overlay_scroll_bars: 'system'
+sublime_enable_tab_scrolling: true
+sublime_show_encoding: false
+sublime_show_line_endings: false
+sublime_hot_exit: true
+sublime_remember_full_screen: false
+sublime_always_prompt_for_file_reload: false
+sublime_open_files_in_new_window: true
+sublime_create_window_at_startup: true
+sublime_close_windows_when_empty: false
+sublime_show_full_path: true
+sublime_show_panel_on_build: true
+sublime_preview_on_click: true
+sublime_binary_file_patterns:
+  - '*.jpg'
+  - '*.jpeg'
+  - '*.png'
+  - '*.gif'
+  - '*.ttf'
+  - '*.tga'
+  - '*.dds'
+  - '*.ico'
+  - '*.eot'
+  - '*.pdf'
+  - '*.swf'
+  - '*.jar'
+  - '*.zip'
+sublime_index_files: true
+sublime_index_workers: 0
+sublime_index_exclude_patterns:
+  - '*.log'
+sublime_ignored_packages:
+  - 'Vintage'
+sublime_folder_exclude_patterns:
+  - '.svn'
+  - '.git'
+  - '.hg'
+  - 'CVS'
+  - '.ipynb'
+sublime_file_exclude_patterns:
+  - '*.pyc'
+  - '*.pyo'
+  - '*.exe'
+  - '*.dll'
+  - '*.obj'
+  - '*.o'
+  - '*.a'
+  - '*.lib'
+  - '*.so'
+  - '*.dylib'
+  - '*.ncb'
+  - '*.sdf'
+  - '*.suo'
+  - '*.pdb'
+  - '*.idb'
+  - '.DS_Store'
+  - '*.class'
+  - '*.psd'
+  - '*.db'
+  - '*.sublime-workspace'
+  - '*.retry'
+
+sublime_extras: {}
+
+# hotkeys
+sublime_key_exit: "ctrl+q"
+sublime_key_new_window: "ctrl+shift+n"
+sublime_key_close_window: "ctrl+shift+w"
+sublime_key_prompt_open_file: "ctrl+o"
+sublime_key_reopen_last_file: "ctrl+shift+t"
+sublime_key_switch_file: "alt+o"
+sublime_key_new_file: "ctrl+n"
+sublime_key_save: "ctrl+s"
+sublime_key_prompt_save_as: "ctrl+shift+s"
+sublime_key_close_file: "ctrl+f4"
+sublime_key_close: "ctrl+w"
+sublime_key_toggle_side_bar: ["ctrl+k", "ctrl+b"]
+sublime_key_toggle_full_screen: "f11"
+sublime_key_toggle_distraction_free: "shift+f11"
+sublime_key_left_delete:
+  - "backspace"
+  - "shift+backspace"
+  - "ctrl+shift+backspace"
+sublime_key_right_delete: "delete"
+sublime_key_insert_newline:
+  - "enter"
+  - "shift+enter"
+  - "keypad_enter"
+  - "shift+keypad_enter"
+sublime_key_undo: "ctrl+z"
+sublime_key_redo: "ctrl+shift+z"
+sublime_key_redo_or_repeat: "ctrl+y"
+sublime_key_soft_undo: "ctrl+u"
+sublime_key_soft_redo: "ctrl+shift+u"
+sublime_key_cut:
+  - "shift+delete"
+  - "ctrl+x"
+sublime_key_copy:
+  - "ctrl+insert"
+  - "ctrl+c"
+sublime_key_paste:
+  - "shift+insert"
+  - "ctrl+v"
+sublime_key_paste_and_indent: "ctrl+shift+v"
+sublime_key_paste_from_history: ["ctrl+k", "ctrl+v"]
+sublime_key_move_char: "left"
+sublime_key_move_forward_char: "right"
+sublime_key_move_line: "up"
+sublime_key_move_forward_line: "down"
+sublime_key_move_ext_char: "shift+left"
+sublime_key_move_forward_ext_char: "shift+right"
+sublime_key_move_ext_line: "shift+up"
+sublime_key_move_forward_ext_line: "shift+down"
+sublime_key_move_word: "ctrl+left"
+sublime_key_move_forward_wordend: "ctrl+right"
+sublime_key_move_ext_word: "ctrl+shift+left"
+sublime_key_move_forward_ext_wordend: "ctrl+shift+right"
+sublime_key_move_subword: "alt+left"
+sublime_key_move_forward_subwordend: "alt+right"
+sublime_key_move_ext_subword: "alt+shift+left"
+sublime_key_move_forward_ext_subwordend: "alt+shift+right"
+sublime_key_select_lines: "alt+shift+up"
+sublime_key_select_lines_fwd: "alt+shift+down"
+sublime_key_move_page: "pageup"
+sublime_key_move_forward_page: "pagedown"
+sublime_key_move_ext_page: "shift+pageup"
+sublime_key_move_forward_ext_page: "shift+pagedown"
+sublime_key_move_to_bol: "home"
+sublime_key_move_to_eol: "end"
+sublime_key_move_to_bol_ext: "shift+home"
+sublime_key_move_to_eol_ext: "shift+end"
+sublime_key_move_to_bof: "ctrl+home"
+sublime_key_move_to_eof: "ctrl+end"
+sublime_key_move_to_bof_ext: "ctrl+shift+home"
+sublime_key_move_to_eof_ext: "ctrl+shift+end"
+sublime_key_scroll_lines_up: "ctrl+up"
+sublime_key_scroll_lines_down: "ctrl+down"
+sublime_key_next_view: "ctrl+pagedown"
+sublime_key_prev_view: "ctrl+pageup"
+sublime_key_next_view_in_stack: "ctrl+tab"
+sublime_key_prev_view_in_stack: "ctrl+shift+tab"
+sublime_key_select_all: "ctrl+a"
+sublime_key_split_selection_into_lines: "ctrl+shift+l"
+sublime_key_single_selection: "escape"
+sublime_key_clear_next_fields: "escape"
+sublime_key_clear_prev_fields: "escape"
+sublime_key_hide_panel: "escape"
+sublime_key_hide_overlay: "escape"
+sublime_key_hide_popup: "escape"
+sublime_key_hide_auto_complete: "escape"
+sublime_key_insert_best_completion_exact: "tab"
+sublime_key_insert_best_completion: "tab"
+sublime_key_replace_completion_with_next_completion: "tab"
+sublime_key_reindent: "tab"
+sublime_key_indent_newline: "tab"
+sublime_key_next_field: "tab"
+sublime_key_commit_completion_1: "tab"
+sublime_key_insert_tab: "shift+tab"
+sublime_key_unindent_1: "shift+tab"
+sublime_key_unindent_2: "shift+tab"
+sublime_key_unindent_3: "shift+tab"
+sublime_key_prev_field: "shift+tab"
+sublime_key_indent: "ctrl+]"
+sublime_key_unindent_4: "ctrl+["
+sublime_key_toggle_overwrite: "insert"
+sublime_key_expand_selection_line: "ctrl+l"
+sublime_key_find_under_expand: "ctrl+d"
+sublime_key_find_under_expand_skip: ["ctrl+k", "ctrl+d"]
+sublime_key_expand_selection_scope: "ctrl+shift+space"
+sublime_key_expand_selection_brackets: "ctrl+shift+m"
+sublime_key_move_to: "ctrl+m"
+sublime_key_expand_selection_indentation: "ctrl+shift+j"
+sublime_key_expand_selection_tag: "ctrl+shift+a"
+sublime_key_close_tag_1: "alt+."
+sublime_key_toggle_record_macro: "ctrl+alt+q"
+sublime_key_run_macro_1: "ctrl+alt+shift+q"
+sublime_key_run_macro_file_2: "ctrl+enter"
+sublime_key_run_macro_file_3: "ctrl+shift+enter"
+sublime_key_commit_completion_2: "enter"
+sublime_key_show_overlay_goto: "ctrl+p"
+sublime_key_show_overlay_command: "ctrl+shift+p"
+sublime_key_prompt_select_workspace: "ctrl+alt+p"
+sublime_key_show_overlay_goto_1: "ctrl+r"
+sublime_key_show_overlay_goto2: "ctrl+g"
+sublime_key_show_overlay_goto_3: "ctrl+;"
+sublime_key_goto_definition: "f12"
+sublime_key_goto_symbol_in_project: "ctrl+shift+r"
+sublime_key_jump_back:
+  - "alt+-"
+  - "alt+keypad_minus"
+sublime_key_jump_forward:
+  - "alt+shift+-"
+  - "alt+shift+keypad_minus"
+sublime_key_show_panel_find_incremental: "ctrl+i"
+sublime_key_show_panel_find_incremental_reverse: "ctrl+shift+i"
+sublime_key_show_panel_find: "ctrl+f"
+sublime_key_show_panel_replace: "ctrl+h"
+sublime_key_replace_next: "ctrl+shift+h"
+sublime_key_find_next: "f3"
+sublime_key_find_prev_fkey: "shift+f3"
+sublime_key_find_under: "ctrl+f3"
+sublime_key_find_under_prev: "ctrl+shift+f3"
+sublime_key_find_all_under: "alt+f3"
+sublime_key_slurp_find_string: "ctrl+e"
+sublime_key_slurp_replace_string: "ctrl+shift+e"
+sublime_key_find_in_files: "ctrl+shift+f"
+sublime_key_next_result: "f4"
+sublime_key_prev_result: "shift+f4"
+sublime_key_toggle_setting: "f6"
+sublime_key_next_misspelling: "ctrl+f6"
+sublime_key_prev_misspelling: "ctrl+shift+f6"
+sublime_key_swap_line_up: "ctrl+shift+up"
+sublime_key_swap_line_down: "ctrl+shift+down"
+sublime_key_delete_word: "ctrl+backspace"
+sublime_key_run_macro_file_4: "ctrl+shift+backspace"
+sublime_key_delete_word_fwd: "ctrl+delete"
+sublime_key_run_macro_file_5: "ctrl+shift+delete"
+sublime_key_toggle_comment: "ctrl+/"
+sublime_key_toggle_comment_block: "ctrl+shift+/"
+sublime_key_join_lines: "ctrl+j"
+sublime_key_duplicate_line: "ctrl+shift+d"
+sublime_key_show_console: "ctrl+`"
+sublime_key_auto_complete_key: "alt+/"
+sublime_key_replace_completion_with_auto_complete: "alt+/"
+sublime_key_show_scope_name: "ctrl+alt+shift+p"
+sublime_key_build:
+  - "f7"
+  - "ctrl+b"
+sublime_key_build_selection: "ctrl+shift+b"
+sublime_key_exec: "ctrl+break"
+sublime_key_transpose: "ctrl+t"
+sublime_key_sort_lines: "f9"
+sublime_key_sort_lines_case_sensitive: "ctrl+f9"
+sublime_key_insert_snippet_1: "\""
+sublime_key_insert_snippet_2: "\""
+sublime_key_move_forward_char_1: "\""
+sublime_key_run_macro_file_6: "backspace"
+sublime_key_insert_snippet_3: "'"
+sublime_key_insert_snippet_4: "'"
+sublime_key_move_forward_char_2: "'"
+sublime_key_run_macro_file_7: "backspace"
+sublime_key_insert_snippet_5: "("
+sublime_key_insert_snippet_6: "("
+sublime_key_move_forward_char_3: ")"
+sublime_key_run_macro_file_8: "backspace"
+sublime_key_insert_snippet_7: "["
+sublime_key_insert_snippet_8: "["
+sublime_key_move_forward_char_4: "]"
+sublime_key_run_macro_file_9: "backspace"
+sublime_key_insert_snippet_9: "{"
+sublime_key_wrap_block: "{"
+sublime_key_insert_snippet_10: "{"
+sublime_key_move_forward_char_5: "}"
+sublime_key_run_macro_file_10: "backspace"
+sublime_key_run_macro_file_11: "enter"
+sublime_key_run_macro_file_12: "shift+enter"
+sublime_key_insert_snippet_11: "enter"
+sublime_key_insert_snippet_12: "shift+enter"
+sublime_key_set_layout_1: "alt+shift+1"
+sublime_key_set_layout_2: "alt+shift+2"
+sublime_key_set_layout_3: "alt+shift+3"
+sublime_key_set_layout_4: "alt+shift+4"
+sublime_key_set_layout_5: "alt+shift+5"
+sublime_key_set_layout_8: "alt+shift+8"
+sublime_key_set_layout_9: "alt+shift+9"
+sublime_key_focus_group_1: "ctrl+1"
+sublime_key_focus_group_2: "ctrl+2"
+sublime_key_focus_group_3: "ctrl+3"
+sublime_key_focus_group_4: "ctrl+4"
+sublime_key_focus_group_5: "ctrl+5"
+sublime_key_focus_group_6: "ctrl+6"
+sublime_key_focus_group_7: "ctrl+7"
+sublime_key_focus_group_8: "ctrl+8"
+sublime_key_focus_group_9: "ctrl+9"
+sublime_key_move_to_group_1: "ctrl+shift+1"
+sublime_key_move_to_group_2: "ctrl+shift+2"
+sublime_key_move_to_group_3: "ctrl+shift+3"
+sublime_key_move_to_group_4: "ctrl+shift+4"
+sublime_key_move_to_group_5: "ctrl+shift+5"
+sublime_key_move_to_group_6: "ctrl+shift+6"
+sublime_key_move_to_group_7: "ctrl+shift+7"
+sublime_key_move_to_group_8: "ctrl+shift+8"
+sublime_key_move_to_group_9: "ctrl+shift+9"
+sublime_key_focus_side_bar: "ctrl+0"
+sublime_key_new_pane_move: ["ctrl+k", "ctrl+up"]
+sublime_key_new_pane: ["ctrl+k", "ctrl+shift+up"]
+sublime_key_close_pane: ["ctrl+k", "ctrl+down"]
+sublime_key_focus_neighboring_group: ["ctrl+k", "ctrl+left"]
+sublime_key_focus_neighboring_group_forward: ["ctrl+k", "ctrl+right"]
+sublime_key_move_to_neighboring_group: ["ctrl+k", "ctrl+shift+left"]
+sublime_key_move_to_neighboring_group_forward: ["ctrl+k", "ctrl+shift+right"]
+sublime_key_select_by_index_1: "alt+1"
+sublime_key_select_by_index_2: "alt+2"
+sublime_key_select_by_index_3: "alt+3"
+sublime_key_select_by_index_4: "alt+4"
+sublime_key_select_by_index_5: "alt+5"
+sublime_key_select_by_index_6: "alt+6"
+sublime_key_select_by_index_7: "alt+7"
+sublime_key_select_by_index_8: "alt+8"
+sublime_key_select_by_index_9: "alt+9"
+sublime_key_select_by_index_0: "alt+0"
+sublime_key_next_bookmark: "f2"
+sublime_key_prev_bookmark: "shift+f2"
+sublime_key_toggle_bookmark: "ctrl+f2"
+sublime_key_clear_bookmarks: "ctrl+shift+f2"
+sublime_key_select_all_bookmarks: "alt+f2"
+sublime_key_run_macro_file_13: "ctrl+shift+k"
+sublime_key_wrap_lines: "alt+q"
+sublime_key_upper_case: ["ctrl+k", "ctrl+u"]
+sublime_key_lower_case: ["ctrl+k", "ctrl+l"]
+sublime_key_set_mark: ["ctrl+k", "ctrl+space"]
+sublime_key_select_to_mark: ["ctrl+k", "ctrl+a"]
+sublime_key_delete_to_mark: ["ctrl+k", "ctrl+w"]
+sublime_key_swap_with_mark: ["ctrl+k", "ctrl+x"]
+sublime_key_yank: ["ctrl+k", "ctrl+y"]
+sublime_key_run_macro_file_14: ["ctrl+k", "ctrl+k"]
+sublime_key_run_macro_file_15: ["ctrl+k", "ctrl+backspace"]
+sublime_key_clear_marked_bookmarks: ["ctrl+k", "ctrl+g"]
+sublime_key_show_at_center: ["ctrl+k", "ctrl+c"]
+sublime_key_increase_font_size: ["ctrl++", "ctrl+="]
+sublime_key_decrease_font_size: "ctrl+-"
+sublime_key_insert_snippet_13: "alt+shift+w"
+sublime_key_fold: "ctrl+shift+["
+sublime_key_unfold: "ctrl+shift+]"
+sublime_key_fold_by_level_1: ["ctrl+k", "ctrl+1"]
+sublime_key_fold_by_level_2: ["ctrl+k", "ctrl+2"]
+sublime_key_fold_by_level_3: ["ctrl+k", "ctrl+3"]
+sublime_key_fold_by_level_4: ["ctrl+k", "ctrl+4"]
+sublime_key_fold_by_level_5: ["ctrl+k", "ctrl+5"]
+sublime_key_fold_by_level_6: ["ctrl+k", "ctrl+6"]
+sublime_key_fold_by_level_7: ["ctrl+k", "ctrl+7"]
+sublime_key_fold_by_level_8: ["ctrl+k", "ctrl+8"]
+sublime_key_fold_by_level_9: ["ctrl+k", "ctrl+9"]
+sublime_key_unfold_all:
+  - ["ctrl+k", "ctrl+0"]
+  - ["ctrl+k", "ctrl+j"]
+sublime_key_fold_tag_attributes: ["ctrl+k", "ctrl+t"]
+sublime_key_context_menu: "context_menu"
+sublime_key_toggle_case_sensitive: "alt+c"
+sublime_key_toggle_regex: "alt+r"
+sublime_key_toggle_whole_word: "alt+w"
+sublime_key_toggle_preserve_case: "alt+a"
+sublime_key_find_next_focus: "enter"
+sublime_key_find_prev: "shift+enter"
+sublime_key_find_all: "alt+enter"
+sublime_key_replace_next_focus: "enter"
+sublime_key_replace_prev: "shift+enter"
+sublime_key_find_all_replace: "alt+enter"
+sublime_key_replace_all: "ctrl+alt+enter"
+sublime_key_hide_panel_incremental: "enter"
+sublime_key_find_prev_incremental: "shift+enter"
+sublime_key_find_all_incremental: "alt+enter"
+sublime_key_close_tag_2: "/"

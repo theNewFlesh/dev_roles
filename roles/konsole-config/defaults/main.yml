@@ -1,0 +1,82 @@
+---
+# permissions
+konsole_user: "{{ ansible_user }}"
+konsole_user_group: "{{ ansible_user }}"
+
+# dev.profile
+konsole_color_scheme_name: henanigans
+konsole_font: Monaco
+konsole_font_size: 11
+konsole_cursor_color: 126,196,207
+
+# dev.colorscheme
+konsole_background: 36,36,36
+konsole_background_intense: 36,36,36
+konsole_color_0: 36,36,36
+konsole_color_0_intense: 52,52,52
+konsole_color_1: 222,149,142
+konsole_color_1_intense: 247,126,112
+konsole_color_2: 160,209,123
+konsole_color_2_intense: 139,209,85
+konsole_color_3: 233,234,190
+konsole_color_3_intense: 232,234,126
+konsole_color_4: 147,182,230
+konsole_color_4_intense: 95,149,222
+konsole_color_5: 172,146,222
+konsole_color_5_intense: 201,143,222
+konsole_color_6: 182,236,243
+konsole_color_6_intense: 126,196,207
+konsole_color_7: 235,180,131
+konsole_color_7_intense: 235,158,88
+konsole_foreground: 244,244,244
+konsole_foreground_intense: 164,164,164
+konsole_opacity: 0.8
+
+# konsoledevshorcuts.rc
+konsole_key_adjust_history: ''
+konsole_key_clear_history: ''
+konsole_key_clear_history_and_reset: 'Meta+L'
+konsole_key_close_session: 'Ctrl+W'
+konsole_key_copy_input_to: ''
+konsole_key_copy_input_to_all_tabs: ''
+konsole_key_copy_input_to_none: ''
+konsole_key_copy_input_to_selected_tabs: ''
+konsole_key_edit_copy: 'Ctrl+C'
+konsole_key_edit_current_profile: ''
+konsole_key_edit_find: 'Ctrl+F'
+konsole_key_edit_find_next: ''
+konsole_key_edit_find_prev: ''
+konsole_key_edit_paste: 'Ctrl+V'
+konsole_key_enlarge_font: ''
+konsole_key_file_print: ''
+konsole_key_file_save_as: ''
+konsole_key_monitor_activity: ''
+konsole_key_monitor_silence: ''
+konsole_key_new_tab: 'Ctrl+T'
+konsole_key_new_window: 'Ctrl+N'
+konsole_key_open_browser: ''
+konsole_key_paste_selection: ''
+konsole_key_rename_session: ''
+konsole_key_select_all: ''
+konsole_key_select_line: 'Ctrl+A'
+konsole_key_send_signal: ''
+konsole_key_set_encoding: ''
+konsole_key_shrink_font: ''
+konsole_key_sigcont_signal: ''
+konsole_key_sighup_signal: ''
+konsole_key_sigint_signal: 'Meta+C'
+konsole_key_sigkill_signal: 'Meta+Z'
+konsole_key_sigstop_signal: ''
+konsole_key_sigterm_signal: ''
+konsole_key_sigusr1_signal: ''
+konsole_key_sigusr2_signal:
+konsole_key_zmodem_upload: ''
+konsole_key_fullscreen: ''
+
+# konsolerc
+konsole_show_app_name_on_titlebar: false
+konsole_show_window_title_on_titlebar: true
+konsole_tab_bar_position: Top
+konsole_tab_bar_visibility: ShowTabBarWhenNeeded
+konsole_menu_bar_enabled: true
+konsole_show_menu_bar_by_default: true

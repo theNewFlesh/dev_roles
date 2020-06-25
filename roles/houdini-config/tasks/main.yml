@@ -1,0 +1,65 @@
+- name: "Ensure {{ _houdini_dir }} exists }}"
+  file:
+    dest: "{{ _houdini_dir }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    state: directory
+  tags:
+    - config
+
+- name: Ensure Houdini OTLS are present
+  copy:
+    src: "{{ houdini_config_otls_dir }}"
+    dest: "{{ _houdini_dir }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  when: houdini_config_otls_dir != ""
+  tags:
+    - config
+
+- name: get files from preferences directory
+  shell: 
+    cmd: "ls {{ houdini_config_preferences_dir }}"
+  register: prefs
+  delegate_to: 127.0.0.1
+
+- name: Ensure Houdini preferences are present
+  copy:
+    src: "{{ houdini_config_preferences_dir }}/{{ item }}"
+    dest: "{{ _houdini_dir }}/{{ item }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  when: houdini_config_preferences_dir != ""
+  with_items: "{{ prefs.stdout_lines }}"
+  tags:
+    - config
+
+- name: Ensure Houdini environment is present
+  copy:
+    src: "{{ houdini_config_environment_file }}"
+    dest: "{{ _houdini_dir }}/houdini.env"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  when: houdini_config_environment_file != ""
+  tags:
+    - config
+
+- name: Ensure Houdini asset_store directory is present
+  copy:
+    src: "{{ houdini_config_asset_store_dir }}"
+    dest: "{{ _houdini_dir }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  when: houdini_config_asset_store_dir != ""
+  tags:
+    - config
+
+- name: Ensure Houdini desktop directory is present
+  copy:
+    src: "{{ houdini_config_desktop_dir }}"
+    dest: "{{ _houdini_dir }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  when: houdini_config_desktop_dir != ""
+  tags:
+    - config

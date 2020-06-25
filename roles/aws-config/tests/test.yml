@@ -1,0 +1,5 @@
+- hosts: dev
+  roles:
+    - role: ../..
+      aws_config_config_file: ./config
+      become: true

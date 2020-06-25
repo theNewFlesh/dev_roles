@@ -1,0 +1,19 @@
+---
+# TODO: delay preferences until all packages are installed
+- include: debian_package_control.yml
+  when: ansible_os_family == "Debian" and sublime_include_packages
+
+- include: debian_preferences.yml
+  when: ansible_os_family == "Debian" and sublime_include_prefs
+
+- include: debian_hotkeys.yml
+  when: ansible_os_family == "Debian" and sublime_include_hotkeys
+
+- include: osx_package_control.yml
+  when: ansible_os_family == "Darwin" and sublime_include_packages
+
+- include: osx_preferences.yml
+  when: ansible_os_family == "Darwin" and sublime_include_prefs
+
+- include: osx_hotkeys.yml
+  when: ansible_os_family == "Darwin" and sublime_include_hotkeys

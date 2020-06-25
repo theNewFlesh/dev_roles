@@ -1,0 +1,31 @@
+- hosts: dev
+  vars:
+    shell_config_tokens:
+      HOMEBREW_GITHUB_API_TOKEN: "aidgskhadsfj28375287456sdfmb"
+    shell_config_paths:
+      PATH: "/opt/anaconda/bin:$PATH"
+      IPYTHONDIR: "{{ ansible_user_dir }}/Documents/projects/dev/ipython"
+      foundry_LICENSE: 1234@100.100.100.100
+      # SPARK_HOME: "/home/parallels/.spark"
+      # PYTHONPATH: "/home/parallels/.spark/python/:$PYTHONPATH"
+    shell_config_aliases:
+      grep: "grep --color=auto"
+      ls: "ls -f"
+      ll: "ls -fhl"
+      tree: "tree -C"
+      dev: "source activate dev"
+      activate: "source activate"
+      deactivate: "source deactivate"
+      kill_python: "ps aux | grep python | grep -v grep | awk '{print $2}' | xargs kill -9"
+      pbcopy: "xclip -i -selection clipboard"
+      # subl: "/Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text"
+      # iterm: "/Applications/iTerm.app/Contents/MacOS/iTerm"
+      # diffork: "/Volumes/Macintosh\ HD/Applications/Utilities/Misc/DiffFork.app/Contents/MacOS/DiffFork"
+    shell_config_extras:
+      - "bindkey '^[[1;3C' forward-word       # alt-right"
+      - "bindkey '^[[1;3D' backward-word      # alt-left"
+      - "bindkey '^[[1;5C' end-of-line        # ctrl-right"
+      - "bindkey '^[[1;5D' beginning-of-line  # ctrl-left"
+  roles:
+    - role: ../..
+      dest: "{{ ansible_user_dir }}/.bashrc"

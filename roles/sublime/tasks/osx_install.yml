@@ -1,0 +1,19 @@
+---
+- name: "OS X | download {{ __tmp_dmg }}"
+  get_url:
+    url: "{{ __url_dmg }}"
+    dest: "{{ __tmp_dmg }}"
+
+- name: "OS X | mount {{ __tmp_dmg }}"
+  command: "hdiutil attach {{ __tmp_dmg }}"
+  args:
+    chdir: /tmp
+
+- name: "OS X | ensure sublimetext is present"
+  copy:
+    src: "{{ __mount }}/Sublime Text.app"
+    dest: "/Applications"
+    mode: "u=rwx,g=rx,o=rx"
+
+- name: "OS X | unmount {{ __tmp_dmg }}"
+  command: "hdiutil detach {{ __mount | regex_replace(' ', '\\ ') }}"

@@ -1,0 +1,23 @@
+- hosts: dev
+  vars:
+    conda_config_dir: /opt/anaconda
+    conda_config_envs_dir: "{{ ansible_user_dir }}/.conda/envs"
+    conda_config_envs:
+      # created with:
+      # conda env export -n test1 -f test_env.yml
+      - test_env.yml
+      - name: test2
+        python: 3.4
+        dependencies:
+        - requests
+        - pip:
+          - boto
+
+  roles:
+    - role: ../..
+      state: absent
+    - role: ../..
+      state: present
+    - role: ../..
+      state: latest
+

@@ -1,0 +1,8 @@
+- hosts: dev
+  roles:
+    - role: ../..
+      houdini_config_asset_store_dir: ./asset_store
+      houdini_config_desktop_dir: ./desktop
+      houdini_config_environment_file: ./houdini.env
+      houdini_config_otls_dir: ./otls
+      houdini_config_preferences_dir: ./prefs

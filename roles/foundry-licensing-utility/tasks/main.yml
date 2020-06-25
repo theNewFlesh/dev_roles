@@ -1,0 +1,19 @@
+- name: ensure libgconf-2-4 is present
+  apt:
+    name: libgconf-2-4
+    state: present
+  become: true
+  tags: install
+
+- name: download Foundry Licensing Utility
+  get_url:
+    url: "https://thefoundry.s3.amazonaws.com/products/licensing/releases/{{ flu_version }}/FoundryLicensingUtility_{{ flu_version }}.deb"
+    dest: "/tmp/FoundryLicensingUtility_{{ flu_version }}.deb"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  tags: install
+
+- name: install Foundry Licensing Utility
+  shell:
+    cmd: "dpkg --install /tmp/FoundryLicensingUtility_{{ flu_version }}.deb"
+  become: true

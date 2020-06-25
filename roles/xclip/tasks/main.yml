@@ -1,0 +1,9 @@
+---
+- name: "Debian | ensure xclip is {{ state }}"
+  apt:
+    name: xclip
+    state: "{{ state }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - install
+    - debian

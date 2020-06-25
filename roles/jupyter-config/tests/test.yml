@@ -1,0 +1,282 @@
+# - hosts: dev
+#   roles:
+#     - role: ../..
+
+- hosts: dev
+  vars:
+    # # jc_notebook_app_ip: 'localhost'
+    jc_notebook_app_cookie_secret: ''
+    jc_notebook_app_default_url: '/tree'
+    jc_notebook_app_port: 8000
+    jc_notebook_app_certfile: ''
+    jc_notebook_app_notebook_dir: ''
+    # jc_notebook_app_cookie_secret_file: "{{ ansible_user_dir }}/.jupyterhub/cookie"
+    jc_notebook_app_ssl_options: {}
+    jc_notebook_app_websocket_url: ''
+    jc_notebook_app_password: ''
+    jc_notebook_app_allow_credentials: False
+    jc_notebook_app_keyfile: ''
+
+    # # hotkeys
+    # jc_key_edit_split_cell_at_cursor: 'alt-ctrl-meta-minus'
+    # jc_key_command_auto_toggle_cell_style: 'shift-s'
+    # jc_key_command_toggle_toolbar: 'alt-ctrl-meta-t'
+    # jc_key_command_undo_cell_deletion: 'meta-z'
+    # jc_key_command_move_cell_up: 'alt-meta-up'
+    # jc_key_command_move_cell_down: 'alt-meta-down'
+
+    # # extensions
+    # jc_nbextension_notify: true
+    # jc_nbextension_init_cell: true
+    # jc_nbextension_spellchecker: true
+    # jc_nbextension_gist_it: true
+    # jc_nbextension_codefolding: true
+    # jc_nbextension_search_replace: true
+    # jc_nbextension_config_menu: true
+    # jc_nbextension_dragdrop: true
+    # jc_nbextension_autosavetime: true
+    # jc_nbextension_splitcell: true
+    # jc_nbextension_chrome_clipboard: true
+    # jc_nbextension_skip_traceback: true
+    # jc_nbextension_keyboard_shortcut_editor: true
+    # jc_nbextension_freeze: true
+    # jc_nbextension_datestamper: true
+
+    jc_key_edit_show_command_palette: 'xxxxxx'
+    jc_key_edit_enter_command_mode: 'xxxxxx'
+    jc_key_edit_run_cell_and_insert_below: 'xxxxxx'
+    jc_key_edit_split_cell_at_cursor: 'xxxxxx'
+    jc_key_edit_save_notebook: 'xxxxxx'
+    jc_key_edit_move_cursor_down: 'xxxxxx'
+    jc_key_edit_move_cursor_up: 'xxxxxx'
+    jc_key_edit_auto_run_initialization_cells: 'xxxxxx'
+    jc_key_edit_auto_toggle_cell_style: 'xxxxxx'
+    jc_key_edit_change_cell_to_code: 'xxxxxx'
+    jc_key_edit_change_cell_to_heading_1: 'xxxxxx'
+    jc_key_edit_change_cell_to_heading_2: 'xxxxxx'
+    jc_key_edit_change_cell_to_heading_3: 'xxxxxx'
+    jc_key_edit_change_cell_to_heading_4: 'xxxxxx'
+    jc_key_edit_change_cell_to_heading_5: 'xxxxxx'
+    jc_key_edit_change_cell_to_heading_6: 'xxxxxx'
+    jc_key_edit_change_cell_to_markdown: 'xxxxxx'
+    jc_key_edit_change_cell_to_raw: 'xxxxxx'
+    jc_key_edit_clear_all_cells_output: 'xxxxxx'
+    jc_key_edit_clear_cell_output: 'xxxxxx'
+    jc_key_edit_close_pager: 'xxxxxx'
+    jc_key_edit_confirm_restart_kernel: 'xxxxxx'
+    jc_key_edit_confirm_restart_kernel_and_clear_output: 'xxxxxx'
+    jc_key_edit_confirm_restart_kernel_and_run_all_cells: 'xxxxxx'
+    jc_key_edit_copy_cell: 'xxxxxx'
+    jc_key_edit_cut_cell: 'xxxxxx'
+    jc_key_edit_delete_cell: 'xxxxxx'
+    jc_key_edit_duplicate_notebook: 'xxxxxx'
+    jc_key_edit_enter_edit_mode: 'xxxxxx'
+    jc_key_edit_extend_selection_above: 'xxxxxx'
+    jc_key_edit_extend_selection_below: 'xxxxxx'
+    jc_key_edit_find_and_replace: 'xxxxxx'
+    jc_key_edit_ignore: 'xxxxxx'
+    jc_key_edit_insert_cell_above: 'xxxxxx'
+    jc_key_edit_insert_cell_below: 'xxxxxx'
+    jc_key_edit_interrupt_kernel: 'xxxxxx'
+    jc_key_edit_merge_cell_with_next_cell: 'xxxxxx'
+    jc_key_edit_merge_cell_with_previous_cell: 'xxxxxx'
+    jc_key_edit_merge_cells: 'xxxxxx'
+    jc_key_edit_merge_selected_cells: 'xxxxxx'
+    jc_key_edit_move_cell_down: 'xxxxxx'
+    jc_key_edit_move_cell_up: 'xxxxxx'
+    jc_key_edit_paste_cell_above: 'xxxxxx'
+    jc_key_edit_paste_cell_below: 'xxxxxx'
+    jc_key_edit_rename_notebook: 'xxxxxx'
+    jc_key_edit_restart_kernel: 'xxxxxx'
+    jc_key_edit_restart_kernel_and_clear_output: 'xxxxxx'
+    jc_key_edit_restart_kernel_and_run_all_cells: 'xxxxxx'
+    jc_key_edit_run_all_cells: 'xxxxxx'
+    jc_key_edit_run_all_cells_above: 'xxxxxx'
+    jc_key_edit_run_all_cells_below: 'xxxxxx'
+    jc_key_edit_run_cell: 'xxxxxx'
+    jc_key_edit_run_cell_and_select_next: 'xxxxxx'
+    jc_key_edit_scroll_cell_center: 'xxxxxx'
+    jc_key_edit_scroll_cell_top: 'xxxxxx'
+    jc_key_edit_scroll_notebook_down: 'xxxxxx'
+    jc_key_edit_scroll_notebook_up: 'xxxxxx'
+    jc_key_edit_select_next_cell: 'xxxxxx'
+    jc_key_edit_select_previous_cell: 'xxxxxx'
+    jc_key_edit_show_keyboard_shortcuts: 'xxxxxx'
+    jc_key_edit_toggle_all_cells_output_collapsed: 'xxxxxx'
+    jc_key_edit_toggle_all_cells_output_scrolled: 'xxxxxx'
+    jc_key_edit_toggle_cell_line_numbers: 'xxxxxx'
+    jc_key_edit_toggle_cell_output_collapsed: 'xxxxxx'
+    jc_key_edit_toggle_cell_output_scrolled: 'xxxxxx'
+    jc_key_edit_toggle_header: 'xxxxxx'
+    jc_key_edit_toggle_toolbar: 'xxxxxx'
+    jc_key_edit_trust_notebook: 'xxxxxx'
+    jc_key_edit_undo_cell_deletion: 'xxxxxx'
+    jc_key_edit_func_1: 'xxxxxx'
+    jc_key_edit_func_2: 'xxxxxx'
+    jc_key_edit_func_3: 'xxxxxx'
+    jc_key_edit_func_4: 'xxxxxx'
+    jc_key_edit_func_5: 'xxxxxx'
+    jc_key_edit_func_6: 'xxxxxx'
+    jc_key_edit_func_7: 'xxxxxx'
+    jc_key_edit_func_8: 'xxxxxx'
+    jc_key_edit_func_9: 'xxxxxx'
+    jc_key_edit_func_10: 'xxxxxx'
+    jc_key_edit_func_11: 'xxxxxx'
+    jc_key_edit_func_12: 'xxxxxx'
+    jc_key_edit_func_13: 'xxxxxx'
+    jc_key_edit_func_14: 'xxxxxx'
+    jc_key_edit_func_15: 'xxxxxx'
+    jc_key_command_auto_scratchpad_toggle: 'xxxxxx'
+    jc_key_command_auto_scratchpad_execute: 'xxxxxx'
+    jc_key_command_show_command_palette: 'xxxxxx'
+    jc_key_command_enter_edit_mode: 'xxxxxx'
+    jc_key_command_run_cell: 'xxxxxx'
+    jc_key_command_run_cell_and_insert_below: 'xxxxxx'
+    jc_key_command_collapse_heading: 'xxxxxx'
+    jc_key_command_uncollapse_heading: 'xxxxxx'
+    jc_key_command_select_heading_section: 'xxxxxx'
+    jc_key_command_change_cell_to_code: 'xxxxxx'
+    jc_key_command_change_cell_to_markdown: 'xxxxxx'
+    jc_key_command_change_cell_to_heading_1: 'xxxxxx'
+    jc_key_command_change_cell_to_heading_2: 'xxxxxx'
+    jc_key_command_change_cell_to_heading_3: 'xxxxxx'
+    jc_key_command_change_cell_to_heading_4: 'xxxxxx'
+    jc_key_command_change_cell_to_heading_6: 'xxxxxx'
+    jc_key_command_select_previous_cell: 'xxxxxx'
+    jc_key_command_select_next_cell: 'xxxxxx'
+    jc_key_command_extend_selection_above: 'xxxxxx'
+    jc_key_command_extend_selection_below: 'xxxxxx'
+    jc_key_command_auto_toggle_cell_style: 'xxxxxx'
+    jc_key_command_insert_cell_above: 'xxxxxx'
+    jc_key_command_cut_cell: 'xxxxxx'
+    jc_key_command_insert_cell_below: 'xxxxxx'
+    jc_key_command_copy_cell: 'xxxxxx'
+    jc_key_command_paste_cell_above: 'xxxxxx'
+    jc_key_command_paste_cell_below: 'xxxxxx'
+    jc_key_command_undo_cell_deletion: 'xxxxxx'
+    jc_key_command_delete_cell: 'xxxxxx'
+    jc_key_command_merge_cells: 'xxxxxx'
+    jc_key_command_save_notebook: 'xxxxxx'
+    jc_key_command_toggle_cell_line_numbers: 'xxxxxx'
+    jc_key_command_toggle_cell_output_collapsed: 'xxxxxx'
+    jc_key_command_change_cell_to_heading_5: 'xxxxxx'
+    jc_key_command_toggle_cell_output_scrolled: 'xxxxxx'
+    jc_key_command_show_keyboard_shortcuts: 'xxxxxx'
+    jc_key_command_interrupt_kernel: 'xxxxxx'
+    jc_key_command_confirm_restart_kernel: 'xxxxxx'
+    jc_key_command_auto_toggle_all_line_numbers: 'xxxxxx'
+    jc_key_command_close_pager: 'xxxxxx'
+    jc_key_command_scroll_notebook_up: 'xxxxxx'
+    jc_key_command_scroll_notebook_down: 'xxxxxx'
+    jc_key_command_auto_run_initialization_cells: 'xxxxxx'
+    jc_key_command_change_cell_to_raw: 'xxxxxx'
+    jc_key_command_clear_all_cells_output: 'xxxxxx'
+    jc_key_command_clear_cell_output: 'xxxxxx'
+    jc_key_command_confirm_restart_kernel_and_clear_output: 'xxxxxx'
+    jc_key_command_confirm_restart_kernel_and_run_all_cells: 'xxxxxx'
+    jc_key_command_duplicate_notebook: 'xxxxxx'
+    jc_key_command_enter_command_mode: 'xxxxxx'
+    jc_key_command_find_and_replace: 'xxxxxx'
+    jc_key_command_ignore: 'xxxxxx'
+    jc_key_command_merge_cell_with_next_cell: 'xxxxxx'
+    jc_key_command_merge_cell_with_previous_cell: 'xxxxxx'
+    jc_key_command_merge_selected_cells: 'xxxxxx'
+    jc_key_command_move_cell_down: 'xxxxxx'
+    jc_key_command_move_cell_up: 'xxxxxx'
+    jc_key_command_move_cursor_down: 'xxxxxx'
+    jc_key_command_move_cursor_up: 'xxxxxx'
+    jc_key_command_rename_notebook: 'xxxxxx'
+    jc_key_command_restart_kernel: 'xxxxxx'
+    jc_key_command_restart_kernel_and_clear_output: 'xxxxxx'
+    jc_key_command_restart_kernel_and_run_all_cells: 'xxxxxx'
+    jc_key_command_run_all_cells: 'xxxxxx'
+    jc_key_command_run_all_cells_above: 'xxxxxx'
+    jc_key_command_run_all_cells_below: 'xxxxxx'
+    jc_key_command_run_cell_and_select_next: 'xxxxxx'
+    jc_key_command_scroll_cell_center: 'xxxxxx'
+    jc_key_command_scroll_cell_top: 'xxxxxx'
+    jc_key_command_split_cell_at_cursor: 'xxxxxx'
+    jc_key_command_toggle_all_cells_output_collapsed: 'xxxxxx'
+    jc_key_command_toggle_all_cells_output_scrolled: 'xxxxxx'
+    jc_key_command_toggle_header: 'xxxxxx'
+    jc_key_command_toggle_toolbar: 'xxxxxx'
+    jc_key_command_trust_notebook: 'xxxxxx'
+    jc_key_command_func_1: 'xxxxxx'
+    jc_key_command_func_2: 'xxxxxx'
+    jc_key_command_func_3: 'xxxxxx'
+    jc_key_command_func_4: 'xxxxxx'
+    jc_key_command_func_5: 'xxxxxx'
+    jc_key_command_func_6: 'xxxxxx'
+    jc_key_command_func_7: 'xxxxxx'
+    jc_key_command_func_8: 'xxxxxx'
+    jc_key_command_func_9: 'xxxxxx'
+    jc_key_command_func_10: 'xxxxxx'
+    jc_key_command_func_11: 'xxxxxx'
+    jc_key_command_func_12: 'xxxxxx'
+    jc_key_command_func_13: 'xxxxxx'
+    jc_key_command_func_14: 'xxxxxx'
+    jc_key_command_func_15: 'xxxxxx'
+    jc_key_command_func_16: 'xxxxxx'
+    jc_key_command_func_17: 'xxxxxx'
+    jc_key_command_func_18: 'xxxxxx'
+    jc_key_command_func_19: 'xxxxxx'
+    jc_key_command_func_20: 'xxxxxx'
+    jc_key_command_func_21: 'xxxxxx'
+    jc_key_command_func_22: 'xxxxxx'
+    jc_key_command_func_23: 'xxxxxx'
+    jc_key_command_func_24: 'xxxxxx'
+    jc_key_command_func_25: 'xxxxxx'
+    jc_key_command_func_26: 'xxxxxx'
+    jc_key_command_func_27: 'xxxxxx'
+    jc_key_command_func_28: 'xxxxxx'
+    jc_key_command_func_29: 'xxxxxx'
+    jc_key_command_func_30: 'xxxxxx'
+
+    # nbextensions
+    jc_nbextension_limit_output: true
+    jc_nbextension_chrome_clipboard: true
+    jc_nbextension_exercise: true
+    jc_nbextension_splitcell: true
+    jc_nbextension_autoscroll: true
+    jc_nbextension_equation_numbering: true
+    jc_nbextension_exercise2: true
+    jc_nbextension_dragdrop: true
+    jc_nbextension_collapsible_headings: true
+    jc_nbextension_keyboard_shortcut_editor: true
+    jc_nbextension_notify: true
+    jc_nbextension_init_cell: true
+    jc_nbextension_latex_envs: true
+    jc_nbextension_runtools: true
+    jc_nbextension_spellchecker: true
+    jc_nbextension_gist_it: true
+    jc_nbextension_code_font_size: true
+    jc_nbextension_highlighter: true
+    jc_nbextension_config_menu: true
+    jc_nbextension_comment_uncomment: true
+    jc_nbextension_comment: true
+    jc_nbextension_rubberband: true
+    jc_nbextension_table_beautifier: true
+    jc_nbextension_python_markdown: true
+    jc_nbextension_printview: true
+    jc_nbextension_ruler: true
+    jc_nbextension_code_folding: true
+    jc_nbextension_move_selected_cells: true
+    jc_nbextension_search_replace: true
+    jc_nbextension_hide_input: true
+    jc_nbextension_autosavetime: true
+    jc_nbextension_qtconsole: true
+    jc_nbextension_toc2: true
+    jc_nbextension_freeze: true
+    jc_nbextension_datestamper: true
+    jc_nbextension_zenmode: true
+    jc_nbextension_navigation_hotkeys: true
+    jc_nbextension_execute_time: true
+    jc_nbextension_toggle_all_line_numbers: true
+    jc_nbextension_hinterland: true
+    jc_nbextension_skip_traceback: true
+    jc_nbextension_help_panel: true
+    jc_nbextension_scratchpad: true
+    jc_nbextension_skill: true
+    jc_nbextension_hide_input_all: true
+  roles:
+    - role: ../..

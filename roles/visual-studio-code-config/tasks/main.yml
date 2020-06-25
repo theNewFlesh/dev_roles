@@ -1,0 +1,46 @@
+---
+- name: "Debian | Install Visual Studio Code extensions"
+  shell: 
+    cmd: "/snap/bin/code --install-extension {{ item }}"
+  with_items: "{{ vscode_config_extensions }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - config
+    - debian
+
+- name: "Debian | Ensure {{ ansible_user_dir }}/.config/Code/User/ exists"
+  file:
+    dest:  "{{ ansible_user_dir }}/.config/Code/User"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    state: directory
+  when: ansible_os_family == "Debian"
+  tags:
+    - config
+    - debian
+
+- name: "Debian | Ensure {{ ansible_user_dir }}/.config/Code/User/settings.json exists"
+  copy:
+    src: "{{ vscode_config_settings_file }}"
+    dest:  "{{ ansible_user_dir }}/.config/Code/User/settings.json"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  when:
+    - vscode_config_settings_file != ""
+    - ansible_os_family == "Debian"
+  tags:
+    - config
+    - debian
+
+- name: "Debian | Ensure {{ ansible_user_dir }}/.config/Code/User/keybindings.json exists"
+  copy:
+    src: "{{ vscode_config_keybindings_file }}"
+    dest:  "{{ ansible_user_dir }}/.config/Code/User/keybindings.json"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  when:
+    - vscode_config_keybindings_file != ""
+    - ansible_os_family == "Debian"
+  tags:
+    - config
+    - debian

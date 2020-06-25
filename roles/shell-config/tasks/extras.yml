@@ -1,0 +1,20 @@
+---
+- name: write extras spacer
+  lineinfile:
+    line: "\n# ---EXTRAS--------------------------------------------------------------------"
+    state: "{{ state }}"
+    dest: "{{ dest }}"
+    # insertafter: EOF
+    create: true
+  tags:
+    - extras
+
+- name: write extras
+  lineinfile:
+    line: "{{ item }}"
+    state: "{{ state }}"
+    dest: "{{ dest }}"
+    # insertafter: EOF
+  with_items: "{{ shell_config_extras }}"
+  tags:
+    - extras

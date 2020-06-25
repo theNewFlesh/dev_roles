@@ -1,0 +1,9 @@
+---
+- name: "Debian | ensure Handbrake is {{ state }}"
+  snap:
+    name: handbrake-jz
+    state: "{{ state }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - install
+    - debian

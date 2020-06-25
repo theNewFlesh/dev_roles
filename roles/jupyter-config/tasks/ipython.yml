@@ -1,0 +1,36 @@
+---
+- name: ensure startup.py is present
+  copy:
+    src: "{{ jc_ipython_startup }}"
+    dest: "{{ jc_ipython_dir }}/profile_default/startup/startup.py"
+  when: jc_ipython_startup != ''
+  tags:
+    - ipython
+    - startup
+    - config
+    - debian
+    - os_x
+
+- name: ensure extensions.ipy is present
+  copy:
+    src: "{{ jc_ipython_extensions }}"
+    dest: "{{ jc_ipython_dir }}/profile_default/startup/extensions.ipy"
+  when: jc_ipython_extensions != ''
+  tags:
+    - ipython
+    - startup
+    - config
+    - debian
+    - os_x
+
+- name: ensure magics.py is present
+  copy:
+    src: "{{ jc_ipython_magics }}"
+    dest: "{{ jc_ipython_dir }}/profile_default/startup/magics.py"
+  when: jc_ipython_magics != ''
+  tags:
+    - ipython
+    - startup
+    - config
+    - debian
+    - os_x

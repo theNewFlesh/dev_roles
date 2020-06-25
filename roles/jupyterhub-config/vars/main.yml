@@ -1,0 +1,7 @@
+---
+_jhc_dir: "{{ jhc_admin_dir }}/.jupyterhub"
+_jhc_cert_data: "/C={{ jhc_country }}/ST={{ jhc_state }}/L={{ jhc_city }}/O={{ jhc_organization }}/CN={{ jhc_admin }}"
+_jhc_ssl_cert: "{{ _jhc_dir }}/jupyterhub.crt"
+_jhc_ssl_key: "{{ _jhc_dir }}/jupyterhub.key"
+_jhc_config: "{{ _jhc_dir }}/config.py"
+_jhc_cookie: "{{ _jhc_dir }}/cookie"

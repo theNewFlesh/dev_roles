@@ -1,0 +1,14 @@
+- hosts: dev
+  tasks:
+    - set_fact:
+        nautilus_actions_config_items:
+          - name: test1
+            exec: touch ~/Desktop/test1.txt
+          - name: test2
+            exec: touch ~/Desktop/test2.txt
+            path: "%d"
+
+- hosts: dev
+  roles:
+    - role: ../..
+

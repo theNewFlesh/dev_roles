@@ -1,0 +1,10 @@
+---
+- name: "Debian | ensure Visual Studio Code is {{ state }}"
+  snap:
+    name: code
+    classic: true
+    state: "{{ state }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - install
+    - debian

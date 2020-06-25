@@ -1,0 +1,9 @@
+---
+- name: "Debian | ensure gnome-tweak-tool is {{ state }}"
+  apt:
+    name: gnome-tweak-tool
+    state: "{{ state }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - install
+    - debian

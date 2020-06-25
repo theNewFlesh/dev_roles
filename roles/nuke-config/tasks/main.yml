@@ -1,0 +1,16 @@
+---
+- name: ensure menu.py is present
+  template:
+    src: ../templates/menu.py.j2
+    dest: "{{ nuke_config_path }}/menu.py"
+
+- name: ensure init.py is present
+  template:
+    src: ../templates/init.py.j2
+    dest: "{{ nuke_config_path }}/init.py"
+
+- name: ensure init directories are present
+  copy:
+    src: "{{ item }}"
+    dest: "{{ nuke_config_path }}"
+  with_items: "{{ nuke_config_items }}"

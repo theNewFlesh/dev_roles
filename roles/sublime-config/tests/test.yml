@@ -1,0 +1,325 @@
+- hosts: dev
+  vars:
+    sublime_packages:
+      - "Package Control"
+      - "Colorsublime"
+      - "Material Theme"
+      - "One Dark Material - Theme"
+      - "Alignment"
+      - "All Autocomplete"
+      - "Babel"
+      - "BinaryPlist"
+      - "ColorPicker"
+      - "Fold Python Docstrings"
+      - "GitGutter"
+      - "Markdown Preview"
+      - "Pretty JSON"
+      - "Python Improved"
+      - "React Templates"
+      - "ReactJS Snippets"
+      - "SublimeCodeIntel"
+      - "JSONLint"
+    sublime_package_control_backup: true
+    sublime_auto_complete_cycle: true
+    # sublime_color_scheme: "Packages/Colorsublime - Themes/Henanigans.tmTheme"
+    # sublime_theme: "Material-Theme-Darker.sublime-theme"
+    sublime_copy_with_empty_selection: false
+    sublime_create_window_at_startup: true
+    sublime_draw_white_space: "selection"
+    sublime_ensure_newline_at_eof_on_save: true
+    sublime_margin: 2
+    sublime_open_files_in_new_window: false
+    sublime_rulers: [80]
+    sublime_scroll_speed: 5.0
+    sublime_shift_tab_unindent: true
+    sublime_tab_size: 4
+    sublime_translate_tabs_to_spaces: true
+    sublime_trim_trailing_white_space_on_save: true
+    sublime_extras:
+      material_theme_compact_sidebar: true
+      material_theme_small_statusbar: true
+      material_theme_small_tab: true
+
+    sublime_exit: "shift+enter"
+    sublime_new_window: "shift+enter"
+    sublime_close_window: "shift+enter"
+    sublime_prompt_open_file: "shift+enter"
+    sublime_reopen_last_file: "shift+enter"
+    sublime_switch_file: "shift+enter"
+    sublime_new_file: "shift+enter"
+    sublime_save: "shift+enter"
+    sublime_prompt_save_as: "shift+enter"
+    sublime_close_file: "shift+enter"
+    sublime_close: "shift+enter"
+    sublime_toggle_side_bar: ["shift+tab", "ctrl+b"]
+    sublime_toggle_full_screen: "shift+enter"
+    sublime_toggle_distraction_free: "shift+enter"
+    sublime_left_delete:
+      - "shift+backspace"
+      - "ctrl+shift+backspace"
+    sublime_right_delete: "shift+enter"
+    sublime_insert_newline:
+      - "shift+enter"
+      - "keypad_enter"
+      - "shift+keypad_enter"
+    sublime_undo: "shift+enter"
+    sublime_redo: "shift+enter"
+    sublime_redo_or_repeat: "shift+enter"
+    sublime_soft_undo: "shift+enter"
+    sublime_soft_redo: "shift+enter"
+    sublime_cut:
+      - "ctrl+x"
+    sublime_copy:
+      - "ctrl+c"
+    sublime_paste:
+      - "ctrl+v"
+    sublime_paste_and_indent: "shift+enter"
+    sublime_paste_from_history: ["shift+tab", "ctrl+v"]
+    sublime_move_char: "shift+enter"
+    sublime_move_forward_char: "shift+enter"
+    sublime_move_line: "shift+enter"
+    sublime_move_forward_line: "shift+enter"
+    sublime_move_ext_char: "shift+enter"
+    sublime_move_forward_ext_char: "shift+enter"
+    sublime_move_ext_line: "shift+enter"
+    sublime_move_forward_ext_line: "shift+enter"
+    sublime_move_word: "shift+enter"
+    sublime_move_forward_wordend: "shift+enter"
+    sublime_move_ext_word: "shift+enter"
+    sublime_move_forward_ext_wordend: "shift+enter"
+    sublime_move_subword: "shift+enter"
+    sublime_move_forward_subwordend: "shift+enter"
+    sublime_move_ext_subword: "shift+enter"
+    sublime_move_forward_ext_subwordend: "shift+enter"
+    sublime_select_lines: "shift+enter"
+    sublime_select_lines_fwd: "shift+enter"
+    sublime_move_page: "shift+enter"
+    sublime_move_forward_page: "shift+enter"
+    sublime_move_ext_page: "shift+enter"
+    sublime_move_forward_ext_page: "shift+enter"
+    sublime_move_to_bol: "shift+enter"
+    sublime_move_to_eol: "shift+enter"
+    sublime_move_to_bol_ext: "shift+enter"
+    sublime_move_to_eol_ext: "shift+enter"
+    sublime_move_to_bof: "shift+enter"
+    sublime_move_to_eof: "shift+enter"
+    sublime_move_to_bof_ext: "shift+enter"
+    sublime_move_to_eof_ext: "shift+enter"
+    sublime_scroll_lines_up: "shift+enter"
+    sublime_scroll_lines_down: "shift+enter"
+    sublime_next_view: "shift+enter"
+    sublime_prev_view: "shift+enter"
+    sublime_next_view_in_stack: "shift+enter"
+    sublime_prev_view_in_stack: "shift+enter"
+    sublime_select_all: "shift+enter"
+    sublime_split_selection_into_lines: "shift+enter"
+    sublime_single_selection: "shift+enter"
+    sublime_clear_next_fields: "shift+enter"
+    sublime_clear_prev_fields: "shift+enter"
+    sublime_hide_panel: "shift+enter"
+    sublime_hide_overlay: "shift+enter"
+    sublime_hide_popup: "shift+enter"
+    sublime_hide_auto_complete: "shift+enter"
+    sublime_insert_best_completion_exact: "shift+enter"
+    sublime_insert_best_completion: "shift+enter"
+    sublime_replace_completion_with_next_completion: "shift+enter"
+    sublime_reindent: "shift+enter"
+    sublime_indent_newline: "shift+enter"
+    sublime_next_field: "shift+enter"
+    sublime_commit_completion_1: "shift+enter"
+    sublime_insert_tab: "shift+enter"
+    sublime_unindent_1: "shift+enter"
+    sublime_unindent_2: "shift+enter"
+    sublime_unindent_3: "shift+enter"
+    sublime_prev_field: "shift+enter"
+    sublime_indent: "shift+enter"
+    sublime_unindent_4: "shift+enter"
+    sublime_toggle_overwrite: "shift+enter"
+    sublime_expand_selection_line: "shift+enter"
+    sublime_find_under_expand: "shift+enter"
+    sublime_find_under_expand_skip: ["shift+tab", "ctrl+d"]
+    sublime_expand_selection_scope: "shift+enter"
+    sublime_expand_selection_brackets: "shift+enter"
+    sublime_move_to: "shift+enter"
+    sublime_expand_selection_indentation: "shift+enter"
+    sublime_expand_selection_tag: "shift+enter"
+    sublime_close_tag_1: "shift+enter"
+    sublime_toggle_record_macro: "shift+enter"
+    sublime_run_macro_1: "shift+enter"
+    sublime_run_macro_file_2: "shift+enter"
+    sublime_run_macro_file_3: "shift+enter"
+    sublime_commit_completion_2: "shift+enter"
+    sublime_show_overlay_goto: "shift+enter"
+    sublime_show_overlay_command: "shift+enter"
+    sublime_prompt_select_workspace: "shift+enter"
+    sublime_show_overlay_goto_1: "shift+enter"
+    sublime_show_overlay_goto2: "shift+enter"
+    sublime_show_overlay_goto_3: "shift+enter"
+    sublime_goto_definition: "shift+enter"
+    sublime_goto_symbol_in_project: "shift+enter"
+    sublime_jump_back:
+      - "alt+keypad_minus"
+    sublime_jump_forward:
+      - "alt+shift+keypad_minus"
+    sublime_show_panel_find_incremental: "shift+enter"
+    sublime_show_panel_find_incremental_reverse: "shift+enter"
+    sublime_show_panel_find: "shift+enter"
+    sublime_show_panel_replace: "shift+enter"
+    sublime_replace_next: "shift+enter"
+    sublime_find_next: "shift+enter"
+    sublime_find_prev_fkey: "shift+enter"
+    sublime_find_under: "shift+enter"
+    sublime_find_under_prev: "shift+enter"
+    sublime_find_all_under: "shift+enter"
+    sublime_slurp_find_string: "shift+enter"
+    sublime_slurp_replace_string: "shift+enter"
+    sublime_find_in_files: "shift+enter"
+    sublime_next_result: "shift+enter"
+    sublime_prev_result: "shift+enter"
+    sublime_toggle_setting: "shift+enter"
+    sublime_next_misspelling: "shift+enter"
+    sublime_prev_misspelling: "shift+enter"
+    sublime_swap_line_up: "shift+enter"
+    sublime_swap_line_down: "shift+enter"
+    sublime_delete_word: "shift+enter"
+    sublime_run_macro_file_4: "shift+enter"
+    sublime_delete_word_fwd: "shift+enter"
+    sublime_run_macro_file_5: "shift+enter"
+    sublime_toggle_comment: "shift+enter"
+    sublime_toggle_comment_block: "shift+enter"
+    sublime_join_lines: "shift+enter"
+    sublime_duplicate_line: "shift+enter"
+    sublime_show_console: "shift+enter"
+    sublime_auto_complete_key: "shift+enter"
+    sublime_replace_completion_with_auto_complete: "shift+enter"
+    sublime_show_scope_name: "shift+enter"
+    sublime_build:
+      - "ctrl+b"
+    sublime_build_selection: "shift+enter"
+    sublime_exec: "shift+enter"
+    sublime_transpose: "shift+enter"
+    sublime_sort_lines: "shift+enter"
+    sublime_sort_lines_case_sensitive: "shift+enter"
+    sublime_insert_snippet_1: "shift+enter"
+    sublime_insert_snippet_2: "shift+enter"
+    sublime_move_forward_char_1: "shift+enter"
+    sublime_run_macro_file_6: "shift+enter"
+    sublime_insert_snippet_3: "shift+enter"
+    sublime_insert_snippet_4: "shift+enter"
+    sublime_move_forward_char_2: "shift+enter"
+    sublime_run_macro_file_7: "shift+enter"
+    sublime_insert_snippet_5: "shift+enter"
+    sublime_insert_snippet_6: "shift+enter"
+    sublime_move_forward_char_3: "shift+enter"
+    sublime_run_macro_file_8: "shift+enter"
+    sublime_insert_snippet_7: "shift+enter"
+    sublime_insert_snippet_8: "shift+enter"
+    sublime_move_forward_char_4: "shift+enter"
+    sublime_run_macro_file_9: "shift+enter"
+    sublime_insert_snippet_9: "shift+enter"
+    sublime_wrap_block: "shift+enter"
+    sublime_insert_snippet_10: "shift+enter"
+    sublime_move_forward_char_5: "shift+enter"
+    sublime_run_macro_file_10: "shift+enter"
+    sublime_run_macro_file_11: "shift+enter"
+    sublime_run_macro_file_12: "shift+enter"
+    sublime_insert_snippet_11: "shift+enter"
+    sublime_insert_snippet_12: "shift+enter"
+    sublime_set_layout_1: "shift+enter"
+    sublime_set_layout_2: "shift+enter"
+    sublime_set_layout_3: "shift+enter"
+    sublime_set_layout_4: "shift+enter"
+    sublime_set_layout_5: "shift+enter"
+    sublime_set_layout_8: "shift+enter"
+    sublime_set_layout_9: "shift+enter"
+    sublime_focus_group_1: "shift+enter"
+    sublime_focus_group_2: "shift+enter"
+    sublime_focus_group_3: "shift+enter"
+    sublime_focus_group_4: "shift+enter"
+    sublime_focus_group_5: "shift+enter"
+    sublime_focus_group_6: "shift+enter"
+    sublime_focus_group_7: "shift+enter"
+    sublime_focus_group_8: "shift+enter"
+    sublime_focus_group_9: "shift+enter"
+    sublime_move_to_group_1: "shift+enter"
+    sublime_move_to_group_2: "shift+enter"
+    sublime_move_to_group_3: "shift+enter"
+    sublime_move_to_group_4: "shift+enter"
+    sublime_move_to_group_5: "shift+enter"
+    sublime_move_to_group_6: "shift+enter"
+    sublime_move_to_group_7: "shift+enter"
+    sublime_move_to_group_8: "shift+enter"
+    sublime_move_to_group_9: "shift+enter"
+    sublime_focus_side_bar: "shift+enter"
+    sublime_new_pane_move: ["shift+tab", "ctrl+up"]
+    sublime_new_pane: ["shift+tab", "ctrl+shift+up"]
+    sublime_close_pane: ["shift+tab", "ctrl+down"]
+    sublime_focus_neighboring_group: ["shift+tab", "ctrl+left"]
+    sublime_focus_neighboring_group_forward: ["shift+tab", "ctrl+right"]
+    sublime_move_to_neighboring_group: ["shift+tab", "ctrl+shift+left"]
+    sublime_move_to_neighboring_group_forward: ["shift+tab", "ctrl+shift+right"]
+    sublime_select_by_index_1: "shift+enter"
+    sublime_select_by_index_2: "shift+enter"
+    sublime_select_by_index_3: "shift+enter"
+    sublime_select_by_index_4: "shift+enter"
+    sublime_select_by_index_5: "shift+enter"
+    sublime_select_by_index_6: "shift+enter"
+    sublime_select_by_index_7: "shift+enter"
+    sublime_select_by_index_8: "shift+enter"
+    sublime_select_by_index_9: "shift+enter"
+    sublime_select_by_index_0: "shift+enter"
+    sublime_next_bookmark: "shift+enter"
+    sublime_prev_bookmark: "shift+enter"
+    sublime_toggle_bookmark: "shift+enter"
+    sublime_clear_bookmarks: "shift+enter"
+    sublime_select_all_bookmarks: "shift+enter"
+    sublime_run_macro_file_13: "shift+enter"
+    sublime_wrap_lines: "shift+enter"
+    sublime_upper_case: ["shift+tab", "ctrl+u"]
+    sublime_lower_case: ["shift+tab", "ctrl+l"]
+    sublime_set_mark: ["shift+tab", "ctrl+space"]
+    sublime_select_to_mark: ["shift+tab", "ctrl+a"]
+    sublime_delete_to_mark: ["shift+tab", "ctrl+w"]
+    sublime_swap_with_mark: ["shift+tab", "ctrl+x"]
+    sublime_yank: ["shift+tab", "ctrl+y"]
+    sublime_run_macro_file_14: ["shift+tab", "ctrl+k"]
+    sublime_run_macro_file_15: ["shift+tab", "ctrl+backspace"]
+    sublime_clear_marked_bookmarks: ["shift+tab", "ctrl+g"]
+    sublime_show_at_center: ["shift+tab", "ctrl+c"]
+    sublime_increase_font_size: ["shift+tab", "ctrl+="]
+    sublime_decrease_font_size: "shift+enter"
+    sublime_insert_snippet_13: "shift+enter"
+    sublime_fold: "shift+enter"
+    sublime_unfold: "shift+enter"
+    sublime_fold_by_level_1: ["shift+tab", "ctrl+1"]
+    sublime_fold_by_level_2: ["shift+tab", "ctrl+2"]
+    sublime_fold_by_level_3: ["shift+tab", "ctrl+3"]
+    sublime_fold_by_level_4: ["shift+tab", "ctrl+4"]
+    sublime_fold_by_level_5: ["shift+tab", "ctrl+5"]
+    sublime_fold_by_level_6: ["shift+tab", "ctrl+6"]
+    sublime_fold_by_level_7: ["shift+tab", "ctrl+7"]
+    sublime_fold_by_level_8: ["shift+tab", "ctrl+8"]
+    sublime_fold_by_level_9: ["shift+tab", "ctrl+9"]
+    sublime_unfold_all:
+      - ["ctrl+k", "ctrl+j"]
+    sublime_fold_tag_attributes: ["shift+tab", "ctrl+t"]
+    sublime_context_menu: "shift+enter"
+    sublime_toggle_case_sensitive: "shift+enter"
+    sublime_toggle_regex: "shift+enter"
+    sublime_toggle_whole_word: "shift+enter"
+    sublime_toggle_preserve_case: "shift+enter"
+    sublime_find_next_focus: "shift+enter"
+    sublime_find_prev: "shift+enter"
+    sublime_find_all: "shift+enter"
+    sublime_replace_next_focus: "shift+enter"
+    sublime_replace_prev: "shift+enter"
+    sublime_find_all_replace: "shift+enter"
+    sublime_replace_all: "shift+enter"
+    sublime_hide_panel_incremental: "shift+enter"
+    sublime_find_prev_incremental: "shift+enter"
+    sublime_find_all_incremental: "shift+enter"
+    sublime_close_tag_2: "shift+enter"
+
+  roles:
+    - role: ../..
+      become: true

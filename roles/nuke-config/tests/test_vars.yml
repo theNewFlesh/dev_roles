@@ -1,0 +1,126 @@
+nuke_config_items:
+  - "{{ _nuke_config_role_path }}/files/gizmos"
+  - "{{ _nuke_config_role_path }}/files/icons"
+  - "{{ _nuke_config_role_path }}/files/python"
+nuke_config_init_paths:
+  - "./gizmos"
+  - "./icons"
+  - "./python"
+  - "{{ ansible_user_dir }}/Documents/projects/3scan-viz/python/viz/resources/nuke/gizmos"
+  - "{{ ansible_user_dir }}/Documents/projects/3scan-viz/python/viz/resources/nuke/icons"
+  - "{{ ansible_user_dir }}/Documents/projects/3scan-viz/python/viz/resources/nuke/python"
+nuke_config_path: "{{ ansible_user_dir }}/Desktop/nuke"
+nuke_config_zync_nuke_repo: "{{ ansible_user_dir }}/Documents/projects/zync-nuke"
+nuke_config_sections:
+  - name: 3SCAN
+    # versions: [ 10 ]
+    python: |
+      import sys
+      import os
+      PATHS = [
+          '{{ ansible_user_dir }}/Documents/projects/3scan-viz/python'
+      ]
+      sys.path.extend(PATHS)
+      os.environ['DCC'] = 'nuke'
+    type: menu
+    menu_name: 3Scan
+    menu_icon: 3scan.png
+    commands:
+    - name: batch_read_geo
+    - name: diff
+    - name: header
+    - name: iplt3d_generator
+    - name: matte_smooth
+    - name: metadata_generator
+    - name: tile_generator
+    - name: tophat
+    - name: voxels_to_pointcloud
+
+  - name: FRAME MEDIAN
+    # versions: [ 10 ]
+    type: menu
+    menu_name: Misc
+    menu_icon: misc.png
+    commands:
+      - name: FrameMedian
+
+  - name: GEOMETRY
+    versions: [ 9 ]
+    python: |
+      nuke.pluginAddPath('./geometry')
+  - name: SEARCH-REPLACE
+    # versions: [ 10 ]
+    python: |
+      import SearchReplacePanel
+      def addSRPanel():
+          myPanel = SearchReplacePanel.SearchReplacePanel()
+          return myPanel.addToPane()
+    type: pane
+    commands:
+      - name: SearchReplace
+        node_name: addSRPanel
+    pane_name: com.ohufx.SearchReplace
+    pane_func: addSRPanel
+
+  - name: SHORTCUT-EDITOR
+    # versions: [ 10 ]
+    python: |
+      try:
+          import shortcuteditor
+          shortcuteditor.nuke_setup()
+      except Exception:
+          import traceback
+          traceback.print_exc()
+
+  - name: VOXEL
+    versions: [ 9 ]
+    type: toolbar
+    menu_name: MatteHue
+    menu_icon: MatteHue.png
+    commands:
+      - name: "Voxel/V_Average"
+        node_name: "V_Average.gizmo"
+        icon: "V_Average.png"
+      - name: "Voxel/V_Erode"
+        node_name: "V_Erode.gizmo"
+        icon: "V_Erode.png"
+      - name: "Voxel/V_Grid"
+        node_name: "V_Grid.gizmo"
+        icon: "V_Grid.png"
+      - name: "Voxel/V_Light Directional"
+        node_name: "V_DirLight.gizmo"
+        icon: "V_DirLight.png"
+      - name: "Voxel/V_Light Environment"
+        node_name: "V_EnvLight.gizmo"
+        icon: "V_EnvLight.png"
+      - name: "Voxel/V_Light Point"
+        node_name: "V_PtLight.gizmo"
+        icon: "V_PtLight.png"
+      - name: "Voxel/V_Noise"
+        node_name: "V_Noise.gizmo"
+        icon: "V_Noise.png"
+      - name: "Voxel/V_Preview"
+        node_name: "V_Preview.gizmo"
+        icon: "V_Preview.png"
+      - name: "Voxel/V_Render"
+        node_name: "V_Render.gizmo"
+        icon: "V_Render.png"
+      - name: "Voxel/V_Shape"
+        node_name: "V_Shape.gizmo"
+        icon: "V_Shape.png"
+      - name: "Voxel/V_Transform"
+        node_name: "V_Transform.gizmo"
+        icon: "V_Transform.png"
+
+  # - name: SILHOUETTE
+  #   versions: [ 10 ]
+  #   python: |
+  #     try:
+  #         from NukeFXSExporter import *
+  #     except:
+  #         pass
+  #     toolbar = nuke.menu("Nodes")
+  #     bvfxt = toolbar.addMenu("BoundaryVFX Tools", "BoundaryVFX.png")
+  #     bvfxt.addCommand('Silhouette FXS exporter', 'silhouetteFxsExporter()', icon='BoundaryVFX.png')
+  #     # Uncomment the code below to enable automatic file saving to a predefined path/file
+  #     # os.environ['FXSEXPORTPATH'] = '/path/to/your/fxsfile.fxs'

@@ -1,0 +1,38 @@
+---
+- name: "Debian | set /usr/share/X11/xkb/symbols/pc key bindings"
+  template:
+    src: ../templates/pc.j2
+    dest: /usr/share/X11/xkb/symbols/pc
+    backup: true
+  become: true
+  when: ansible_os_family == "Debian"
+  tags:
+    - config
+    - debian
+
+- name: "Debian | create /tmp/apply_gsettings_hotkeys.sh"
+  template:
+    src: ../templates/apply_gsettings_hotkeys.sh.j2
+    dest: /tmp/apply_gsettings_hotkeys.sh
+    mode: '0777'
+  when: ansible_os_family == "Debian"
+  tags:
+    - config
+    - debian
+
+- name: "Debian | run /tmp/apply_gsettings_hotkeys.sh"
+  shell:
+    cmd: /tmp/apply_gsettings_hotkeys.sh
+  when: ansible_os_family == "Debian"
+  tags:
+    - config
+    - debian
+
+- name: "Debian | remove /tmp/apply_gsettings_hotkeys.sh"
+  file:
+    dest: /tmp/apply_gsettings_hotkeys.sh
+    state: absent
+  when: ansible_os_family == "Debian"
+  tags:
+    - config
+    - debian

@@ -1,0 +1,5 @@
+---
+- name: "OS X | ensure notebook extensions are {{ state }}"
+  pip:
+    name: https://github.com/ipython-contrib/IPython-notebook-extensions/archive/master.zip
+    state: "{{ state }}"

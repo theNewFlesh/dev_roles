@@ -1,0 +1,87 @@
+default  partial alphanumeric_keys modifier_keys
+xkb_symbols "pc105" {
+
+    key <ESC>  {	[ {{ linux_hotkeys_xkb_pc_esc | to_xkb_hotkeys }} ]	};
+
+    // The extra key on many European keyboards:
+    key <LSGT> {	[ {{ linux_hotkeys_xkb_pc_lsgt | to_xkb_hotkeys }}	] };
+
+    // The following keys are common to all layouts.
+    key <BKSL> {	[ {{ linux_hotkeys_xkb_pc_bksl | to_xkb_hotkeys }}	]	};
+    key <SPCE> {	[ {{ linux_hotkeys_xkb_pc_spce | to_xkb_hotkeys }}	]	};
+
+    include "srvr_ctrl(fkey2vt)"
+    include "pc(editing)"
+    include "keypad(x11)"
+
+    key <BKSP> {	[ {{ linux_hotkeys_xkb_pc_bksp | to_xkb_hotkeys }}	]	};
+
+    key  <TAB> {	[ {{ linux_hotkeys_xkb_pc_tab | to_xkb_hotkeys }}	]	};
+    key <RTRN> {	[ {{ linux_hotkeys_xkb_pc_rtrn | to_xkb_hotkeys }}	]	};
+
+    key <CAPS> {	[ {{ linux_hotkeys_xkb_pc_caps | to_xkb_hotkeys }}	]	};
+    key <NMLK> {	[ {{ linux_hotkeys_xkb_pc_nmlk | to_xkb_hotkeys }}	]	};
+
+    key <LFSH> {	[ {{ linux_hotkeys_xkb_pc_lfsh | to_xkb_hotkeys }}	]	};
+    key <LCTL> {	[ {{ linux_hotkeys_xkb_pc_lctl | to_xkb_hotkeys }}	]	};
+    key <LWIN> {	[ {{ linux_hotkeys_xkb_pc_lwin | to_xkb_hotkeys }}	]	};
+
+    key <RTSH> {	[ {{ linux_hotkeys_xkb_pc_rtsh | to_xkb_hotkeys }}	]	};
+    key <RCTL> {	[ {{ linux_hotkeys_xkb_pc_rctl | to_xkb_hotkeys }}	]	};
+    key <RWIN> {	[ {{ linux_hotkeys_xkb_pc_rwin | to_xkb_hotkeys }}	]	};
+    key <MENU> {	[ {{ linux_hotkeys_xkb_pc_menu | to_xkb_hotkeys }}	]	};
+
+    // Beginning of modifier mappings.
+    modifier_map Shift  { {{ linux_hotkeys_xkb_pc_modifier_map_shift | to_xkb_hotkeys }} };
+    modifier_map Lock   { {{ linux_hotkeys_xkb_pc_modifier_map_lock | to_xkb_hotkeys }} };
+    modifier_map Control{ {{ linux_hotkeys_xkb_pc_modifier_map_control | to_xkb_hotkeys }} };
+    modifier_map Mod2   { {{ linux_hotkeys_xkb_pc_modifier_map_mod2 | to_xkb_hotkeys }} };
+    modifier_map Mod4   { {{ linux_hotkeys_xkb_pc_modifier_map_mod4 | to_xkb_hotkeys }} };
+
+    // Fake keys for virtual<->real modifiers mapping:
+    key <LVL3> {	[ {{ linux_hotkeys_xkb_pc_lvl3 | to_xkb_hotkeys }}	]	};
+    key <MDSW> {	[ {{ linux_hotkeys_xkb_pc_mdsw | to_xkb_hotkeys }}	]	};
+    modifier_map Mod5   { <LVL3>, <MDSW> };
+
+    key <ALT>  {	[ NoSymbol, {{ linux_hotkeys_xkb_pc_alt | to_xkb_hotkeys }}	]	};
+    include "altwin(meta_alt)"
+
+    key <META> {	[ NoSymbol, {{ linux_hotkeys_xkb_pc_meta | to_xkb_hotkeys }}	]	};
+    modifier_map Mod1   { <META> };
+
+    key <SUPR> {	[ NoSymbol, {{ linux_hotkeys_xkb_pc_supr | to_xkb_hotkeys }}	]	};
+    modifier_map Mod4   { <SUPR> };
+
+    key <HYPR> {	[ NoSymbol, {{ linux_hotkeys_xkb_pc_hypr | to_xkb_hotkeys }}	]	};
+    modifier_map Mod4   { <HYPR> };
+    // End of modifier mappings.
+
+    key <OUTP> { [ {{ linux_hotkeys_xkb_pc_outp | to_xkb_hotkeys }} ] };
+    key <KITG> { [ {{ linux_hotkeys_xkb_pc_kitg | to_xkb_hotkeys }} ] };
+    key <KIDN> { [ {{ linux_hotkeys_xkb_pc_kidn | to_xkb_hotkeys }} ] };
+    key <KIUP> { [ {{ linux_hotkeys_xkb_pc_kiup | to_xkb_hotkeys }} ] };
+};
+
+partial hidden alphanumeric_keys
+xkb_symbols "editing" {
+    key <PRSC> {
+	type= "xkb_PC_ALT_LEVEL2",
+	symbols[Group1]= [ Print, Sys_Req ]
+    };
+    key <SCLK> {	[  {{ linux_hotkeys_xkb_pc_sclk | to_xkb_hotkeys }}		]	};
+    key <PAUS> {
+	type= "xkb_PC_CONTROL_LEVEL2",
+	symbols[Group1]= [ Pause, Break ]
+    };
+    key  <INS> {	[  {{ linux_hotkeys_xkb_pc_ins | to_xkb_hotkeys }}		]	};
+    key <HOME> {	[  {{ linux_hotkeys_xkb_pc_home | to_xkb_hotkeys }}		]	};
+    key <PGUP> {	[  {{ linux_hotkeys_xkb_pc_pgup | to_xkb_hotkeys }}		]	};
+    key <DELE> {	[  {{ linux_hotkeys_xkb_pc_dele | to_xkb_hotkeys }}		]	};
+    key  <END> {	[  {{ linux_hotkeys_xkb_pc_end | to_xkb_hotkeys }}		]	};
+    key <PGDN> {	[  {{ linux_hotkeys_xkb_pc_pgdn | to_xkb_hotkeys }}		]	};
+
+    key   <UP> {	[  {{ linux_hotkeys_xkb_pc_up | to_xkb_hotkeys }}		]	};
+    key <LEFT> {	[  {{ linux_hotkeys_xkb_pc_left | to_xkb_hotkeys }}		]	};
+    key <DOWN> {	[  {{ linux_hotkeys_xkb_pc_down | to_xkb_hotkeys }}		]	};
+    key <RGHT> {	[  {{ linux_hotkeys_xkb_pc_rght | to_xkb_hotkeys }}		]	};
+};

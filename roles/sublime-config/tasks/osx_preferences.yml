@@ -1,0 +1,16 @@
+---
+- name: "OS X | ensure user directory is present"
+  file:
+    dest: "{{ ansible_user_dir }}/Library/Application Support/Sublime Text 3/Packages/User"
+    state: directory
+    mode: 0774
+    owner: "{{ sublime_user }}"
+    group: "{{ sublime_user_group }}"
+
+- name: "OS X | configure sublime user settings"
+  template:
+    src: ../templates/Preferences.sublime-settings.j2
+    mode: 0774
+    owner: "{{ sublime_user }}"
+    group: "{{ sublime_user_group }}"
+    dest: "{{ ansible_user_dir }}/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"

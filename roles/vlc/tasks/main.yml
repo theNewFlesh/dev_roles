@@ -1,0 +1,9 @@
+---
+- name: "Debian | ensure VLC is {{ state }}"
+  snap:
+    name: vlc
+    state: "{{ state }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - install
+    - debian

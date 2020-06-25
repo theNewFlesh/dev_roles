@@ -1,0 +1,7 @@
+- hosts: dev
+  roles:
+    - role: ../..
+      gsettings_config_items:
+        - schema: org.gnome.desktop.interface
+          key: clock-show-weekday
+          value: "true"

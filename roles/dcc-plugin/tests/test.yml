@@ -1,0 +1,5 @@
+- hosts: dev-debian
+  pre_tasks:
+    - include_vars: test_vars.yml
+  roles:
+    - role: ../..

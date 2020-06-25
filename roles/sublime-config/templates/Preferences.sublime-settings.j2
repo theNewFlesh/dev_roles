@@ -1,0 +1,616 @@
+// Place your settings in the file "User/Preferences.sublime-settings", which
+// overrides the settings in here.
+//
+// Settings may also be placed in file type specific options files, for
+// example, in Packages/Python/Python.sublime-settings for python files.
+{
+    // Sets the colors used within the text area
+    {% if sublime_color_scheme != 'Packages/Color Scheme - Default/Monokai.tmTheme' %}
+    "color_scheme": "{{ sublime_color_scheme }}",
+    {% endif %}
+
+    // Note that the font_face and font_size are overridden in the platform
+    // specific settings file, for example, "Preferences (Linux).sublime-settings".
+    // Because of this, setting them here will have no effect
+    // in your User File Preferences.
+    {% if sublime_font_face != '' %}
+    "font_face": "{{ sublime_font_face }}",
+    {% endif %}
+    {% if sublime_font_size != 10.0 %}
+    "font_size": {{ sublime_font_size }},
+    {% endif %}
+
+    // Valid options are "no_bold", "no_italic", "no_antialias", "gray_antialias",
+    // "subpixel_antialias", "no_round" (OS X only), "gdi" (Windows only) and
+    // "directwrite" (Windows only)
+    {% if sublime_font_options != [] %}
+    "font_options": ["{{ sublime_font_options|join('", "') }}"],
+    {% endif %}
+
+    // Characters that are considered to separate words
+    {% if sublime_word_separators != "./\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?" %}
+    "word_separators": "{{ sublime_word_separators }}",
+    {% endif %}
+
+    // Set to false to prevent line numbers being drawn in the gutter
+    {% if sublime_line_numbers != true %}
+    "line_numbers": {{ sublime_line_numbers|to_json }},
+    {% endif %}
+
+    // Set to false to hide the gutter altogether
+    {% if sublime_gutter != true %}
+    "gutter": {{ sublime_gutter|to_json }},
+    {% endif %}
+
+    // Spacing between the gutter and the text
+    {% if sublime_margin != 4 %}
+    "margin": {{ sublime_margin }},
+    {% endif %}
+
+    // Fold buttons are the triangles shown in the gutter to fold regions of text
+    {% if sublime_fold_buttons != true %}
+    "fold_buttons": {{ sublime_fold_buttons|to_json }},
+    {% endif %}
+
+    // Hides the fold buttons unless the mouse is over the gutter
+    {% if sublime_fade_fold_buttons != true %}
+    "fade_fold_buttons": {{ sublime_fade_fold_buttons|to_json }},
+    {% endif %}
+
+    // Columns in which to display vertical rulers
+    {% if sublime_rulers != [] %}
+    "rulers": [{{ sublime_rulers|join(', ') }}],
+    {% endif %}
+
+    // Set to true to turn spell checking on by default
+    {% if sublime_spell_check != false %}
+    "spell_check": {{ sublime_spell_check|to_json }},
+    {% endif %}
+
+    // The number of spaces a tab is considered equal to
+    {% if sublime_tab_size != 4 %}
+    "tab_size": {{ sublime_tab_size }},
+    {% endif %}
+
+    // Set to true to insert spaces when tab is pressed
+    {% if sublime_translate_tabs_to_spaces != false %}
+    "translate_tabs_to_spaces": {{ sublime_translate_tabs_to_spaces|to_json }},
+    {% endif %}
+
+    // If translate_tabs_to_spaces is true, use_tab_stops will make tab and
+    // backspace insert/delete up to the next tabstop
+    {% if sublime_use_tab_stops != true %}
+    "use_tab_stops": {{ sublime_use_tab_stops|to_json }},
+    {% endif %}
+
+    // Set to false to disable detection of tabs vs. spaces on load
+    {% if sublime_detect_indentation != true %}
+    "detect_indentation": {{ sublime_detect_indentation|to_json }},
+    {% endif %}
+
+    // Calculates indentation automatically when pressing enter
+    {% if sublime_auto_indent != true %}
+    "auto_indent": {{ sublime_auto_indent|to_json }},
+    {% endif %}
+
+    // Makes auto indent a little smarter, e.g., by indenting the next line
+    // after an if statement in C. Requires auto_indent to be enabled.
+    {% if sublime_smart_indent != true %}
+    "smart_indent": {{ sublime_smart_indent|to_json }},
+    {% endif %}
+
+    // Adds whitespace up to the first open bracket when indenting. Requires
+    // auto_indent to be enabled.
+    {% if sublime_indent_to_bracket != false %}
+    "indent_to_bracket": {{ sublime_indent_to_bracket|to_json }},
+    {% endif %}
+
+    // Trims white space added by auto_indent when moving the caret off the
+    // line.
+    {% if sublime_trim_automatic_white_space != true %}
+    "trim_automatic_white_space": {{ sublime_trim_automatic_white_space|to_json }},
+    {% endif %}
+
+    // Disables horizontal scrolling if enabled.
+    // May be set to true, false, or "auto", where it will be disabled for
+    // source code, and otherwise enabled.
+    {% if sublime_word_wrap != 'auto' %}
+    "word_wrap": "{{ sublime_word_wrap }}",
+    {% endif %}
+
+    // Set to a value other than 0 to force wrapping at that column rather than the
+    // window width
+    {% if sublime_wrap_width != 0 %}
+    "wrap_width": {{ sublime_wrap_width }},
+    {% endif %}
+
+    // Set to false to prevent word wrapped lines from being indented to the same
+    // level
+    {% if sublime_indent_subsequent_lines != true %}
+    "indent_subsequent_lines": {{ sublime_indent_subsequent_lines|to_json }},
+    {% endif %}
+
+    // Draws text centered in the window rather than left aligned
+    {% if sublime_draw_centered != false %}
+    "draw_centered": {{ sublime_draw_centered|to_json }},
+    {% endif %}
+
+    // Controls auto pairing of quotes, brackets etc
+    {% if sublime_auto_match_enabled != true %}
+    "auto_match_enabled": {{ sublime_auto_match_enabled|to_json }},
+    {% endif %}
+
+    // Word list to use for spell checking
+    {% if sublime_dictionary != 'Packages/Language - English/en_US.dic' %}
+    "dictionary": "{{ sublime_dictionary }}",
+    {% endif %}
+
+    // Sets which scopes are checked for spelling errors
+    {% if sublime_spelling_selector != 'markup.raw, source string.quoted - punctuation - meta.preprocessor.c.include, source comment - source comment.block.preprocessor, -(source, constant, keyword, storage, support, variable, markup.underline.link, meta.tag)' %}
+    "spelling_selector": "{{ sublime_spelling_selector }}",
+    {% endif %}
+
+    // Set to true to draw a border around the visible rectangle on the minimap.
+    // The color of the border will be determined by the "minimapBorder" key in
+    // the color scheme
+    {% if sublime_draw_minimap_border != false %}
+    "draw_minimap_border": {{ sublime_draw_minimap_border|to_json }},
+    {% endif %}
+
+    // Always visualise the viewport on the minimap, as opposed to only
+    // showing it on mouse over
+    {% if sublime_always_show_minimap_viewport != false %}
+    "always_show_minimap_viewport": {{ sublime_always_show_minimap_viewport|to_json }},
+    {% endif %}
+
+    // If enabled, will highlight any line with a caret
+    {% if sublime_highlight_line != false %}
+    "highlight_line": {{ sublime_highlight_line|to_json }},
+    {% endif %}
+
+    // Valid values are "smooth", "phase", "blink" and "solid".
+    {% if sublime_caret_style != 'smooth' %}
+    "caret_style": "{{ sublime_caret_style }}",
+    {% endif %}
+
+    // These settings control the size of the caret
+    {% if sublime_caret_extra_top != 0 %}
+    "caret_extra_top": {{ sublime_caret_extra_top }},
+    {% endif %}
+    {% if sublime_caret_extra_bottom != 0 %}
+    "caret_extra_bottom": {{ sublime_caret_extra_bottom }},
+    {% endif %}
+    {% if sublime_caret_extra_width != 0 %}
+    "caret_extra_width": {{ sublime_caret_extra_width }},
+    {% endif %}
+
+    // Set to false to disable underlining the brackets surrounding the caret
+    {% if sublime_match_brackets != true %}
+    "match_brackets": {{ sublime_match_brackets|to_json }},
+    {% endif %}
+
+    // Set to false if you'd rather only highlight the brackets when the caret is
+    // next to one
+    {% if sublime_match_brackets_content != true %}
+    "match_brackets_content": {{ sublime_match_brackets_content|to_json }},
+    {% endif %}
+
+    // Set to false to not highlight square brackets. This only takes effect if
+    // match_brackets is true
+    {% if sublime_match_brackets_square != true %}
+    "match_brackets_square": {{ sublime_match_brackets_square|to_json }},
+    {% endif %}
+
+    // Set to false to not highlight curly brackets. This only takes effect if
+    // match_brackets is true
+    {% if sublime_match_brackets_braces != true %}
+    "match_brackets_braces": {{ sublime_match_brackets_braces|to_json }},
+    {% endif %}
+
+    // Set to false to not highlight angle brackets. This only takes effect if
+    // match_brackets is true
+    {% if sublime_match_brackets_angle != false %}
+    "match_brackets_angle": {{ sublime_match_brackets_angle|to_json }},
+    {% endif %}
+
+    // Enable visualization of the matching tag in HTML and XML
+    {% if sublime_match_tags != true %}
+    "match_tags": {{ sublime_match_tags|to_json }},
+    {% endif %}
+
+    // Highlights other occurrences of the currently selected text
+    {% if sublime_match_selection != true %}
+    "match_selection": {{ sublime_match_selection|to_json }},
+    {% endif %}
+
+    // Additional spacing at the top of each line, in pixels
+    {% if sublime_line_padding_top != 0 %}
+    "line_padding_top": {{ sublime_line_padding_top }},
+    {% endif %}
+
+    // Additional spacing at the bottom of each line, in pixels
+    {% if sublime_line_padding_bottom != 0 %}
+    "line_padding_bottom": {{ sublime_line_padding_bottom }},
+    {% endif %}
+
+    // Set to false to disable scrolling past the end of the buffer.
+    // On OS X, this value is overridden in the platform specific settings, so
+    // you'll need to place this line in your user settings to override it.
+    {% if sublime_scroll_past_end != true %}
+    "scroll_past_end": {{ sublime_scroll_past_end|to_json }},
+    {% endif %}
+
+    // This controls what happens when pressing up or down when on the first
+    // or last line.
+    // On OS X, this value is overridden in the platform specific settings, so
+    // you'll need to place this line in your user settings to override it.
+    {% if sublime_move_to_limit_on_up_down != false %}
+    "move_to_limit_on_up_down": {{ sublime_move_to_limit_on_up_down|to_json }},
+    {% endif %}
+
+    // Set to "none" to turn off drawing white space, "selection" to draw only the
+    // white space within the selection, and "all" to draw all white space
+    {% if sublime_draw_white_space != 'selection' %}
+    "draw_white_space": "{{ sublime_draw_white_space }}",
+    {% endif %}
+
+    // Set to false to turn off the indentation guides.
+    // The color and width of the indent guides may be customized by editing
+    // the corresponding .tmTheme file, and specifying the colors "guide",
+    // "activeGuide" and "stackGuide"
+    {% if sublime_draw_indent_guides != true %}
+    "draw_indent_guides": {{ sublime_draw_indent_guides|to_json }},
+    {% endif %}
+
+    // Controls how the indent guides are drawn, valid options are
+    // "draw_normal" and "draw_active". draw_active will draw the indent
+    // guides containing the caret in a different color.
+    {% if sublime_indent_guide_options != ["draw_normal"] %}
+    "indent_guide_options": ["{{ sublime_indent_guide_options|join('", "') }}"],
+    {% endif %}
+
+    // Set to true to removing trailing white space on save
+    {% if sublime_trim_trailing_white_space_on_save != false %}
+    "trim_trailing_white_space_on_save": {{ sublime_trim_trailing_white_space_on_save|to_json }},
+    {% endif %}
+
+    // Set to true to ensure the last line of the file ends in a newline
+    // character when saving
+    {% if sublime_ensure_newline_at_eof_on_save != false %}
+    "ensure_newline_at_eof_on_save": {{ sublime_ensure_newline_at_eof_on_save|to_json }},
+    {% endif %}
+
+    // Set to true to automatically save files when switching to a different file
+    // or application
+    {% if sublime_save_on_focus_lost != false %}
+    "save_on_focus_lost": {{ sublime_save_on_focus_lost|to_json }},
+    {% endif %}
+
+    // Save via writing to an alternate file, and then renaming it over the
+    // original file.
+    {% if sublime_atomic_save != false %}
+    "atomic_save": {{ sublime_atomic_save|to_json }},
+    {% endif %}
+
+    // The encoding to use when the encoding can't be determined automatically.
+    // ASCII, UTF-8 and UTF-16 encodings will be automatically detected.
+    {% if sublime_fallback_encoding != 'Western (Windows 1252)' %}
+    "fallback_encoding": "{{ sublime_fallback_encoding }}",
+    {% endif %}
+
+    // Encoding used when saving new files, and files opened with an undefined
+    // encoding (e.g., plain ascii files). If a file is opened with a specific
+    // encoding (either detected or given explicitly), this setting will be
+    // ignored, and the file will be saved with the encoding it was opened
+    // with.
+    {% if sublime_default_encoding != 'UTF-8' %}
+    "default_encoding": "{{ sublime_default_encoding }}",
+    {% endif %}
+
+    // Files containing null bytes are opened as hexadecimal by default
+    {% if sublime_enable_hexadecimal_encoding != true %}
+    "enable_hexadecimal_encoding": {{ sublime_enable_hexadecimal_encoding|to_json }},
+    {% endif %}
+
+    // Determines what character(s) are used to terminate each line in new files.
+    // Valid values are 'system' (whatever the OS uses), 'windows' (CRLF) and
+    // 'unix' (LF only).
+    {% if sublime_default_line_ending != 'system' %}
+    "default_line_ending": "{{ sublime_default_line_ending }}",
+    {% endif %}
+
+    // When enabled, hovering over a word will show a popup listing all
+    // possible locations for the definition symbol. Requires index_files.
+    {% if sublime_show_definitions != true %}
+    "show_definitions": {{ sublime_show_definitions|to_json }},
+    {% endif %}
+
+    // When enabled, pressing tab will insert the best matching completion.
+    // When disabled, tab will only trigger snippets or insert a tab.
+    // Shift+tab can be used to insert an explicit tab when tab_completion is
+    // enabled.
+    {% if sublime_tab_completion != true %}
+    "tab_completion": {{ sublime_tab_completion|to_json }},
+    {% endif %}
+
+    // Enable auto complete to be triggered automatically when typing.
+    {% if sublime_auto_complete != true %}
+    "auto_complete": {{ sublime_auto_complete|to_json }},
+    {% endif %}
+
+    // The maximum file size where auto complete will be automatically triggered.
+    {% if sublime_auto_complete_size_limit != 4194304 %}
+    "auto_complete_size_limit": {{ sublime_auto_complete_size_limit }},
+    {% endif %}
+
+    // The delay, in ms, before the auto complete window is shown after typing
+    {% if sublime_auto_complete_delay != 50 %}
+    "auto_complete_delay": {{ sublime_auto_complete_delay }},
+    {% endif %}
+
+    // Controls what scopes auto complete will be triggered in
+    {% if sublime_auto_complete_selector != 'meta.tag - punctuation.definition.tag.begin, source - comment - string.quoted.double.block - string.quoted.single.block - string.unquoted.heredoc' %}
+    "auto_complete_selector": "{{ sublime_auto_complete_selector }}",
+    {% endif %}
+
+    // Additional situations to trigger auto complete
+    {% if sublime_auto_complete_triggers != {'selector': 'text.html', 'characters': '<'} %}
+    "auto_complete_triggers": [{
+        {% for key, val in sublime_auto_complete_triggers.items()[:-1] %}
+        "{{ key }}": "{{ val }}",
+        {% endfor %}
+        {% for key, val in sublime_auto_complete_triggers.items()[-1:] %}
+        "{{ key }}": "{{ val }}"
+        {% endfor %}
+    }],
+    {% endif %}
+
+    // By default, auto complete will commit the current completion on enter.
+    // This setting can be used to make it complete on tab instead.
+    // Completing on tab is generally a superior option, as it removes
+    // ambiguity between committing the completion and inserting a newline.
+    {% if sublime_auto_complete_commit_on_tab != false %}
+    "auto_complete_commit_on_tab": {{ sublime_auto_complete_commit_on_tab|to_json }},
+    {% endif %}
+
+    // Controls if auto complete is shown when snippet fields are active.
+    // Only relevant if auto_complete_commit_on_tab is true.
+    {% if sublime_auto_complete_with_fields != false %}
+    "auto_complete_with_fields": {{ sublime_auto_complete_with_fields|to_json }},
+    {% endif %}
+
+    // Controls what happens when pressing the up key while the first item in
+    // the auto complete window is selected
+    // otherwise the last item in the window is selected. Likewise for the
+    // down key when the last item is selected.
+    {% if sublime_auto_complete_cycle != false %}
+    "auto_complete_cycle": {{ sublime_auto_complete_cycle|to_json }},
+    {% endif %}
+
+    // Automatically close HTML and XML tags when </ is entered.
+    {% if sublime_auto_close_tags != true %}
+    "auto_close_tags": {{ sublime_auto_close_tags|to_json }},
+    {% endif %}
+
+    // By default, shift+tab will only unindent if the selection spans
+    // multiple lines. When pressing shift+tab at other times, it'll insert a
+    // tab character - this allows tabs to be inserted when tab_completion is
+    // enabled. Set this to true to make shift+tab always unindent, instead of
+    // inserting tabs.
+    {% if sublime_shift_tab_unindent != false %}
+    "shift_tab_unindent": {{ sublime_shift_tab_unindent|to_json }},
+    {% endif %}
+
+    // If true, the copy and cut commands will operate on the current line
+    // when the selection is empty, rather than doing nothing.
+    {% if sublime_copy_with_empty_selection != true %}
+    "copy_with_empty_selection": {{ sublime_copy_with_empty_selection|to_json }},
+    {% endif %}
+
+    // If true, the selected text will be copied into the find panel when it's
+    // shown.
+    // On OS X, this value is overridden in the platform specific settings, so
+    // you'll need to place this line in your user settings to override it.
+    {% if sublime_find_selected_text != true %}
+    "find_selected_text": {{ sublime_find_selected_text|to_json }},
+    {% endif %}
+
+    // When auto_find_in_selection is enabled, the "Find in Selection" flag
+    // will be enabled automatically when multiple lines of text are selected
+    {% if sublime_auto_find_in_selection != false %}
+    "auto_find_in_selection": {{ sublime_auto_find_in_selection|to_json }},
+    {% endif %}
+
+    // When drag_text is enabled, clicking on selected text will begin a
+    // drag-drop operation. This is not currently implemented under Linux.
+    {% if sublime_drag_text != true %}
+    "drag_text": {{ sublime_drag_text|to_json }},
+    {% endif %}
+
+    //
+    // User Interface Settings
+    //
+
+    // The theme controls the look of Sublime Text's UI (buttons, tabs, scroll bars, etc)
+    {% if sublime_theme != 'Default.sublime-theme' %}
+    "theme": "{{ sublime_theme }}",
+    {% endif %}
+
+    // Set to 0 to disable smooth scrolling. Set to a value between 0 and 1 to
+    // scroll slower, or set to larger than 1 to scroll faster
+    {% if sublime_scroll_speed != 1.0 %}
+    "scroll_speed": {{ sublime_scroll_speed }},
+    {% endif %}
+
+    // Controls side bar animation when expanding or collapsing folders
+    {% if sublime_tree_animation_enabled != true %}
+    "tree_animation_enabled": {{ sublime_tree_animation_enabled|to_json }},
+    {% endif %}
+
+    // Controls animation throughout the application
+    {% if sublime_animation_enabled != true %}
+    "animation_enabled": {{ sublime_animation_enabled|to_json }},
+    {% endif %}
+
+    // Makes tabs with modified files more visible
+    {% if sublime_highlight_modified_tabs != false %}
+    "highlight_modified_tabs": {{ sublime_highlight_modified_tabs|to_json }},
+    {% endif %}
+
+    {% if sublime_show_tab_close_buttons != true %}
+    "show_tab_close_buttons": {{ sublime_show_tab_close_buttons|to_json }},
+    {% endif %}
+
+    // Show folders in the side bar in bold
+    {% if sublime_bold_folder_labels != false %}
+    "bold_folder_labels": {{ sublime_bold_folder_labels|to_json }},
+    {% endif %}
+
+    // OS X only
+    // Sublime Text must be restarted for this to take effect.
+    {% if sublime_use_simple_full_screen != false %}
+    "use_simple_full_screen": {{ sublime_use_simple_full_screen|to_json }},
+    {% endif %}
+
+    // OS X only. Valid values are true, false, and "auto". Auto will enable
+    // the setting when running on a screen 2560 pixels or wider (i.e., a
+    // Retina display). When this setting is enabled, OpenGL is used to
+    // accelerate drawing. Sublime Text must be restarted for changes to take
+    // effect.
+    {% if sublime_gpu_window_buffer != 'auto' %}
+    "gpu_window_buffer": "{{ sublime_gpu_window_buffer }}",
+    {% endif %}
+
+    // Valid values are "system", "enabled" and "disabled"
+    {% if sublime_overlay_scroll_bars != 'system' %}
+    "overlay_scroll_bars": "{{ sublime_overlay_scroll_bars }}",
+    {% endif %}
+
+    // Allows tabs to scroll left and right, instead of simply shrinking
+    {% if sublime_enable_tab_scrolling != true %}
+    "enable_tab_scrolling": {{ sublime_enable_tab_scrolling|to_json }},
+    {% endif %}
+
+    // Display file encoding in the status bar
+    {% if sublime_show_encoding != false %}
+    "show_encoding": {{ sublime_show_encoding|to_json }},
+    {% endif %}
+
+    // Display line endings in the status bar
+    {% if sublime_show_line_endings != false %}
+    "show_line_endings": {{ sublime_show_line_endings|to_json }},
+    {% endif %}
+
+    //
+    // Application Behavior Settings
+    //
+
+    // Exiting the application with hot_exit enabled will cause it to close
+    // immediately without prompting. Unsaved modifications and open files will
+    // be preserved and restored when next starting.
+    //
+    // Closing a window with an associated project will also close the window
+    // without prompting, preserving unsaved changes in the workspace file
+    // alongside the project.
+    {% if sublime_hot_exit != true %}
+    "hot_exit": {{ sublime_hot_exit|to_json }},
+    {% endif %}
+
+    // remember_full_screen will allow Sublime Text to start in full screen
+    // mode if it was exited in full screen mode. When set to false, Sublime
+    // Text will never start in full screen mode.
+    {% if sublime_remember_full_screen != false %}
+    "remember_full_screen": {{ sublime_remember_full_screen|to_json }},
+    {% endif %}
+
+    // Always prompt before reloading a file, even if the file hasn't been
+    // modified. The default behavior is to automatically reload a file if it
+    // hasn't been edited. If a file has unsaved changes, a prompt will always
+    // be shown.
+    {% if sublime_always_prompt_for_file_reload != false %}
+    "always_prompt_for_file_reload": {{ sublime_always_prompt_for_file_reload|to_json }},
+    {% endif %}
+
+    // OS X only
+    // dock icon, this controls if a new window is created or not.
+    {% if sublime_open_files_in_new_window != true %}
+    "open_files_in_new_window": {{ sublime_open_files_in_new_window|to_json }},
+    {% endif %}
+
+    // OS X only
+    {% if sublime_create_window_at_startup != true %}
+    "create_window_at_startup": {{ sublime_create_window_at_startup|to_json }},
+    {% endif %}
+
+    // Set to true to close windows as soon as the last file is closed, unless
+    // there's a folder open within the window.
+    // On OS X, this value is overridden in the platform specific settings, so
+    // you'll need to place this line in your user settings to override it.
+    {% if sublime_close_windows_when_empty != false %}
+    "close_windows_when_empty": {{ sublime_close_windows_when_empty|to_json }},
+    {% endif %}
+
+    // Show the full path to files in the title bar.
+    // On OS X, this value is overridden in the platform specific settings, so
+    // you'll need to place this line in your user settings to override it.
+    {% if sublime_show_full_path != true %}
+    "show_full_path": {{ sublime_show_full_path|to_json }},
+    {% endif %}
+
+    // Shows the Build Results panel when building. If set to false, the Build
+    // Results can be shown via the Tools/Build Results menu.
+    {% if sublime_show_panel_on_build != true %}
+    "show_panel_on_build": {{ sublime_show_panel_on_build|to_json }},
+    {% endif %}
+
+    // Preview file contents when clicking on a file in the side bar. Double
+    // clicking or editing the preview will open the file and assign it a tab.
+    {% if sublime_preview_on_click != true %}
+    "preview_on_click": {{ sublime_preview_on_click|to_json }},
+    {% endif %}
+
+    // folder_exclude_patterns and file_exclude_patterns control which files
+    // are listed in folders on the side bar. These can also be set on a per-
+    // project basis.
+    {% if sublime_folder_exclude_patterns != [] %}
+    "folder_exclude_patterns": ["{{ sublime_folder_exclude_patterns|join('", "') }}"],
+    {% endif %}
+    {% if sublime_file_exclude_patterns != [] %}
+    "file_exclude_patterns": ["{{ sublime_file_exclude_patterns|join('", "') }}"],
+    {% endif %}
+
+    // These files will still show up in the side bar, but won't be included in
+    // Goto Anything or Find in Files
+    {% if sublime_binary_file_patterns != ["*.jpg", "*.jpeg", "*.png", "*.gif", "*.ttf", "*.tga", "*.dds", "*.ico", "*.eot", "*.pdf", "*.swf", "*.jar", "*.zip"] %}
+    "binary_file_patterns": ["{{ sublime_binary_file_patterns|join('", "') }}"],
+    {% endif %}
+
+    // File indexing parses all files in the side bar, and builds an index of
+    // their symbols. This is required for Goto Definition to work.
+    {% if sublime_index_files != true %}
+    "index_files": {{ sublime_index_files|to_json }},
+    {% endif %}
+
+    // Set the number threads to use for indexing. A value of 0 will make
+    // Sublime Text guess based on the number of cores. Use the index_files
+    // setting to disable all workers.
+    {% if sublime_index_workers != 0 %}
+    "index_workers": {{ sublime_index_workers }},
+    {% endif %}
+
+    // index_exclude_patterns indicate which files won't be indexed.
+    {% if sublime_index_exclude_patterns != ["*.log"] %}
+    "index_exclude_patterns": ["{{ sublime_index_exclude_patterns|join('", "') }}"],
+    {% endif %}
+
+    // Extra arguments
+    {% for key, val in sublime_extras.iteritems() %}
+    "{{ key }}": {{ val|to_json }},
+    {% endfor %}
+
+    // List any packages to ignore here. When removing entries from this list,
+    // a restart may be required if the package contains plugins.
+    {% if sublime_ignored_packages != ["Vintage"] %}
+    "ignored_packages": ["{{ sublime_ignored_packages|join('", "') }}"]
+    {% endif %}
+}

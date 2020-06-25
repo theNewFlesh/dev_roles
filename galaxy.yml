@@ -1,0 +1,21 @@
+namespace: "theNewFlesh"
+name: "ansible-roles"
+version: "1.0.0"
+readme: "README.md"
+authors:
+    - "Alex Braun <alexander.g.braun@gmail.com>"
+dependencies: []
+license:
+    - "MIT"
+tags:
+    - visual-effects
+    - vfx
+    - computer-vision
+    - cv
+    - machine-learning
+    - artificial intelligence
+    - ai
+    - developer
+    - ubuntu
+    - collection
+repository: "https://www.github.com/theNewFlesh/ansible-roles"

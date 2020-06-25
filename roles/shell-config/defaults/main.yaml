@@ -1,0 +1,6 @@
+---
+shell_config_tokens: {}
+shell_config_paths: {}
+shell_config_aliases: {}
+shell_config_extras: []
+state: present

@@ -1,0 +1,54 @@
+{% macro modo_xml(data, indent) -%}
+{##}{% for x in data %}
+{#  #}{% if 'children' in x %}
+{#    #}{{indent}}<{{x['elem']}}{% for k, v in x.items() %}{% if k not in ['elem', 'text', 'children'] %} {{k}}="{{v}}"{% endif %}{% endfor %}>{% if 'text' in x %}{{x['text']}}{% endif %}
+{#    #}{{ "\n" }}{{- modo_xml(x['children'], indent + '  ') -}}
+{#    #}{{indent}}</{{x['elem']}}>
+{#  #}{% else %}
+{#    #}{{indent}}<{{x['elem']}}{% for k, v in x.items() %}{% if k not in ['elem', 'text', 'children'] %} {{k}}="{{v}}"{% endif %}{% endfor %}>{% if 'text' in x %}{{x['text']}}{% endif %}</{{x['elem']}}>
+{#  #}{% endif %}
+{##}{% endfor %}
+{%- endmacro %}
+{##}
+{% macro modo_atom(data, type) -%}
+{##}{% if data != [] %}
+{##}  <atom type="{{ type }}">
+{#  #}{{ modo_xml(data, '    ') }}  </atom>
+{##}{% endif %}
+{%- endmacro %}
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <import>resource:</import>
+  <import>module:Scripts</import>
+  <import>user:Configs</import>
+  <import>configs:</import>
+  <import>user:Scripts</import>
+  <import>scripts:</import>
+  <import>user:Kits</import>
+  <import>userkits:</import>
+  <import>content:Kits</import>
+  <import>kits:</import>
+{% for import in modo_config_imports %}
+  <import>{{ import }}</import>
+{% endfor %}
+
+{{ modo_atom(modo_config_user_values, "UserValues") }}
+{{ modo_atom(modo_config_check_for_updates, "CheckForUpdates") }}
+{{ modo_atom(modo_config_preferences, "Preferences") }}
+{{ modo_atom(modo_config_input_remapping, "InputRemapping") }}
+{{ modo_atom(modo_config_file_system, "FileSystem") }}
+{{ modo_atom(modo_config_game_input_mode_mappings, "GameInputModeMappings") }}
+{{ modo_atom(modo_config_tool_snap_settings, "ToolSnapSettings") }}
+{{ modo_atom(modo_config_color_picker, "ColorPicker") }}
+{{ modo_atom(modo_config_fbx_presets, "FbxPresets") }}
+{{ modo_atom(modo_config_game_presets, "GamePresets") }}
+{{ modo_atom(modo_config_window, "Window") }}
+{{ modo_atom(modo_config_post_usage_stats, "PostUsageStats") }}
+{{ modo_atom(modo_config_dir_browser, "DirBrowser") }}
+{{ modo_atom(modo_config_command_history, "CommandHistory") }}
+{{ modo_atom(modo_config_render_window, "RenderWindow") }}
+{{ modo_atom(modo_config_schematic_global_prefs, "SchematicGlobalPrefs") }}
+{{ modo_atom(modo_config_dir_thumb_browser, "DirThumbBrowser") }}
+{{ modo_atom(modo_config_app_global, "AppGlobal") }}
+{{ modo_atom(modo_config_layout_favorites, "LayoutFavorites") }}
+</configuration>

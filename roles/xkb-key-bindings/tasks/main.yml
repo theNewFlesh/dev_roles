@@ -1,0 +1,26 @@
+---
+- name: set /usr/share/X11/xkb/symbols/pc key bindings
+  template:
+    src: "../templates/pc.j2"
+    dest: "/usr/share/X11/xkb/symbols/pc"
+    backup: true
+
+- name: set /usr/share/X11/xkb/keycodes/evdev key bindings
+  template:
+    src: "../templates/evdev.j2"
+    dest: "/usr/share/X11/xkb/keycodes/evdev"
+    backup: true
+
+- name: remove /var/lib/xkb
+  file:
+    dest: /var/lib/xkb
+    state: absent
+
+- name: create /var/lib/xkb
+  file:
+    dest: /var/lib/xkb
+    state: directory
+
+- name: reboot
+  command: reboot
+  when: "{{ xkb_reboot }} == true"

@@ -1,0 +1,10 @@
+---
+- name: "Debian | ensure aws-cli is {{ state }}"
+  snap:
+    name: aws-cli
+    classic: true
+    state: "{{ state }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - install
+    - debian

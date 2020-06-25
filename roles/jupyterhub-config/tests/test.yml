@@ -1,0 +1,14 @@
+- hosts: dev
+  vars:
+    jhc_notebook_users:
+      - alex
+    jhc_authenticator_admin_users:
+      - jupyter
+      - alex
+    jhc_jupyterhub_port: 443
+    jhc_spawner_notebook_dir: ~/Documents/jupyter/notebooks
+    jhc_admin: "{{ ansible_ssh_user }}"
+    jhc_jupyterhub_spawner_class: sudospawner.SudoSpawner
+  roles:
+    - role: ../..
+      become: true

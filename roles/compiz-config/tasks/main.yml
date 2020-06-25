@@ -1,0 +1,8 @@
+---
+- name: ensure compiz config file is present
+  copy:
+    src: "{{ compiz_config_profile }}"
+    dest: "{{ compiz_config_dir }}/compiz-config.profile"
+
+- name: configure compizconfig-settings-manager
+  command: python -c "import compizconfig; compizconfig.Context().Import('{{ compiz_config_dir }}/compiz-config.profile', True)"

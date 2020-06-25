@@ -1,0 +1,19 @@
+---
+- name: "Debian | ensure conky is {{ state }}"
+  apt:
+    name: conky
+    state: "{{ state }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - debian
+
+- name: "Debian | ensure {{ ansible_user_dir }}/.config/autostart is present"
+  file:
+    dest: "{{ ansible_user_dir }}/.config/autostart"
+    state: directory
+
+- name: "Debian | add conky to startup applications"
+  copy:
+    src: ../files/conky.desktop
+    dest: "{{ ansible_user_dir }}/.config/autostart/conky.desktop"
+  when: state != "absent"

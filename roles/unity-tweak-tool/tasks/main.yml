@@ -1,0 +1,10 @@
+---
+- name: "Ubuntu | ensure unity-tweak-tool is {{ state }}"
+  apt:
+    name: unity-tweak-tool
+    state: "{{ state }}"
+  when: ansible_distribution == "Ubuntu"
+  tags:
+    - install
+    - debian
+    - ubuntu

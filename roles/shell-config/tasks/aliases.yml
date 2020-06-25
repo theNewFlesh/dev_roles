@@ -1,0 +1,20 @@
+---
+- name: write aliases spacer
+  lineinfile:
+    line: "\n# ---ALIASES-------------------------------------------------------------------"
+    state: "{{ state }}"
+    dest: "{{ dest }}"
+    # insertafter: EOF
+    create: true
+  tags:
+    - aliases
+
+- name: write aliases
+  lineinfile:
+    line: "alias {{item.key}}=\"{{item.value}}\""
+    state: "{{ state }}"
+    dest: "{{ dest }}"
+    # insertafter: EOF
+  with_dict: "{{ shell_config_aliases }}"
+  tags:
+    - aliases

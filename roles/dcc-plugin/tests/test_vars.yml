@@ -1,0 +1,15 @@
+dcc_plugin_path: "{{ ansible_user_dir }}/.luxology/Kits/viz"
+# dcc_plugin_env: "{{ ansible_user_dir }}/miniconda/envs/viz-prod-2.7"
+dcc_plugin_subpackages:
+  - "/Users/alex/Documents/projects/3scan-viz/python/viz/core"
+  - "/Users/alex/Documents/projects/3scan-viz/python/viz/modo_tools"
+  - "/Users/alex/Documents/projects/3scan-viz/interogrador/commander"
+  - "/Users/alex/Documents/projects/3scan-viz/interogrador/Configs"
+  - "/Users/alex/Documents/projects/3scan-viz/interogrador/lxserv"
+  - "/Users/alex/Documents/projects/3scan-viz/interogrador/index.cfg"
+dcc_plugin_sys_paths:
+  - "{{ ansible_user_dir }}/miniconda/envs/viz-prod-2.7/lib/python2.7"
+  - "{{ ansible_user_dir }}/miniconda/envs/viz-prod-2.7/lib/python2.7/site-packages"
+dcc_plugin_imports:
+  - core
+  - modo_tools

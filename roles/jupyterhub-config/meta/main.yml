@@ -1,0 +1,32 @@
+---
+dependencies: []
+  # - role: jenkstom.jupyterhub
+  #   become: true
+  #   become_user: root
+
+galaxy_info:
+  author: theNewFlesh
+  description: configure jupyterhub
+  license: MIT
+  min_ansible_version: 2.0.0
+  platforms:
+  - name: Debian
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+  - name: MacOSX
+    versions:
+    - all
+  - name: Darwin
+    versions:
+    - all
+  galaxy_tags:
+    - development
+    - system
+    - jupyter
+    - jupyterhub
+    - ipython
+    - anaconda
+    - conda

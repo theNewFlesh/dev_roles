@@ -1,0 +1,2 @@
+---
+_nuke_config_role_path: "{{ ansible_env['PWD'] }}"

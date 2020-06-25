@@ -1,0 +1,16 @@
+---
+- name: "check for conda environment presence | {{ item.__name }}"
+  stat:
+    path: "{{ conda_config_envs_dir }}/{{ item.__name }}"
+  register: env
+
+- include: remove.yml
+  when: env.stat.exists
+
+- name: "create conda environment | {{ item.__name }}"
+  shell: "{{ __conda }} create -q -y -n {{ item.__name }} python={{ item.__python | default(2.7) }} {{ item.__pkgs }}"
+  args:
+    creates: "{{ conda_config_envs_dir }}/{{ item.__name }}"
+
+- include: pip-install.yml
+  when: "{{ item.__pip_pkgs|length > 0 }}"

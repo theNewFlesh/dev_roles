@@ -1,0 +1,49 @@
+modo_config_install_template: true
+modo_config_install_configs: true
+modo_config_install_kits: true
+modo_config_install_scripts: true
+modo_config_remove_session: true
+modo_config_config_files:
+  - /Users/alex/Documents/modo/alex.cfg
+modo_config_kits:
+  - /Users/alex/Documents/projects/3scan-viz/interogrador
+modo_config_scripts:
+  - /Users/alex/Documents/modo/Verts2Joints.pl
+
+_modo_config_osx_path: /Users/alex/Desktop/configs
+_modo_config_osx_session: "/Users/alex/Desktop/configs/com.luxology.modo{{ modo_config_version }}"
+modo_config_version: "10.2"
+modo_config_user_values:
+  - elem: hash
+    type: RawValue
+    key: modo_showcase_show_palette
+    text: false
+
+modo_config_color_picker:
+  - elem: atom
+    type: CurrentColorModel
+    text: HSV
+
+modo_config_file_system:
+  - elem: hash
+    type: Directory
+    key: scene:in
+    text: /media/alex/data/projects/test001
+  - elem: list
+    type: Recent
+    text: /media/alex/data/projects/test001/modo/test001_pipeline_step-004-branch.lxo
+
+modo_config_game_input_mode_mappings:
+  - elem: hash
+    type: Preset
+    key: default
+    children:
+      - elem: hash
+        type: Mapping
+        key: MoveForward:w
+        text: 0
+
+      - elem: hash
+        type: Mapping
+        key: MoveBackward:s
+        text: 0

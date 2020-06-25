@@ -1,0 +1,8 @@
+---
+- name: "update conda environment | {{ item.__name }}"
+  shell: "{{ __conda }} update -q -y -n {{ item.__name }} {{ item.__update_pkgs }}"
+  when: conda_config_update_all == false
+
+- name: "update all conda environment | {{ item.__name }}"
+  shell: "{{ __conda }} update -q -y --all -n {{ item.__name }}"
+  when: conda_config_update_all == true

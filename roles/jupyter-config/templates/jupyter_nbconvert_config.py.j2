@@ -1,0 +1,1450 @@
+# Configuration file for ipython-nbconvert.
+
+c = get_config()
+
+#------------------------------------------------------------------------------
+# NbConvertApp configuration
+#------------------------------------------------------------------------------
+
+# This application is used to convert notebook files (*.ipynb) to various other
+# formats.
+#
+# WARNING: THE COMMANDLINE INTERFACE MAY CHANGE IN FUTURE RELEASES.
+
+# NbConvertApp will inherit config from: BaseIPythonApplication, Application
+
+# The IPython profile to use.
+{% if jc_nb_convert_app_profile != '' %}
+c.NbConvertApp.profile = u'{{ jc_nb_convert_app_profile }}'
+{% endif %}
+
+# The export format to be used.
+{% if jc_nb_convert_app_export_format != 'html' %}
+c.NbConvertApp.export_format = '{{ jc_nb_convert_app_export_format }}'
+{% endif %}
+
+# List of notebooks to convert. Wildcards are supported. Filenames passed
+# positionally will be added to the list.
+{% if jc_nb_convert_app_notebooks != [] %}
+c.NbConvertApp.notebooks = ['{{ jc_nb_convert_app_notebooks|join("', '") }}']
+{% endif %}
+
+# PostProcessor class used to write the  results of the conversion
+{% if jc_nb_convert_app_postprocessor_class != '' %}
+c.NbConvertApp.postprocessor_class = u'{{ jc_nb_convert_app_postprocessor_class }}'
+{% endif %}
+
+# Writer class used to write the  results of the conversion
+{% if jc_nb_convert_app_writer_class != 'FilesWriter' %}
+c.NbConvertApp.writer_class = '{{ jc_nb_convert_app_writer_class }}'
+{% endif %}
+
+# Set the log level by value or name.
+{% if jc_nb_convert_app_log_level != 30 %}
+c.NbConvertApp.log_level = {{ jc_nb_convert_app_log_level }}
+{% endif %}
+
+# Path to an extra config file to load.
+#
+# If specified, load this config file in addition to any other IPython config.
+{% if jc_nb_convert_app_extra_config_file != '' %}
+c.NbConvertApp.extra_config_file = u'{{ jc_nb_convert_app_extra_config_file }}'
+{% endif %}
+
+# Whether to create profile dir if it doesn't exist
+{% if jc_nb_convert_app_auto_create != False %}
+c.NbConvertApp.auto_create = {{ jc_nb_convert_app_auto_create }}
+{% endif %}
+
+# overwrite base name use for output files. can only be used when converting one
+# notebook at a time.
+{% if jc_nb_convert_app_output_base != '' %}
+c.NbConvertApp.output_base = '{{ jc_nb_convert_app_output_base }}'
+{% endif %}
+
+# The name of the IPython directory. This directory is used for logging
+# configuration (through profiles), history storage, etc. The default is usually
+# $HOME/.ipython. This option can also be specified through the environment
+# variable IPYTHONDIR.
+{% if jc_ipython_dir != '' %}
+c.NbConvertApp.ipython_dir = u'{{ jc_ipython_dir }}'
+{% endif %}
+
+# Whether to install the default config files into the profile dir. If a new
+# profile is being created, and IPython contains config files for that profile,
+# then they will be staged into the new directory.  Otherwise, default config
+# files will be automatically generated.
+{% if jc_nb_convert_app_copy_config_files != False %}
+c.NbConvertApp.copy_config_files = {{ jc_nb_convert_app_copy_config_files }}
+{% endif %}
+
+# The date format used by logging formatters for %(asctime)s
+{% if jc_nb_convert_app_log_datefmt != '%Y-%m-%d %H:%M:%S' %}
+c.NbConvertApp.log_datefmt = '{{ jc_nb_convert_app_log_datefmt }}'
+{% endif %}
+
+# The Logging format template
+{% if jc_nb_convert_app_log_format != '[%(name)s]%(highlevel)s %(message)s' %}
+c.NbConvertApp.log_format = '{{ jc_nb_convert_app_log_format }}'
+{% endif %}
+
+# Create a massive crash report when IPython encounters what may be an internal
+# error.  The default is to append a short message to the usual traceback
+{% if jc_nb_convert_app_verbose_crash != False %}
+c.NbConvertApp.verbose_crash = {{ jc_nb_convert_app_verbose_crash }}
+{% endif %}
+
+# Whether to apply a suffix prior to the extension (only relevant when
+# converting to notebook format). The suffix is determined by the exporter, and
+# is usually '.nbconvert'.
+{% if jc_nb_convert_app_use_output_suffix != True %}
+c.NbConvertApp.use_output_suffix = {{ jc_nb_convert_app_use_output_suffix }}
+{% endif %}
+
+# Whether to overwrite existing config files when copying
+{% if jc_nb_convert_app_overwrite != False %}
+c.NbConvertApp.overwrite = {{ jc_nb_convert_app_overwrite }}
+{% endif %}
+
+#------------------------------------------------------------------------------
+# NbConvertBase configuration
+#------------------------------------------------------------------------------
+
+# Global configurable class for shared config
+#
+# Useful for display data priority that might be use by many transformers
+
+# An ordered list of preferred output type, the first encountered will usually
+# be used when converting discarding the others.
+{% if jc_nb_convert_base_display_data_priority != ['text/html', 'application/pdf', 'text/latex', 'image/svg+xml', 'image/png', 'image/jpeg', 'text/plain'] %}
+c.NbConvertBase.display_data_priority = ['{{ jc_nb_convert_base_display_data_priority|join("', '") }}']
+{% endif %}
+
+# DEPRECATED default highlight language, please use language_info metadata
+# instead
+{% if jc_nb_convert_base_default_language != 'ipython' %}
+c.NbConvertBase.default_language = '{{ jc_nb_convert_base_default_language }}'
+{% endif %}
+
+#------------------------------------------------------------------------------
+# ProfileDir configuration
+#------------------------------------------------------------------------------
+
+# An object to manage the profile directory and its resources.
+#
+# The profile directory is used by all IPython applications, to manage
+# configuration, logging and security.
+#
+# This object knows how to find, create and manage these directories. This
+# should be used by any code that wants to handle profiles.
+
+# Set the profile location directly. This overrides the logic used by the
+# `profile` option.
+{% if jc_nbprofile_dir_location != '' %}
+c.ProfileDir.location = u'{{ jc_nbprofile_dir_location }}'
+{% endif %}
+
+#------------------------------------------------------------------------------
+# Exporter configuration
+#------------------------------------------------------------------------------
+
+# Class containing methods that sequentially run a list of preprocessors on a
+# NotebookNode object and then return the modified NotebookNode object and
+# accompanying resources dict.
+
+# Extension of the file that should be written to disk
+{% if jc_exporter_file_extension != '.txt' %}
+c.Exporter.file_extension = '{{ jc_exporter_file_extension }}'
+{% endif %}
+
+# List of preprocessors, by name or namespace, to enable.
+{% if jc_exporter_preprocessors != [] %}
+c.Exporter.preprocessors = ['{{ jc_exporter_preprocessors|join("', '") }}']
+{% endif %}
+
+# List of preprocessors available by default, by name, namespace,  instance, or
+# type.
+{% if jc_exporter_default_preprocessors != ['nbconvert.preprocessors.coalesce_streams', 'nbconvert.preprocessors.SVG2PDFPreprocessor', 'nbconvert.preprocessors.ExtractOutputPreprocessor', 'nbconvert.preprocessors.CSSHTMLHeaderPreprocessor', 'nbconvert.preprocessors.RevealHelpPreprocessor', 'nbconvert.preprocessors.LatexPreprocessor', 'nbconvert.preprocessors.ClearOutputPreprocessor', 'nbconvert.preprocessors.ExecutePreprocessor', 'nbconvert.preprocessors.HighlightMagicsPreprocessor'] %}
+c.Exporter.default_preprocessors = ['{{ jc_exporter_default_preprocessors|join("', '") }}']
+{% endif %}
+
+#------------------------------------------------------------------------------
+# HTMLExporter configuration
+#------------------------------------------------------------------------------
+
+# Exports a basic HTML document.  This exporter assists with the export of HTML.
+# Inherit from it if you are writing your own HTML template and need custom
+# preprocessors/filters.  If you don't need custom preprocessors/ filters, just
+# change the 'template_file' config option.
+
+# HTMLExporter will inherit config from: TemplateExporter, Exporter
+
+#
+{% if jc_html_exporter_jinja_variable_block_start != '' %}
+c.HTMLExporter.jinja_variable_block_start = '{{ jc_html_exporter_jinja_variable_block_start }}'
+{% endif %}
+
+#
+{% if jc_html_exporter_jinja_variable_block_end != '' %}
+c.HTMLExporter.jinja_variable_block_end = '{{ jc_html_exporter_jinja_variable_block_end }}'
+{% endif %}
+
+# formats of raw cells to be included in this Exporter's output.
+{% if jc_html_exporter_raw_mimetypes != [] %}
+c.HTMLExporter.raw_mimetypes = ['{{ jc_html_exporter_raw_mimetypes|join("', '") }}']
+{% endif %}
+
+# Name of the template file to use
+{% if jc_html_exporter_template_file != 'default' %}
+c.HTMLExporter.template_file = u'{{ jc_html_exporter_template_file }}'
+{% endif %}
+
+# List of preprocessors available by default, by name, namespace,  instance, or
+# type.
+{% if jc_html_exporter_default_preprocessors != ['nbconvert.preprocessors.coalesce_streams', 'nbconvert.preprocessors.SVG2PDFPreprocessor', 'nbconvert.preprocessors.ExtractOutputPreprocessor', 'nbconvert.preprocessors.CSSHTMLHeaderPreprocessor', 'nbconvert.preprocessors.RevealHelpPreprocessor', 'nbconvert.preprocessors.LatexPreprocessor', 'nbconvert.preprocessors.ClearOutputPreprocessor', 'nbconvert.preprocessors.ExecutePreprocessor', 'nbconvert.preprocessors.HighlightMagicsPreprocessor'] %}
+c.HTMLExporter.default_preprocessors = ['{{ jc_html_exporter_default_preprocessors|join("', '") }}']
+{% endif %}
+
+#
+{% if jc_html_exporter_template_path != ['.'] %}
+c.HTMLExporter.template_path = ['{{ jc_html_exporter_template_path|join("', '") }}']
+{% endif %}
+
+# Extension of the file that should be written to disk
+{% if jc_html_exporter_file_extension != '.txt' %}
+c.HTMLExporter.file_extension = '{{ jc_html_exporter_file_extension }}'
+{% endif %}
+
+#
+{% if jc_html_exporter_jinja_comment_block_end != '' %}
+c.HTMLExporter.jinja_comment_block_end = '{{ jc_html_exporter_jinja_comment_block_end }}'
+{% endif %}
+
+# Dictionary of filters, by name and namespace, to add to the Jinja environment.
+{% if jc_html_exporter_filters != {} %}
+c.HTMLExporter.filters = {
+  {% for key, val in jc_html_exporter_filters.items()[:-1] %}
+    '{{ key }}': '{{ val }}',
+  {% endfor %}
+  {% for key, val in jc_html_exporter_filters.items()[-1:] %}
+    '{{ key }}': '{{ val }}'
+  {% endfor %}
+}
+{% endif %}
+
+#
+{% if jc_html_exporter_jinja_comment_block_start != '' %}
+c.HTMLExporter.jinja_comment_block_start = '{{ jc_html_exporter_jinja_comment_block_start }}'
+{% endif %}
+
+#
+{% if jc_html_exporter_jinja_logic_block_end != '' %}
+c.HTMLExporter.jinja_logic_block_end = '{{ jc_html_exporter_jinja_logic_block_end }}'
+{% endif %}
+
+#
+{% if jc_html_exporter_jinja_logic_block_start != '' %}
+c.HTMLExporter.jinja_logic_block_start = '{{ jc_html_exporter_jinja_logic_block_start }}'
+{% endif %}
+
+#
+{% if jc_html_exporter_template_extension != '.tpl' %}
+c.HTMLExporter.template_extension = '{{ jc_html_exporter_template_extension }}'
+{% endif %}
+
+# List of preprocessors, by name or namespace, to enable.
+{% if jc_html_exporter_preprocessors != [] %}
+c.HTMLExporter.preprocessors = ['{{ jc_html_exporter_preprocessors|join("', '") }}']
+{% endif %}
+
+#------------------------------------------------------------------------------
+# LatexExporter configuration
+#------------------------------------------------------------------------------
+
+# Exports to a Latex template.  Inherit from this class if your template is
+# LaTeX based and you need custom tranformers/filters.  Inherit from it if  you
+# are writing your own HTML template and need custom tranformers/filters.   If
+# you don't need custom tranformers/filters, just change the  'template_file'
+# config option.  Place your template in the special "/latex"  subfolder of the
+# "../templates" folder.
+
+# LatexExporter will inherit config from: TemplateExporter, Exporter
+
+#
+{% if jc_latex_exporter_jinja_variable_block_start != '(((' %}
+c.LatexExporter.jinja_variable_block_start = '{{ jc_latex_exporter_jinja_variable_block_start }}'
+{% endif %}
+
+#
+{% if jc_latex_exporter_jinja_variable_block_end != ')))' %}
+c.LatexExporter.jinja_variable_block_end = '{{ jc_latex_exporter_jinja_variable_block_end }}'
+{% endif %}
+
+# formats of raw cells to be included in this Exporter's output.
+{% if jc_latex_exporter_raw_mimetypes != [] %}
+c.LatexExporter.raw_mimetypes = ['{{ jc_latex_exporter_raw_mimetypes|join("', '") }}']
+{% endif %}
+
+# Name of the template file to use
+{% if jc_latex_exporter_template_file != 'default' %}
+c.LatexExporter.template_file = u'{{ jc_latex_exporter_template_file }}'
+{% endif %}
+
+# List of preprocessors available by default, by name, namespace,  instance, or
+# type.
+{% if jc_latex_exporter_default_preprocessors != ['nbconvert.preprocessors.coalesce_streams', 'nbconvert.preprocessors.SVG2PDFPreprocessor', 'nbconvert.preprocessors.ExtractOutputPreprocessor', 'nbconvert.preprocessors.CSSHTMLHeaderPreprocessor', 'nbconvert.preprocessors.RevealHelpPreprocessor', 'nbconvert.preprocessors.LatexPreprocessor', 'nbconvert.preprocessors.ClearOutputPreprocessor', 'nbconvert.preprocessors.ExecutePreprocessor', 'nbconvert.preprocessors.HighlightMagicsPreprocessor'] %}
+c.LatexExporter.default_preprocessors = ['{{ jc_latex_exporter_default_preprocessors|join("', '") }}']
+{% endif %}
+
+#
+{% if jc_latex_exporter_template_path != ['.'] %}
+c.LatexExporter.template_path = ['{{ jc_latex_exporter_template_path|join("', '") }}']
+{% endif %}
+
+# Extension of the file that should be written to disk
+{% if jc_latex_exporter_file_extension != '.txt' %}
+c.LatexExporter.file_extension = '{{ jc_latex_exporter_file_extension }}'
+{% endif %}
+
+#
+{% if jc_latex_exporter_jinja_comment_block_end != '=))' %}
+c.LatexExporter.jinja_comment_block_end = '{{ jc_latex_exporter_jinja_comment_block_end }}'
+{% endif %}
+
+# Dictionary of filters, by name and namespace, to add to the Jinja environment.
+{% if jc_latex_exporter_filters != {} %}
+c.LatexExporter.filters = {
+  {% for key, val in jc_latex_exporter_filters.items()[:-1] %}
+    '{{ key }}': '{{ val }}',
+  {% endfor %}
+  {% for key, val in jc_latex_exporter_filters.items()[-1:] %}
+    '{{ key }}': '{{ val }}'
+  {% endfor %}
+}
+{% endif %}
+
+#
+{% if jc_latex_exporter_jinja_comment_block_start != '((=' %}
+c.LatexExporter.jinja_comment_block_start = '{{ jc_latex_exporter_jinja_comment_block_start }}'
+{% endif %}
+
+#
+{% if jc_latex_exporter_jinja_logic_block_end != '*))' %}
+c.LatexExporter.jinja_logic_block_end = '{{ jc_latex_exporter_jinja_logic_block_end }}'
+{% endif %}
+
+#
+{% if jc_latex_exporter_jinja_logic_block_start != '((*' %}
+c.LatexExporter.jinja_logic_block_start = '{{ jc_latex_exporter_jinja_logic_block_start }}'
+{% endif %}
+
+#
+{% if jc_latex_exporter_template_extension != '.tplx' %}
+c.LatexExporter.template_extension = '{{ jc_latex_exporter_template_extension }}'
+{% endif %}
+
+# List of preprocessors, by name or namespace, to enable.
+{% if jc_latex_exporter_preprocessors != [] %}
+c.LatexExporter.preprocessors = ['{{ jc_latex_exporter_preprocessors|join("', '") }}']
+{% endif %}
+
+#------------------------------------------------------------------------------
+# MarkdownExporter configuration
+#------------------------------------------------------------------------------
+
+# Exports to a markdown document (.md)
+
+# MarkdownExporter will inherit config from: TemplateExporter, Exporter
+
+#
+{% if jc_markdown_exporter_jinja_variable_block_start != '' %}
+c.MarkdownExporter.jinja_variable_block_start = '{{ jc_markdown_exporter_jinja_variable_block_start }}'
+{% endif %}
+
+#
+{% if jc_markdown_exporter_jinja_variable_block_end != '' %}
+c.MarkdownExporter.jinja_variable_block_end = '{{ jc_markdown_exporter_jinja_variable_block_end }}'
+{% endif %}
+
+# formats of raw cells to be included in this Exporter's output.
+{% if jc_markdown_exporter_raw_mimetypes != [] %}
+c.MarkdownExporter.raw_mimetypes = ['{{ jc_markdown_exporter_raw_mimetypes|join("', '") }}']
+{% endif %}
+
+# Name of the template file to use
+{% if jc_markdown_exporter_template_file != 'default' %}
+c.MarkdownExporter.template_file = u'{{ jc_markdown_exporter_template_file }}'
+{% endif %}
+
+# List of preprocessors available by default, by name, namespace,  instance, or
+# type.
+{% if jc_markdown_exporter_default_preprocessors != ['nbconvert.preprocessors.coalesce_streams', 'nbconvert.preprocessors.SVG2PDFPreprocessor', 'nbconvert.preprocessors.ExtractOutputPreprocessor', 'nbconvert.preprocessors.CSSHTMLHeaderPreprocessor', 'nbconvert.preprocessors.RevealHelpPreprocessor', 'nbconvert.preprocessors.LatexPreprocessor', 'nbconvert.preprocessors.ClearOutputPreprocessor', 'nbconvert.preprocessors.ExecutePreprocessor', 'nbconvert.preprocessors.HighlightMagicsPreprocessor'] %}
+c.MarkdownExporter.default_preprocessors = ['{{ jc_markdown_exporter_default_preprocessors|join("', '") }}']
+{% endif %}
+
+#
+{% if jc_markdown_exporter_template_path != ['.'] %}
+c.MarkdownExporter.template_path = ['{{ jc_markdown_exporter_template_path|join("', '") }}']
+{% endif %}
+
+# Extension of the file that should be written to disk
+{% if jc_markdown_exporter_file_extension != '.txt' %}
+c.MarkdownExporter.file_extension = '{{ jc_markdown_exporter_file_extension }}'
+{% endif %}
+
+#
+{% if jc_markdown_exporter_jinja_comment_block_end != '' %}
+c.MarkdownExporter.jinja_comment_block_end = '{{ jc_markdown_exporter_jinja_comment_block_end }}'
+{% endif %}
+
+# Dictionary of filters, by name and namespace, to add to the Jinja environment.
+{% if jc_markdown_exporter_filters != {} %}
+c.MarkdownExporter.filters = {
+  {% for key, val in jc_markdown_exporter_filters.items()[:-1] %}
+    '{{ key }}': '{{ val }}',
+  {% endfor %}
+  {% for key, val in jc_markdown_exporter_filters.items()[-1:] %}
+    '{{ key }}': '{{ val }}'
+  {% endfor %}
+}
+{% endif %}
+
+#
+{% if jc_markdown_exporter_jinja_comment_block_start != '' %}
+c.MarkdownExporter.jinja_comment_block_start = '{{ jc_markdown_exporter_jinja_comment_block_start }}'
+{% endif %}
+
+#
+{% if jc_markdown_exporter_jinja_logic_block_end != '' %}
+c.MarkdownExporter.jinja_logic_block_end = '{{ jc_markdown_exporter_jinja_logic_block_end }}'
+{% endif %}
+
+#
+{% if jc_markdown_exporter_jinja_logic_block_start != '' %}
+c.MarkdownExporter.jinja_logic_block_start = '{{ jc_markdown_exporter_jinja_logic_block_start }}'
+{% endif %}
+
+#
+{% if jc_markdown_exporter_template_extension != '.tpl' %}
+c.MarkdownExporter.template_extension = '{{ jc_markdown_exporter_template_extension }}'
+{% endif %}
+
+# List of preprocessors, by name or namespace, to enable.
+{% if jc_markdown_exporter_preprocessors != [] %}
+c.MarkdownExporter.preprocessors = ['{{ jc_markdown_exporter_preprocessors|join("', '") }}']
+{% endif %}
+
+#------------------------------------------------------------------------------
+# NotebookExporter configuration
+#------------------------------------------------------------------------------
+
+# Exports to an IPython notebook.
+
+# NotebookExporter will inherit config from: Exporter
+
+# The nbformat version to write. Use this to downgrade notebooks.
+{% if jc_notebook_exporter_nbformat_version != 4 %}
+c.NotebookExporter.nbformat_version = {{ jc_notebook_exporter_nbformat_version }}
+{% endif %}
+
+# Extension of the file that should be written to disk
+{% if jc_notebook_exporter_file_extension != '.txt' %}
+c.NotebookExporter.file_extension = '{{ jc_notebook_exporter_file_extension }}'
+{% endif %}
+
+# List of preprocessors, by name or namespace, to enable.
+{% if jc_notebook_exporter_preprocessors != [] %}
+c.NotebookExporter.preprocessors = ['{{ jc_notebook_exporter_preprocessors|join("', '") }}']
+{% endif %}
+
+# List of preprocessors available by default, by name, namespace,  instance, or
+# type.
+{% if jc_notebook_exporter_default_preprocessors != ['nbconvert.preprocessors.coalesce_streams', 'nbconvert.preprocessors.SVG2PDFPreprocessor', 'nbconvert.preprocessors.ExtractOutputPreprocessor', 'nbconvert.preprocessors.CSSHTMLHeaderPreprocessor', 'nbconvert.preprocessors.RevealHelpPreprocessor', 'nbconvert.preprocessors.LatexPreprocessor', 'nbconvert.preprocessors.ClearOutputPreprocessor', 'nbconvert.preprocessors.ExecutePreprocessor', 'nbconvert.preprocessors.HighlightMagicsPreprocessor'] %}
+c.NotebookExporter.default_preprocessors = ['{{ jc_notebook_exporter_default_preprocessors|join("', '") }}']
+{% endif %}
+
+#------------------------------------------------------------------------------
+# PDFExporter configuration
+#------------------------------------------------------------------------------
+
+# Writer designed to write to PDF files
+
+# PDFExporter will inherit config from: LatexExporter, TemplateExporter,
+# Exporter
+
+# File extensions of temp files to remove after running.
+{% if jc_pdf_exporter_temp_file_exts != ['.aux', '.bbl', '.blg', '.idx', '.log', '.out'] %}
+c.PDFExporter.temp_file_exts = ['{{ jc_pdf_exporter_temp_file_exts|join("', '") }}']
+{% endif %}
+
+#
+{% if jc_pdf_exporter_jinja_variable_block_start != '(((' %}
+c.PDFExporter.jinja_variable_block_start = '{{ jc_pdf_exporter_jinja_variable_block_start }}'
+{% endif %}
+
+#
+{% if jc_pdf_exporter_jinja_logic_block_start != '((*' %}
+c.PDFExporter.jinja_logic_block_start = '{{ jc_pdf_exporter_jinja_logic_block_start }}'
+{% endif %}
+
+# Whether to display the output of latex commands.
+{% if jc_pdf_exporter_verbose != False %}
+c.PDFExporter.verbose = {{ jc_pdf_exporter_verbose }}
+{% endif %}
+
+# formats of raw cells to be included in this Exporter's output.
+{% if jc_pdf_exporter_raw_mimetypes != [] %}
+c.PDFExporter.raw_mimetypes = ['{{ jc_pdf_exporter_raw_mimetypes|join("', '") }}']
+{% endif %}
+
+# Shell command used to run bibtex.
+{% if jc_pdf_exporter_bib_command != ['bibtex', '{filename}'] %}
+c.PDFExporter.bib_command = ['{{ jc_pdf_exporter_bib_command|join("', '") }}']
+{% endif %}
+
+# List of preprocessors available by default, by name, namespace,  instance, or
+# type.
+{% if jc_pdf_exporter_default_preprocessors != ['nbconvert.preprocessors.coalesce_streams', 'nbconvert.preprocessors.SVG2PDFPreprocessor', 'nbconvert.preprocessors.ExtractOutputPreprocessor', 'nbconvert.preprocessors.CSSHTMLHeaderPreprocessor', 'nbconvert.preprocessors.RevealHelpPreprocessor', 'nbconvert.preprocessors.LatexPreprocessor', 'nbconvert.preprocessors.ClearOutputPreprocessor', 'nbconvert.preprocessors.ExecutePreprocessor', 'nbconvert.preprocessors.HighlightMagicsPreprocessor'] %}
+c.PDFExporter.default_preprocessors = ['{{ jc_pdf_exporter_default_preprocessors|join("', '") }}']
+{% endif %}
+
+#
+{% if jc_pdf_exporter_template_path != ['.'] %}
+c.PDFExporter.template_path = ['{{ jc_pdf_exporter_template_path|join("', '") }}']
+{% endif %}
+
+# Extension of the file that should be written to disk
+{% if jc_pdf_exporter_file_extension != '.txt' %}
+c.PDFExporter.file_extension = '{{ jc_pdf_exporter_file_extension }}'
+{% endif %}
+
+#
+{% if jc_pdf_exporter_jinja_comment_block_end != '=))' %}
+c.PDFExporter.jinja_comment_block_end = '{{ jc_pdf_exporter_jinja_comment_block_end }}'
+{% endif %}
+
+#
+{% if jc_pdf_exporter_jinja_variable_block_end != ')))' %}
+c.PDFExporter.jinja_variable_block_end = '{{ jc_pdf_exporter_jinja_variable_block_end }}'
+{% endif %}
+
+#
+{% if jc_pdf_exporter_template_extension != '.tplx' %}
+c.PDFExporter.template_extension = '{{ jc_pdf_exporter_template_extension }}'
+{% endif %}
+
+# List of preprocessors, by name or namespace, to enable.
+{% if jc_pdf_exporter_preprocessors != [] %}
+c.PDFExporter.preprocessors = ['{{ jc_pdf_exporter_preprocessors|join("', '") }}']
+{% endif %}
+
+# Dictionary of filters, by name and namespace, to add to the Jinja environment.
+{% if jc_pdf_exporter_filters != {} %}
+c.PDFExporter.filters = {
+  {% for key, val in jc_pdf_exporter_filters.items()[:-1] %}
+    '{{ key }}': '{{ val }}',
+  {% endfor %}
+  {% for key, val in jc_pdf_exporter_filters.items()[-1:] %}
+    '{{ key }}': '{{ val }}'
+  {% endfor %}
+}
+{% endif %}
+
+#
+{% if jc_pdf_exporter_jinja_comment_block_start != '((=' %}
+c.PDFExporter.jinja_comment_block_start = '{{ jc_pdf_exporter_jinja_comment_block_start }}'
+{% endif %}
+
+# Name of the template file to use
+{% if jc_pdf_exporter_template_file != 'default' %}
+c.PDFExporter.template_file = u'{{ jc_pdf_exporter_template_file }}'
+{% endif %}
+
+# How many times latex will be called.
+{% if jc_pdf_exporter_latex_count != 3 %}
+c.PDFExporter.latex_count = {{ jc_pdf_exporter_latex_count }}
+{% endif %}
+
+#
+{% if jc_pdf_exporter_jinja_logic_block_end != '*))' %}
+c.PDFExporter.jinja_logic_block_end = '{{ jc_pdf_exporter_jinja_logic_block_end }}'
+{% endif %}
+
+# Shell command used to compile latex.
+{% if jc_pdf_exporter_latex_command != ['pdflatex', '{filename}'] %}
+c.PDFExporter.latex_command = ['{{ jc_pdf_exporter_latex_command|join("', '") }}']
+{% endif %}
+
+#------------------------------------------------------------------------------
+# PythonExporter configuration
+#------------------------------------------------------------------------------
+
+# Exports a Python code file.
+
+# PythonExporter will inherit config from: TemplateExporter, Exporter
+
+#
+{% if jc_python_exporter_jinja_variable_block_start != '' %}
+c.PythonExporter.jinja_variable_block_start = '{{ jc_python_exporter_jinja_variable_block_start }}'
+{% endif %}
+
+#
+{% if jc_python_exporter_jinja_variable_block_end != '' %}
+c.PythonExporter.jinja_variable_block_end = '{{ jc_python_exporter_jinja_variable_block_end }}'
+{% endif %}
+
+# formats of raw cells to be included in this Exporter's output.
+{% if jc_python_exporter_raw_mimetypes != [] %}
+c.PythonExporter.raw_mimetypes = ['{{ jc_python_exporter_raw_mimetypes|join("', '") }}']
+{% endif %}
+
+# Name of the template file to use
+{% if jc_python_exporter_template_file != 'default' %}
+c.PythonExporter.template_file = u'{{ jc_python_exporter_template_file }}'
+{% endif %}
+
+# List of preprocessors available by default, by name, namespace,  instance, or
+# type.
+{% if jc_python_exporter_default_preprocessors != ['nbconvert.preprocessors.coalesce_streams', 'nbconvert.preprocessors.SVG2PDFPreprocessor', 'nbconvert.preprocessors.ExtractOutputPreprocessor', 'nbconvert.preprocessors.CSSHTMLHeaderPreprocessor', 'nbconvert.preprocessors.RevealHelpPreprocessor', 'nbconvert.preprocessors.LatexPreprocessor', 'nbconvert.preprocessors.ClearOutputPreprocessor', 'nbconvert.preprocessors.ExecutePreprocessor', 'nbconvert.preprocessors.HighlightMagicsPreprocessor'] %}
+c.PythonExporter.default_preprocessors = ['{{ jc_python_exporter_default_preprocessors|join("', '") }}']
+{% endif %}
+
+#
+{% if jc_python_exporter_template_path != ['.'] %}
+c.PythonExporter.template_path = ['{{ jc_python_exporter_template_path|join("', '") }}']
+{% endif %}
+
+# Extension of the file that should be written to disk
+{% if jc_python_exporter_file_extension != '.txt' %}
+c.PythonExporter.file_extension = '{{ jc_python_exporter_file_extension }}'
+{% endif %}
+
+#
+{% if jc_python_exporter_jinja_comment_block_end != '' %}
+c.PythonExporter.jinja_comment_block_end = '{{ jc_python_exporter_jinja_comment_block_end }}'
+{% endif %}
+
+# Dictionary of filters, by name and namespace, to add to the Jinja environment.
+{% if jc_python_exporter_filters != {} %}
+c.PythonExporter.filters = {
+  {% for key, val in jc_python_exporter_filters.items()[:-1] %}
+    '{{ key }}': '{{ val }}',
+  {% endfor %}
+  {% for key, val in jc_python_exporter_filters.items()[-1:] %}
+    '{{ key }}': '{{ val }}'
+  {% endfor %}
+}
+{% endif %}
+
+#
+{% if jc_python_exporter_jinja_comment_block_start != '' %}
+c.PythonExporter.jinja_comment_block_start = '{{ jc_python_exporter_jinja_comment_block_start }}'
+{% endif %}
+
+#
+{% if jc_python_exporter_jinja_logic_block_end != '' %}
+c.PythonExporter.jinja_logic_block_end = '{{ jc_python_exporter_jinja_logic_block_end }}'
+{% endif %}
+
+#
+{% if jc_python_exporter_jinja_logic_block_start != '' %}
+c.PythonExporter.jinja_logic_block_start = '{{ jc_python_exporter_jinja_logic_block_start }}'
+{% endif %}
+
+#
+{% if jc_python_exporter_template_extension != '.tpl' %}
+c.PythonExporter.template_extension = '{{ jc_python_exporter_template_extension }}'
+{% endif %}
+
+# List of preprocessors, by name or namespace, to enable.
+{% if jc_python_exporter_preprocessors != [] %}
+c.PythonExporter.preprocessors = ['{{ jc_python_exporter_preprocessors|join("', '") }}']
+{% endif %}
+
+#------------------------------------------------------------------------------
+# RSTExporter configuration
+#------------------------------------------------------------------------------
+
+# Exports restructured text documents.
+
+# RSTExporter will inherit config from: TemplateExporter, Exporter
+
+#
+{% if jc_rst_exporter_jinja_variable_block_start != '' %}
+c.RSTExporter.jinja_variable_block_start = '{{ jc_rst_exporter_jinja_variable_block_start }}'
+{% endif %}
+
+#
+{% if jc_rst_exporter_jinja_variable_block_end != '' %}
+c.RSTExporter.jinja_variable_block_end = '{{ jc_rst_exporter_jinja_variable_block_end }}'
+{% endif %}
+
+# formats of raw cells to be included in this Exporter's output.
+{% if jc_rst_exporter_raw_mimetypes != [] %}
+c.RSTExporter.raw_mimetypes = ['{{ jc_rst_exporter_raw_mimetypes|join("', '") }}']
+{% endif %}
+
+# Name of the template file to use
+{% if jc_rst_exporter_template_file != 'default' %}
+c.RSTExporter.template_file = u'{{ jc_rst_exporter_template_file }}'
+{% endif %}
+
+# List of preprocessors available by default, by name, namespace,  instance, or
+# type.
+{% if jc_rst_exporter_default_preprocessors != ['nbconvert.preprocessors.coalesce_streams', 'nbconvert.preprocessors.SVG2PDFPreprocessor', 'nbconvert.preprocessors.ExtractOutputPreprocessor', 'nbconvert.preprocessors.CSSHTMLHeaderPreprocessor', 'nbconvert.preprocessors.RevealHelpPreprocessor', 'nbconvert.preprocessors.LatexPreprocessor', 'nbconvert.preprocessors.ClearOutputPreprocessor', 'nbconvert.preprocessors.ExecutePreprocessor', 'nbconvert.preprocessors.HighlightMagicsPreprocessor'] %}
+c.RSTExporter.default_preprocessors = ['{{ jc_rst_exporter_default_preprocessors|join("', '") }}']
+{% endif %}
+
+#
+{% if jc_rst_exporter_template_path != ['.'] %}
+c.RSTExporter.template_path = ['{{ jc_rst_exporter_template_path|join("', '") }}']
+{% endif %}
+
+# Extension of the file that should be written to disk
+{% if jc_rst_exporter_file_extension != '.txt' %}
+c.RSTExporter.file_extension = '{{ jc_rst_exporter_file_extension }}'
+{% endif %}
+
+#
+{% if jc_rst_exporter_jinja_comment_block_end != '' %}
+c.RSTExporter.jinja_comment_block_end = '{{ jc_rst_exporter_jinja_comment_block_end }}'
+{% endif %}
+
+# Dictionary of filters, by name and namespace, to add to the Jinja environment.
+{% if jc_rst_exporter_filters != {} %}
+c.RSTExporter.filters = {
+  {% for key, val in jc_rst_exporter_filters.items()[:-1] %}
+    '{{ key }}': '{{ val }}',
+  {% endfor %}
+  {% for key, val in jc_rst_exporter_filters.items()[-1:] %}
+    '{{ key }}': '{{ val }}'
+  {% endfor %}
+}
+{% endif %}
+
+#
+{% if jc_rst_exporter_jinja_comment_block_start != '' %}
+c.RSTExporter.jinja_comment_block_start = '{{ jc_rst_exporter_jinja_comment_block_start }}'
+{% endif %}
+
+#
+{% if jc_rst_exporter_jinja_logic_block_end != '' %}
+c.RSTExporter.jinja_logic_block_end = '{{ jc_rst_exporter_jinja_logic_block_end }}'
+{% endif %}
+
+#
+{% if jc_rst_exporter_jinja_logic_block_start != '' %}
+c.RSTExporter.jinja_logic_block_start = '{{ jc_rst_exporter_jinja_logic_block_start }}'
+{% endif %}
+
+#
+{% if jc_rst_exporter_template_extension != '.tpl' %}
+c.RSTExporter.template_extension = '{{ jc_rst_exporter_template_extension }}'
+{% endif %}
+
+# List of preprocessors, by name or namespace, to enable.
+{% if jc_rst_exporter_preprocessors != [] %}
+c.RSTExporter.preprocessors = ['{{ jc_rst_exporter_preprocessors|join("', '") }}']
+{% endif %}
+
+#------------------------------------------------------------------------------
+# SlidesExporter configuration
+#------------------------------------------------------------------------------
+
+# Exports HTML slides with reveal.js
+
+# SlidesExporter will inherit config from: HTMLExporter, TemplateExporter,
+# Exporter
+
+#
+{% if jc_slides_exporter_jinja_variable_block_start != '' %}
+c.SlidesExporter.jinja_variable_block_start = '{{ jc_slides_exporter_jinja_variable_block_start }}'
+{% endif %}
+
+#
+{% if jc_slides_exporter_jinja_variable_block_end != '' %}
+c.SlidesExporter.jinja_variable_block_end = '{{ jc_slides_exporter_jinja_variable_block_end }}'
+{% endif %}
+
+# formats of raw cells to be included in this Exporter's output.
+{% if jc_slides_exporter_raw_mimetypes != [] %}
+c.SlidesExporter.raw_mimetypes = ['{{ jc_slides_exporter_raw_mimetypes|join("', '") }}']
+{% endif %}
+
+# Name of the template file to use
+{% if jc_slides_exporter_template_file != 'default' %}
+c.SlidesExporter.template_file = u'{{ jc_slides_exporter_template_file }}'
+{% endif %}
+
+# List of preprocessors available by default, by name, namespace,  instance, or
+# type.
+{% if jc_slides_exporter_default_preprocessors != ['nbconvert.preprocessors.coalesce_streams', 'nbconvert.preprocessors.SVG2PDFPreprocessor', 'nbconvert.preprocessors.ExtractOutputPreprocessor', 'nbconvert.preprocessors.CSSHTMLHeaderPreprocessor', 'nbconvert.preprocessors.RevealHelpPreprocessor', 'nbconvert.preprocessors.LatexPreprocessor', 'nbconvert.preprocessors.ClearOutputPreprocessor', 'nbconvert.preprocessors.ExecutePreprocessor', 'nbconvert.preprocessors.HighlightMagicsPreprocessor'] %}
+c.SlidesExporter.default_preprocessors = ['{{ jc_slides_exporter_default_preprocessors|join("', '") }}']
+{% endif %}
+
+#
+{% if jc_slides_exporter_template_path != ['.'] %}
+c.SlidesExporter.template_path = ['{{ jc_slides_exporter_template_path|join("', '") }}']
+{% endif %}
+
+# Extension of the file that should be written to disk
+{% if jc_slides_exporter_file_extension != '.txt' %}
+c.SlidesExporter.file_extension = '{{ jc_slides_exporter_file_extension }}'
+{% endif %}
+
+#
+{% if jc_slides_exporter_jinja_comment_block_end != '' %}
+c.SlidesExporter.jinja_comment_block_end = '{{ jc_slides_exporter_jinja_comment_block_end }}'
+{% endif %}
+
+# Dictionary of filters, by name and namespace, to add to the Jinja environment.
+{% if jc_slides_exporter_filters != {} %}
+c.SlidesExporter.filters = {
+  {% for key, val in jc_slides_exporter_filters.items()[:-1] %}
+    '{{ key }}': '{{ val }}',
+  {% endfor %}
+  {% for key, val in jc_slides_exporter_filters.items()[-1:] %}
+    '{{ key }}': '{{ val }}'
+  {% endfor %}
+}
+{% endif %}
+
+#
+{% if jc_slides_exporter_jinja_comment_block_start != '' %}
+c.SlidesExporter.jinja_comment_block_start = '{{ jc_slides_exporter_jinja_comment_block_start }}'
+{% endif %}
+
+#
+{% if jc_slides_exporter_jinja_logic_block_end != '' %}
+c.SlidesExporter.jinja_logic_block_end = '{{ jc_slides_exporter_jinja_logic_block_end }}'
+{% endif %}
+
+#
+{% if jc_slides_exporter_jinja_logic_block_start != '' %}
+c.SlidesExporter.jinja_logic_block_start = '{{ jc_slides_exporter_jinja_logic_block_start }}'
+{% endif %}
+
+#
+{% if jc_slides_exporter_template_extension != '.tpl' %}
+c.SlidesExporter.template_extension = '{{ jc_slides_exporter_template_extension }}'
+{% endif %}
+
+# List of preprocessors, by name or namespace, to enable.
+{% if jc_slides_exporter_preprocessors != [] %}
+c.SlidesExporter.preprocessors = ['{{ jc_slides_exporter_preprocessors|join("', '") }}']
+{% endif %}
+
+#------------------------------------------------------------------------------
+# TemplateExporter configuration
+#------------------------------------------------------------------------------
+
+# Exports notebooks into other file formats.  Uses Jinja 2 templating engine to
+# output new formats.  Inherit from this class if you are creating a new
+# template type along with new filters/preprocessors.  If the filters/
+# preprocessors provided by default suffice, there is no need to inherit from
+# this class.  Instead, override the template_file and file_extension traits via
+# a config file.
+#
+# - citation2latex - highlight2html - filter_data_type - markdown2html -
+# markdown2rst - get_lines - ansi2latex - strip_ansi - add_prompts -
+# comment_lines - ascii_only - markdown2latex - escape_latex - add_anchor -
+# ipython2python - posix_path - highlight2latex - path2url - prevent_list_blocks
+# - ansi2html - wrap_text - indent - strip_dollars - html2text -
+# strip_files_prefix
+
+# TemplateExporter will inherit config from: Exporter
+
+#
+{% if jc_template_exporter_jinja_variable_block_start != '' %}
+c.TemplateExporter.jinja_variable_block_start = '{{ jc_template_exporter_jinja_variable_block_start }}'
+{% endif %}
+
+#
+{% if jc_template_exporter_jinja_variable_block_end != '' %}
+c.TemplateExporter.jinja_variable_block_end = '{{ jc_template_exporter_jinja_variable_block_end }}'
+{% endif %}
+
+# formats of raw cells to be included in this Exporter's output.
+{% if jc_template_exporter_raw_mimetypes != [] %}
+c.TemplateExporter.raw_mimetypes = ['{{ jc_template_exporter_raw_mimetypes|join("', '") }}']
+{% endif %}
+
+# Name of the template file to use
+{% if jc_template_exporter_template_file != 'default' %}
+c.TemplateExporter.template_file = u'{{ jc_template_exporter_template_file }}'
+{% endif %}
+
+# List of preprocessors available by default, by name, namespace,  instance, or
+# type.
+{% if jc_template_exporter_default_preprocessors != ['nbconvert.preprocessors.coalesce_streams', 'nbconvert.preprocessors.SVG2PDFPreprocessor', 'nbconvert.preprocessors.ExtractOutputPreprocessor', 'nbconvert.preprocessors.CSSHTMLHeaderPreprocessor', 'nbconvert.preprocessors.RevealHelpPreprocessor', 'nbconvert.preprocessors.LatexPreprocessor', 'nbconvert.preprocessors.ClearOutputPreprocessor', 'nbconvert.preprocessors.ExecutePreprocessor', 'nbconvert.preprocessors.HighlightMagicsPreprocessor'] %}
+c.TemplateExporter.default_preprocessors = ['{{ jc_template_exporter_default_preprocessors|join("', '") }}']
+{% endif %}
+
+#
+{% if jc_template_exporter_template_path != ['.'] %}
+c.TemplateExporter.template_path = ['{{ jc_template_exporter_template_path|join("', '") }}']
+{% endif %}
+
+# Extension of the file that should be written to disk
+{% if jc_template_exporter_file_extension != '.txt' %}
+c.TemplateExporter.file_extension = '{{ jc_template_exporter_file_extension }}'
+{% endif %}
+
+#
+{% if jc_template_exporter_jinja_comment_block_end != '' %}
+c.TemplateExporter.jinja_comment_block_end = '{{ jc_template_exporter_jinja_comment_block_end }}'
+{% endif %}
+
+# Dictionary of filters, by name and namespace, to add to the Jinja environment.
+{% if jc_template_exporter_filters != {} %}
+c.TemplateExporter.filters = {
+  {% for key, val in jc_template_exporter_filters.items()[:-1] %}
+    '{{ key }}': '{{ val }}',
+  {% endfor %}
+  {% for key, val in jc_template_exporter_filters.items()[-1:] %}
+    '{{ key }}': '{{ val }}'
+  {% endfor %}
+}
+{% endif %}
+
+#
+{% if jc_template_exporter_jinja_comment_block_start != '' %}
+c.TemplateExporter.jinja_comment_block_start = '{{ jc_template_exporter_jinja_comment_block_start }}'
+{% endif %}
+
+#
+{% if jc_template_exporter_jinja_logic_block_end != '' %}
+c.TemplateExporter.jinja_logic_block_end = '{{ jc_template_exporter_jinja_logic_block_end }}'
+{% endif %}
+
+#
+{% if jc_template_exporter_jinja_logic_block_start != '' %}
+c.TemplateExporter.jinja_logic_block_start = '{{ jc_template_exporter_jinja_logic_block_start }}'
+{% endif %}
+
+#
+{% if jc_template_exporter_template_extension != '.tpl' %}
+c.TemplateExporter.template_extension = '{{ jc_template_exporter_template_extension }}'
+{% endif %}
+
+# List of preprocessors, by name or namespace, to enable.
+{% if jc_template_exporter_preprocessors != [] %}
+c.TemplateExporter.preprocessors = ['{{ jc_template_exporter_preprocessors|join("', '") }}']
+{% endif %}
+
+#------------------------------------------------------------------------------
+# CSSHTMLHeaderPreprocessor configuration
+#------------------------------------------------------------------------------
+
+# Preprocessor used to pre-process notebook for HTML output.  Adds IPython
+# notebook front-end CSS and Pygments CSS to HTML output.
+
+# CSSHTMLHeaderPreprocessor will inherit config from: Preprocessor,
+# NbConvertBase
+
+# DEPRECATED default highlight language, please use language_info metadata
+# instead
+{% if jc_csshtml_header_preprocessor_default_language != 'ipython' %}
+c.CSSHTMLHeaderPreprocessor.default_language = '{{ jc_csshtml_header_preprocessor_default_language }}'
+{% endif %}
+
+# CSS highlight class identifier
+{% if jc_csshtml_header_preprocessor_highlight_class != '.highlight' %}
+c.CSSHTMLHeaderPreprocessor.highlight_class = '{{ jc_csshtml_header_preprocessor_highlight_class }}'
+{% endif %}
+
+#
+{% if jc_csshtml_header_preprocessor_enabled != False %}
+c.CSSHTMLHeaderPreprocessor.enabled = {{ jc_csshtml_header_preprocessor_enabled }}
+{% endif %}
+
+# An ordered list of preferred output type, the first encountered will usually
+# be used when converting discarding the others.
+{% if jc_csshtml_header_preprocessor_display_data_priority != ['text/html', 'application/pdf', 'text/latex', 'image/svg+xml', 'image/png', 'image/jpeg', 'text/plain'] %}
+c.CSSHTMLHeaderPreprocessor.display_data_priority = ['{{ jc_csshtml_header_preprocessor_display_data_priority|join("', '") }}']
+{% endif %}
+
+#------------------------------------------------------------------------------
+# ClearOutputPreprocessor configuration
+#------------------------------------------------------------------------------
+
+# Removes the output from all code cells in a notebook.
+
+# ClearOutputPreprocessor will inherit config from: Preprocessor, NbConvertBase
+
+# DEPRECATED default highlight language, please use language_info metadata
+# instead
+{% if jc_clear_output_preprocessor_default_language != 'ipython' %}
+c.ClearOutputPreprocessor.default_language = '{{ jc_clear_output_preprocessor_default_language }}'
+{% endif %}
+
+#
+{% if jc_clear_output_preprocessor_enabled != False %}
+c.ClearOutputPreprocessor.enabled = {{ jc_clear_output_preprocessor_enabled }}
+{% endif %}
+
+# An ordered list of preferred output type, the first encountered will usually
+# be used when converting discarding the others.
+{% if jc_clear_output_preprocessor_display_data_priority != ['text/html', 'application/pdf', 'text/latex', 'image/svg+xml', 'image/png', 'image/jpeg', 'text/plain'] %}
+c.ClearOutputPreprocessor.display_data_priority = ['{{ jc_clear_output_preprocessor_display_data_priority|join("', '") }}']
+{% endif %}
+
+#------------------------------------------------------------------------------
+# ConvertFiguresPreprocessor configuration
+#------------------------------------------------------------------------------
+
+# Converts all of the outputs in a notebook from one format to another.
+
+# ConvertFiguresPreprocessor will inherit config from: Preprocessor,
+# NbConvertBase
+
+# DEPRECATED default highlight language, please use language_info metadata
+# instead
+{% if jc_convert_figures_preprocessor_default_language != 'ipython' %}
+c.ConvertFiguresPreprocessor.default_language = '{{ jc_convert_figures_preprocessor_default_language }}'
+{% endif %}
+
+# Format the converter writes
+{% if jc_convert_figures_preprocessor_to_format != '' %}
+c.ConvertFiguresPreprocessor.to_format = u'{{ jc_convert_figures_preprocessor_to_format }}'
+{% endif %}
+
+#
+{% if jc_convert_figures_preprocessor_enabled != False %}
+c.ConvertFiguresPreprocessor.enabled = {{ jc_convert_figures_preprocessor_enabled }}
+{% endif %}
+
+# Format the converter accepts
+{% if jc_convert_figures_preprocessor_from_format != '' %}
+c.ConvertFiguresPreprocessor.from_format = u'{{ jc_convert_figures_preprocessor_from_format }}'
+{% endif %}
+
+# An ordered list of preferred output type, the first encountered will usually
+# be used when converting discarding the others.
+{% if jc_convert_figures_preprocessor_display_data_priority != ['text/html', 'application/pdf', 'text/latex', 'image/svg+xml', 'image/png', 'image/jpeg', 'text/plain'] %}
+c.ConvertFiguresPreprocessor.display_data_priority = ['{{ jc_convert_figures_preprocessor_display_data_priority|join("', '") }}']
+{% endif %}
+
+#------------------------------------------------------------------------------
+# ExecutePreprocessor configuration
+#------------------------------------------------------------------------------
+
+# Executes all the cells in a notebook
+
+# ExecutePreprocessor will inherit config from: Preprocessor, NbConvertBase
+
+# DEPRECATED default highlight language, please use language_info metadata
+# instead
+{% if jc_execute_preprocessor_default_language != 'ipython' %}
+c.ExecutePreprocessor.default_language = '{{ jc_execute_preprocessor_default_language }}'
+{% endif %}
+
+# If execution of a cell times out, interrupt the kernel and  continue executing
+# other cells rather than throwing an error and  stopping.
+{% if jc_execute_preprocessor_interrupt_on_timeout != False %}
+c.ExecutePreprocessor.interrupt_on_timeout = {{ jc_execute_preprocessor_interrupt_on_timeout }}
+{% endif %}
+
+#
+{% if jc_execute_preprocessor_enabled != False %}
+c.ExecutePreprocessor.enabled = {{ jc_execute_preprocessor_enabled }}
+{% endif %}
+
+# The time to wait (in seconds) for output from executions.
+{% if jc_execute_preprocessor_timeout != 30 %}
+c.ExecutePreprocessor.timeout = {{ jc_execute_preprocessor_timeout }}
+{% endif %}
+
+# An ordered list of preferred output type, the first encountered will usually
+# be used when converting discarding the others.
+{% if jc_execute_preprocessor_display_data_priority != ['text/html', 'application/pdf', 'text/latex', 'image/svg+xml', 'image/png', 'image/jpeg', 'text/plain'] %}
+c.ExecutePreprocessor.display_data_priority = ['{{ jc_execute_preprocessor_display_data_priority|join("', '") }}']
+{% endif %}
+
+#------------------------------------------------------------------------------
+# ExtractOutputPreprocessor configuration
+#------------------------------------------------------------------------------
+
+# Extracts all of the outputs from the notebook file.  The extracted  outputs
+# are returned in the 'resources' dictionary.
+
+# ExtractOutputPreprocessor will inherit config from: Preprocessor,
+# NbConvertBase
+
+# DEPRECATED default highlight language, please use language_info metadata
+# instead
+{% if jc_extract_output_preprocessor_default_language != 'ipython' %}
+c.ExtractOutputPreprocessor.default_language = '{{ jc_extract_output_preprocessor_default_language }}'
+{% endif %}
+
+#
+{% if jc_extract_output_preprocessor_output_filename_template != '{unique_key}_{cell_index}_{index}{extension}' %}
+c.ExtractOutputPreprocessor.output_filename_template = '{{ jc_extract_output_preprocessor_output_filename_template }}'
+{% endif %}
+
+#
+{% if jc_extract_output_preprocessor_extract_output_types != ['image/png', 'application/pdf', 'image/jpeg', 'image/svg+xml'] %}
+c.ExtractOutputPreprocessor.extract_output_types = set(['{{ jc_extract_output_preprocessor_extract_output_types|join("', '") }}'])
+{% endif %}
+
+#
+{% if jc_extract_output_preprocessor_enabled != False %}
+c.ExtractOutputPreprocessor.enabled = {{ jc_extract_output_preprocessor_enabled }}
+{% endif %}
+
+# An ordered list of preferred output type, the first encountered will usually
+# be used when converting discarding the others.
+{% if jc_extract_output_preprocessor_display_data_priority != ['text/html', 'application/pdf', 'text/latex', 'image/svg+xml', 'image/png', 'image/jpeg', 'text/plain'] %}
+c.ExtractOutputPreprocessor.display_data_priority = ['{{ jc_extract_output_preprocessor_display_data_priority|join("', '") }}']
+{% endif %}
+
+#------------------------------------------------------------------------------
+# HighlightMagicsPreprocessor configuration
+#------------------------------------------------------------------------------
+
+# Detects and tags code cells that use a different languages than Python.
+
+# HighlightMagicsPreprocessor will inherit config from: Preprocessor,
+# NbConvertBase
+
+# Syntax highlighting for magic's extension languages. Each item associates a
+# language magic extension such as %%R, with a pygments lexer such as r.
+{% if jc_highlight_magics_preprocessor_languages != {} %}
+c.HighlightMagicsPreprocessor.languages = {
+  {% for key, val in jc_highlight_magics_preprocessor_languages.items()[:-1] %}
+    '{{ key }}': '{{ val }}',
+  {% endfor %}
+  {% for key, val in jc_highlight_magics_preprocessor_languages.items()[-1:] %}
+    '{{ key }}': '{{ val }}'
+  {% endfor %}
+}
+{% endif %}
+
+#
+{% if jc_highlight_magics_preprocessor_enabled != False %}
+c.HighlightMagicsPreprocessor.enabled = {{ jc_highlight_magics_preprocessor_enabled }}
+{% endif %}
+
+# DEPRECATED default highlight language, please use language_info metadata
+# instead
+{% if jc_highlight_magics_preprocessor_default_language != 'ipython' %}
+c.HighlightMagicsPreprocessor.default_language = '{{ jc_highlight_magics_preprocessor_default_language }}'
+{% endif %}
+
+# An ordered list of preferred output type, the first encountered will usually
+# be used when converting discarding the others.
+{% if jc_highlight_magics_preprocessor_display_data_priority != ['text/html', 'application/pdf', 'text/latex', 'image/svg+xml', 'image/png', 'image/jpeg', 'text/plain'] %}
+c.HighlightMagicsPreprocessor.display_data_priority = ['{{ jc_highlight_magics_preprocessor_display_data_priority|join("', '") }}']
+{% endif %}
+
+#------------------------------------------------------------------------------
+# LatexPreprocessor configuration
+#------------------------------------------------------------------------------
+
+# Preprocessor for latex destined documents.
+#
+# Mainly populates the `latex` key in the resources dict, adding definitions for
+# pygments highlight styles.
+
+# LatexPreprocessor will inherit config from: Preprocessor, NbConvertBase
+
+# DEPRECATED default highlight language, please use language_info metadata
+# instead
+{% if jc_latex_preprocessor_default_language != 'ipython' %}
+c.LatexPreprocessor.default_language = '{{ jc_latex_preprocessor_default_language }}'
+{% endif %}
+
+#
+{% if jc_latex_preprocessor_enabled != False %}
+c.LatexPreprocessor.enabled = {{ jc_latex_preprocessor_enabled }}
+{% endif %}
+
+# An ordered list of preferred output type, the first encountered will usually
+# be used when converting discarding the others.
+{% if jc_latex_preprocessor_display_data_priority != ['text/html', 'application/pdf', 'text/latex', 'image/svg+xml', 'image/png', 'image/jpeg', 'text/plain'] %}
+c.LatexPreprocessor.display_data_priority = ['{{ jc_latex_preprocessor_display_data_priority|join("', '") }}']
+{% endif %}
+
+#------------------------------------------------------------------------------
+# Preprocessor configuration
+#------------------------------------------------------------------------------
+
+# A configurable preprocessor
+#
+# Inherit from this class if you wish to have configurability for your
+# preprocessor.
+#
+# Any configurable traitlets this class exposed will be configurable in profiles
+{% if jc_sub_class_name_attribute != 'value' %}
+using c.SubClassName.attribute '{{ jc_sub_class_name_attribute }}'
+{% endif %}
+#
+# you can overwrite :meth:`preprocess_cell` to apply a transformation
+# independently on each cell or :meth:`preprocess` if you prefer your own logic.
+# See corresponding docstring for informations.
+#
+# Disabled by default and can be enabled via the config by
+{% if jc_your_preprocessor_name_enabled != True %}
+c.YourPreprocessorName.enabled = {{ jc_your_preprocessor_name_enabled }}
+{% endif %}
+
+# Preprocessor will inherit config from: NbConvertBase
+
+# DEPRECATED default highlight language, please use language_info metadata
+# instead
+{% if jc_preprocessor_default_language != 'ipython' %}
+c.Preprocessor.default_language = '{{ jc_preprocessor_default_language }}'
+{% endif %}
+
+#
+{% if jc_preprocessor_enabled != False %}
+c.Preprocessor.enabled = {{ jc_preprocessor_enabled }}
+{% endif %}
+
+# An ordered list of preferred output type, the first encountered will usually
+# be used when converting discarding the others.
+{% if jc_preprocessor_display_data_priority != ['text/html', 'application/pdf', 'text/latex', 'image/svg+xml', 'image/png', 'image/jpeg', 'text/plain'] %}
+c.Preprocessor.display_data_priority = ['{{ jc_preprocessor_display_data_priority|join("', '") }}']
+{% endif %}
+
+#------------------------------------------------------------------------------
+# RevealHelpPreprocessor configuration
+#------------------------------------------------------------------------------
+
+# RevealHelpPreprocessor will inherit config from: Preprocessor, NbConvertBase
+
+# The URL prefix for reveal.js. This can be a a relative URL for a local copy of
+# reveal.js, or point to a CDN.
+#
+# For speaker notes to work, a local reveal.js prefix must be used.
+{% if jc_reveal_help_preprocessor_url_prefix != 'reveal.js' %}
+c.RevealHelpPreprocessor.url_prefix = '{{ jc_reveal_help_preprocessor_url_prefix }}'
+{% endif %}
+
+# DEPRECATED default highlight language, please use language_info metadata
+# instead
+{% if jc_reveal_help_preprocessor_default_language != 'ipython' %}
+c.RevealHelpPreprocessor.default_language = '{{ jc_reveal_help_preprocessor_default_language }}'
+{% endif %}
+
+#
+{% if jc_reveal_help_preprocessor_enabled != False %}
+c.RevealHelpPreprocessor.enabled = {{ jc_reveal_help_preprocessor_enabled }}
+{% endif %}
+
+# An ordered list of preferred output type, the first encountered will usually
+# be used when converting discarding the others.
+{% if jc_reveal_help_preprocessor_display_data_priority != ['text/html', 'application/pdf', 'text/latex', 'image/svg+xml', 'image/png', 'image/jpeg', 'text/plain'] %}
+c.RevealHelpPreprocessor.display_data_priority = ['{{ jc_reveal_help_preprocessor_display_data_priority|join("', '") }}']
+{% endif %}
+
+#------------------------------------------------------------------------------
+# SVG2PDFPreprocessor configuration
+#------------------------------------------------------------------------------
+
+# Converts all of the outputs in a notebook from SVG to PDF.
+
+# SVG2PDFPreprocessor will inherit config from: ConvertFiguresPreprocessor,
+# Preprocessor, NbConvertBase
+
+# Format the converter accepts
+{% if jc_svg2_pdf_preprocessor_from_format != '' %}
+c.SVG2PDFPreprocessor.from_format = u'{{ jc_svg2_pdf_preprocessor_from_format }}'
+{% endif %}
+
+# DEPRECATED default highlight language, please use language_info metadata
+# instead
+{% if jc_svg2_pdf_preprocessor_default_language != 'ipython' %}
+c.SVG2PDFPreprocessor.default_language = '{{ jc_svg2_pdf_preprocessor_default_language }}'
+{% endif %}
+
+#
+{% if jc_svg2_pdf_preprocessor_enabled != False %}
+c.SVG2PDFPreprocessor.enabled = {{ jc_svg2_pdf_preprocessor_enabled }}
+{% endif %}
+
+# Format the converter writes
+{% if jc_svg2_pdf_preprocessor_to_format != '' %}
+c.SVG2PDFPreprocessor.to_format = u'{{ jc_svg2_pdf_preprocessor_to_format }}'
+{% endif %}
+
+# The command to use for converting SVG to PDF
+#
+# This string is a template, which will be formatted with the keys to_filename
+# and from_filename.
+#
+# The conversion call must read the SVG from {from_flename}, and write a PDF to
+# {to_filename}.
+{% if jc_svg2_pdf_preprocessor_command != '' %}
+c.SVG2PDFPreprocessor.command = u'{{ jc_svg2_pdf_preprocessor_command }}'
+{% endif %}
+
+# An ordered list of preferred output type, the first encountered will usually
+# be used when converting discarding the others.
+{% if jc_svg2_pdf_preprocessor_display_data_priority != ['text/html', 'application/pdf', 'text/latex', 'image/svg+xml', 'image/png', 'image/jpeg', 'text/plain'] %}
+c.SVG2PDFPreprocessor.display_data_priority = ['{{ jc_svg2_pdf_preprocessor_display_data_priority|join("', '") }}']
+{% endif %}
+
+# The path to Inkscape, if necessary
+{% if jc_svg2_pdf_preprocessor_inkscape != '' %}
+c.SVG2PDFPreprocessor.inkscape = u'{{ jc_svg2_pdf_preprocessor_inkscape }}'
+{% endif %}
+
+#------------------------------------------------------------------------------
+# FilesWriter configuration
+#------------------------------------------------------------------------------
+
+# Consumes nbconvert output and produces files.
+
+# FilesWriter will inherit config from: WriterBase, NbConvertBase
+
+# List of the files that the notebook references.  Files will be  included with
+# written output.
+{% if jc_files_writer_files != [] %}
+c.FilesWriter.files = ['{{ jc_files_writer_files|join("', '") }}']
+{% endif %}
+
+# An ordered list of preferred output type, the first encountered will usually
+# be used when converting discarding the others.
+{% if jc_files_writer_display_data_priority != ['text/html', 'application/pdf', 'text/latex', 'image/svg+xml', 'image/png', 'image/jpeg', 'text/plain'] %}
+c.FilesWriter.display_data_priority = ['{{ jc_files_writer_display_data_priority|join("', '") }}']
+{% endif %}
+
+# Directory to write output to.  Leave blank to output to the current directory
+{% if jc_files_writer_build_directory != '' %}
+c.FilesWriter.build_directory = '{{ jc_files_writer_build_directory }}'
+{% endif %}
+
+# DEPRECATED default highlight language, please use language_info metadata
+# instead
+{% if jc_files_writer_default_language != 'ipython' %}
+c.FilesWriter.default_language = '{{ jc_files_writer_default_language }}'
+{% endif %}
+
+# When copying files that the notebook depends on, copy them in relation to this
+# path, such that the destination filename will be os.path.relpath(filename,
+# relpath). If FilesWriter is operating on a notebook that already exists
+# elsewhere on disk, then the default will be the directory containing that
+# notebook.
+{% if jc_files_writer_relpath != '' %}
+c.FilesWriter.relpath = '{{ jc_files_writer_relpath }}'
+{% endif %}
+
+#------------------------------------------------------------------------------
+# StdoutWriter configuration
+#------------------------------------------------------------------------------
+
+# Consumes output from nbconvert export...() methods and writes to the  stdout
+# stream.
+
+# StdoutWriter will inherit config from: WriterBase, NbConvertBase
+
+# List of the files that the notebook references.  Files will be  included with
+# written output.
+{% if jc_stdout_writer_files != [] %}
+c.StdoutWriter.files = ['{{ jc_stdout_writer_files|join("', '") }}']
+{% endif %}
+
+# An ordered list of preferred output type, the first encountered will usually
+# be used when converting discarding the others.
+{% if jc_stdout_writer_display_data_priority != ['text/html', 'application/pdf', 'text/latex', 'image/svg+xml', 'image/png', 'image/jpeg', 'text/plain'] %}
+c.StdoutWriter.display_data_priority = ['{{ jc_stdout_writer_display_data_priority|join("', '") }}']
+{% endif %}
+
+# DEPRECATED default highlight language, please use language_info metadata
+# instead
+{% if jc_stdout_writer_default_language != 'ipython' %}
+c.StdoutWriter.default_language = '{{ jc_stdout_writer_default_language }}'
+{% endif %}
+
+#------------------------------------------------------------------------------
+# WriterBase configuration
+#------------------------------------------------------------------------------
+
+# Consumes output from nbconvert export...() methods and writes to a useful
+# location.
+
+# WriterBase will inherit config from: NbConvertBase
+
+# List of the files that the notebook references.  Files will be  included with
+# written output.
+{% if jc_writer_base_files != [] %}
+c.WriterBase.files = ['{{ jc_writer_base_files|join("', '") }}']
+{% endif %}
+
+# An ordered list of preferred output type, the first encountered will usually
+# be used when converting discarding the others.
+{% if jc_writer_base_display_data_priority != ['text/html', 'application/pdf', 'text/latex', 'image/svg+xml', 'image/png', 'image/jpeg', 'text/plain'] %}
+c.WriterBase.display_data_priority = ['{{ jc_writer_base_display_data_priority|join("', '") }}']
+{% endif %}
+
+# DEPRECATED default highlight language, please use language_info metadata
+# instead
+{% if jc_writer_base_default_language != 'ipython' %}
+c.WriterBase.default_language = '{{ jc_writer_base_default_language }}'
+{% endif %}
+
+#------------------------------------------------------------------------------
+# PostProcessorBase configuration
+#------------------------------------------------------------------------------
+
+# PostProcessorBase will inherit config from: NbConvertBase
+
+# An ordered list of preferred output type, the first encountered will usually
+# be used when converting discarding the others.
+{% if jc_post_processor_base_display_data_priority != ['text/html', 'application/pdf', 'text/latex', 'image/svg+xml', 'image/png', 'image/jpeg', 'text/plain'] %}
+c.PostProcessorBase.display_data_priority = ['{{ jc_post_processor_base_display_data_priority|join("', '") }}']
+{% endif %}
+
+# DEPRECATED default highlight language, please use language_info metadata
+# instead
+{% if jc_post_processor_base_default_language != 'ipython' %}
+c.PostProcessorBase.default_language = '{{ jc_post_processor_base_default_language }}'
+{% endif %}
+
+#------------------------------------------------------------------------------
+# ServePostProcessor configuration
+#------------------------------------------------------------------------------
+
+# Post processor designed to serve files
+#
+# Proxies reveal.js requests to a CDN if no local reveal.js is present
+
+# ServePostProcessor will inherit config from: PostProcessorBase, NbConvertBase
+
+# The IP address to listen on.
+{% if jc_serve_post_processor_ip != '127.0.0.1' %}
+c.ServePostProcessor.ip = '{{ jc_serve_post_processor_ip }}'
+{% endif %}
+
+# URL prefix for reveal.js
+{% if jc_serve_post_processor_reveal_prefix != 'reveal.js' %}
+c.ServePostProcessor.reveal_prefix = '{{ jc_serve_post_processor_reveal_prefix }}'
+{% endif %}
+
+# DEPRECATED default highlight language, please use language_info metadata
+# instead
+{% if jc_serve_post_processor_default_language != 'ipython' %}
+c.ServePostProcessor.default_language = '{{ jc_serve_post_processor_default_language }}'
+{% endif %}
+
+# port for the server to listen on.
+{% if jc_serve_post_processor_port != 8000 %}
+c.ServePostProcessor.port = {{ jc_serve_post_processor_port }}
+{% endif %}
+
+# An ordered list of preferred output type, the first encountered will usually
+# be used when converting discarding the others.
+{% if jc_serve_post_processor_display_data_priority != ['text/html', 'application/pdf', 'text/latex', 'image/svg+xml', 'image/png', 'image/jpeg', 'text/plain'] %}
+c.ServePostProcessor.display_data_priority = ['{{ jc_serve_post_processor_display_data_priority|join("', '") }}']
+{% endif %}
+
+# Should the browser be opened automatically?
+{% if jc_serve_post_processor_open_in_browser != True %}
+c.ServePostProcessor.open_in_browser = {{ jc_serve_post_processor_open_in_browser }}
+{% endif %}
+
+# URL for reveal.js CDN.
+{% if jc_serve_post_processor_reveal_cdn != 'https://cdn.jsdelivr.net/reveal.js/2.6.2' %}
+c.ServePostProcessor.reveal_cdn = '{{ jc_serve_post_processor_reveal_cdn }}'
+{% endif %}

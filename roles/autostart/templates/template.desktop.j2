@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name={{ item.name }}
+Exec={{ item.command }}
+{% if item.description is defined %}
+Comment={{ item.description }}
+{% endif %}
+{% if item.icon is defined %}
+Icon={{ item.icon }}
+{% endif %}

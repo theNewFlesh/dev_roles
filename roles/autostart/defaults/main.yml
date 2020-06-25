@@ -1,0 +1,8 @@
+autostart_items: []
+
+# example
+# autostart_items:
+# - name: firefox
+#   command: "firefox --new-window"
+#   icon: firefox
+#   description: start new firefox window

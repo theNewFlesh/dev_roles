@@ -1,0 +1,29 @@
+---
+- name: ensure ~/.aws is present
+  file:
+    dest: "{{ ansible_user_dir }}/.aws"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    state: directory
+  tags:
+    - config
+
+- name: copy ~/.aws/credentials
+  when: aws_config_credentials_file != ""
+  copy:
+    src: "{{ aws_config_credentials_file }}"
+    dest: "{{ ansible_user_dir }}/.aws/credentials"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  tags:
+    - config
+
+- name: copy ~/.aws/config
+  when: aws_config_config_file != ""
+  copy:
+    src: "{{ aws_config_config_file }}"
+    dest: "{{ ansible_user_dir }}/.aws/config"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  tags:
+    - config

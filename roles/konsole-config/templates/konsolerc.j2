@@ -1,0 +1,45 @@
+[$Version]
+update_info=konsole.upd:2.9.0-global-options
+
+[Colors]
+CurrentPalette=Forty Colors
+
+[Desktop Entry]
+DefaultProfile=dev.profile
+
+[Favorite Profiles]
+Favorites=dev.profile
+
+[KonsoleWindow]
+SaveGeometryOnExit=false
+{% if konsole_show_app_name_on_titlebar is defined %}
+ShowAppNameOnTitleBar={{ konsole_show_app_name_on_titlebar }}
+{% endif %}
+{% if konsole_show_window_title_on_titlebar is defined %}
+ShowWindowTitleOnTitleBar={{ konsole_show_window_title_on_titlebar }}
+{% endif %}
+{% if konsole_show_menu_bar_by_default %}
+ShowMenuBarByDefault=true
+{% else %}
+ShowMenuBarByDefault=false
+{% endif %}
+
+[MainWindow]
+State=AAAA/wAAAAD9AAAAAAAABWcAAAMuAAAABAAAAAQAAAAIAAAACPwAAAAA
+ToolBarsMovable=Disabled
+{% if konsole_menu_bar_enabled %}
+MenuBar=Enabled
+{% else %}
+MenuBar=Disabled
+{% endif %}
+
+[Shortcut Schemes]
+Current Scheme=dev
+
+[TabBar]
+{% if konsole_tab_bar_position is defined %}
+TabBarPosition={{ konsole_tab_bar_position }}
+{% endif %}
+{% if konsole_tab_bar_visibility is defined %}
+TabBarVisibility={{ konsole_tab_bar_visibility }}
+{% endif %}

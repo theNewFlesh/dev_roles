@@ -1,5 +1,5 @@
 namespace: "theNewFlesh"
-name: "ansible-roles"
+name: "dev-roles"
 version: "1.0.0"
 readme: "README.md"
 authors:

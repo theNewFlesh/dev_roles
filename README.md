@@ -1,4 +1,4 @@
-# theNewFlesh/dev_roles
+# Ansible Collection - the_new_flesh.dev_roles
 
 A collectiom of 49 Ansible for setting up a Ubuntu 16.04 or 20.04 machine for
 computer vision and visual effects development workflows.

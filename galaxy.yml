@@ -8,12 +8,12 @@ dependencies: []
 license:
     - "MIT"
 tags:
-    - visual effects
+    - visual_effects
     - vfx
-    - computer vision
+    - computer_vision
     - cv
-    - machine learning
-    - artificial intelligence
+    - machine_learning
+    - artificial_intelligence
     - ai
     - developer
     - ubuntu

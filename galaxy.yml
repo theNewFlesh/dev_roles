@@ -4,7 +4,7 @@ version: "1.0.0"
 readme: "README.md"
 authors:
     - "Alex Braun <alexander.g.braun@gmail.com>"
-dependencies: []
+dependencies: {}
 license:
     - "MIT"
 tags:

@@ -1,6 +1,6 @@
 namespace: the_new_flesh
 name: dev_roles
-version: 1.0.0
+version: 1.1.0
 readme: README.md
 authors:
     - "Alex Braun <alexander.g.braun@gmail.com>"

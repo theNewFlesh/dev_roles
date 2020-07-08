@@ -7,6 +7,6 @@
 - name: "Debian | ensure nautilus actions are present"
   template:
     src: ../templates/action.desktop.j2
-    dest: "{{ ansible_user_dir }}/.local/share/file-manager/actions/{{ item.name }}.desktop"
+    dest: "{{ ansible_user_dir }}/.local/share/file-manager/actions/{{ item.name | regex_replace(' +', '_') }}.desktop"
   with_items: "{{ nautilus_actions_config_items }}"
 

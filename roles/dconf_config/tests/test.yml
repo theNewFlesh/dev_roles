@@ -1,0 +1,6 @@
+- hosts: dev
+  roles:
+    - role: ../..
+      dconf_config_items:
+        - key: /org/gnome/desktop/interface/clock-show-weekday
+          value: "true"

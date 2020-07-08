@@ -1,6 +1,6 @@
 # Ansible Collection - the_new_flesh.dev_roles
 
-A collectiom of 49 Ansible for setting up a Ubuntu 16.04 or 20.04 machine for
+A collectiom of 50 Ansible for setting up a Ubuntu 16.04 or 20.04 machine for
 computer vision and visual effects development workflows.
 
 # Roles
@@ -18,6 +18,7 @@ computer vision and visual effects development workflows.
 | conky_config                     | config  | configures conky                                                         |              |
 | cufflinks_config                 | config  | configures cufflinks                                                     |              |
 | dcc_plugin                       | install | installation of custom plugins for digital content creation applications |              |
+| dconf_config                     | config  | configures dconf                                                         |              |
 | foundry_licensing_utility        | install | installs foundry-licensing-utility                                       | deb          |
 | foundry_licensing_utility_config | config  | configures foundry                                                       |              |
 | gnome_tweak_tool                 | install | install gnome-tweak-tool                                                 | apt          |

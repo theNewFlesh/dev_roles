@@ -62,8 +62,8 @@
 
 - name: config-shortcuts
   template:
-    src: ../templates/konsoledevshortcuts.rc.j2
-    dest: "{{ ansible_user_dir }}/.local/share/konsole/konsoledevshortcuts.rc"
+    src: ../templates/dev.shortcuts.j2
+    dest: "{{ ansible_user_dir }}/.local/share/konsole/dev.shortcuts"
     force: true
   tags:
     - debian

@@ -279,7 +279,7 @@ linux_hotkeys_gtile_autotile_8:                  "8"
 linux_hotkeys_gtile_autotile_9:                  "9"
 linux_hotkeys_gtile_autotile_main:               m
 linux_hotkeys_gtile_cancel_tiling:               esc
-linux_hotkeys_gtile_change_grid_size:            ""
+linux_hotkeys_gtile_change_grid_size:            space
 linux_hotkeys_gtile_move_down_vi:                j
 linux_hotkeys_gtile_move_left_vi:                h
 linux_hotkeys_gtile_move_right_vi:               l

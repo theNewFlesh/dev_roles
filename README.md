@@ -51,7 +51,7 @@ computer vision and visual effects development workflows.
 | tree                             | install | installs tree                                                            | apt          |
 | unity_tweak_tool                 | install | installs unity-tweak-tool                                                | apt          |
 | visual_studio_code               | install | installs visual studio code                                              | snap         |
-| visual_studio_code_config        | config  | configures visual studio coinstallde and installs extensions             |              |
+| visual_studio_code_config        | config  | configures visual studio code and installs extensions                    |              |
 | vlc                              | install | installs vlc video application                                           | snap         |
 | xclip                            | install | installs xclip                                                           | apt          |
 | xkb_key_bindings                 | config  | configures xkb key bindings                                              |              |

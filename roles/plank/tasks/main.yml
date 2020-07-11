@@ -1,0 +1,8 @@
+- name: "Debian | ensure Plank is {{ state }}"
+  apt:
+    name: plank
+    state: "{{ state }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - install
+    - debian

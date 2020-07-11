@@ -1,0 +1,6 @@
+[PlankDockItemPreferences]
+{% if item.desktop_file == 'docklet' %}
+Launcher=docklet://{{ item.name }}
+{% else %}
+Launcher=file://{{ item.desktop_file }}
+{% endif %}

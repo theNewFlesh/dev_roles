@@ -1,0 +1,27 @@
+- name: ensure ~/.config/plank/dock1/launchers is absent
+  file:
+    dest: "{{ ansible_user_dir }}/.config/plank/dock1/launchers"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    state: absent
+  tags:
+    - config
+
+- name: ensure ~/.config/plank/dock1/launchers is present
+  file:
+    dest: "{{ ansible_user_dir }}/.config/plank/dock1/launchers"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    state: directory
+  tags:
+    - config
+
+- name: add dockitem files
+  template:
+    src: ../templates/item.dockitem.j2
+    dest: "{{ ansible_user_dir }}/.config/plank/dock1/launchers/{{ item.name }}.dockitem"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  with_items: "{{ plank_config_items }}"
+  tags:
+    - config

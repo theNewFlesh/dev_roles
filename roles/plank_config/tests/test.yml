@@ -1,0 +1,6 @@
+- hosts: dev
+  roles:
+    - role: ../..
+      plank_config_items:
+        - name: firefox
+          desktop_file: /usr/share/applications/firefox.desktop

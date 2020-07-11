@@ -44,4 +44,6 @@
     cmd: cat /tmp/foundry.log | grep ERROR
   register: log
   failed_when: "'ERROR' in log.stdout"
-  tags: config
+  tags:
+    - config
+    - test

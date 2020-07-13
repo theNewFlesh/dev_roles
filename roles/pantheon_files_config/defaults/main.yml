@@ -1,0 +1,32 @@
+pantheon_files_config_column_view_default_zoom_level:            small
+pantheon_files_config_column_view_maximum_zoom_level:            normal
+pantheon_files_config_column_view_minimum_zoom_level:            smallest
+pantheon_files_config_column_view_preferred_column_width:        180
+pantheon_files_config_column_view_zoom_level:                    small
+pantheon_files_config_file_chooser_last_folder_uri:              ""
+pantheon_files_config_icon_view_default_zoom_level:              large
+pantheon_files_config_icon_view_maximum_zoom_level:              largest
+pantheon_files_config_icon_view_minimum_zoom_level:              normal
+pantheon_files_config_icon_view_zoom_level:                      large
+pantheon_files_config_list_view_default_zoom_level:              small
+pantheon_files_config_list_view_maximum_zoom_level:              large
+pantheon_files_config_list_view_minimum_zoom_level:              smaller
+pantheon_files_config_list_view_zoom_level:                      small
+pantheon_files_config_preferences_active_tab_position:           0
+pantheon_files_config_preferences_date_format:                   informal
+pantheon_files_config_preferences_default_viewmode:              icon
+pantheon_files_config_preferences_hide_local_thumbnails:         false
+pantheon_files_config_preferences_minimum_sidebar_width:         96
+pantheon_files_config_preferences_restore_tabs:                  true
+pantheon_files_config_preferences_show_hiddenfiles:              false
+pantheon_files_config_preferences_show_remote_thumbnails:        false
+pantheon_files_config_preferences_show_sidebar:                  true
+pantheon_files_config_preferences_sidebar_cat_devices_expander:  true
+pantheon_files_config_preferences_sidebar_cat_network_expander:  true
+pantheon_files_config_preferences_sidebar_cat_personal_expander: true
+pantheon_files_config_preferences_sidebar_width:                 191
+pantheon_files_config_preferences_single_click:                  true
+pantheon_files_config_preferences_tab_info_list:                 "[(uint32 0, '', '')]"
+pantheon_files_config_preferences_window_position:               (-1, -1)
+pantheon_files_config_preferences_window_size:                   (1000, 680)
+pantheon_files_config_preferences_window_state:                  normal

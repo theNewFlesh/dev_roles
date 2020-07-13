@@ -1,6 +1,6 @@
 # Ansible Collection - the_new_flesh.dev_roles
 
-A collectiom of 52 Ansible for setting up a Ubuntu 16.04 or 20.04 machine for
+A collectiom of 54 Ansible for setting up a Ubuntu 16.04 or 20.04 machine for
 computer vision and visual effects development workflows.
 
 # Roles
@@ -44,6 +44,8 @@ computer vision and visual effects development workflows.
 | parallel                         | install | installs gnu-parallel                                                    | apt          |
 | plank                            | install | installs plank dock application                                          | apt          |
 | plank_config                     | config  | configures plank dock application                                        |              |
+| pantheon_files                   | install | install pantheon file manager                                            | apt          |
+| pantheon_files_config            | config  | configure pantheon file manager                                          |              |
 | redshift_gtk                     | install | installs redshift-gtk                                                    | apt          |
 | shell_config                     | config  | configures shell                                                         |              |
 | slack                            | config  | configures shell environment files (.bashrc, .zshrc)                     | snap         |

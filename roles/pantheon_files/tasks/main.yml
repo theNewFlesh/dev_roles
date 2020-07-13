@@ -1,0 +1,17 @@
+- name: "Debian | ensure elementary-os ppa is {{ state }}"
+  apt_repository:
+    repo: ppa:elementary-os/daily
+    state: "{{ state }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - install
+    - debian
+
+- name: "Debian | ensure pantheon-files is {{ state }}"
+  apt:
+    name: pantheon-files
+    state: "{{ state }}"
+  when: ansible_os_family == "Debian"
+  tags:
+    - install
+    - debian

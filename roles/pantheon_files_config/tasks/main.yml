@@ -1,0 +1,100 @@
+- name: "Debian | configure pantheon-files dconf settings"
+  include_role:
+    name: the_new_flesh.dev_roles.dconf_config
+  vars:
+    dconf_config_items:
+      - key: /io/elementary/files/column-view/default-zoom-level
+        value: "'{{ pantheon_files_config_column_view_default_zoom_level }}'"
+
+      - key: /io/elementary/files/column-view/maximum-zoom-level
+        value: "'{{ pantheon_files_config_column_view_maximum_zoom_level }}'"
+
+      - key: /io/elementary/files/column-view/minimum-zoom-level
+        value: "'{{ pantheon_files_config_column_view_minimum_zoom_level }}'"
+
+      - key: /io/elementary/files/column-view/preferred-column-width
+        value: "{{ pantheon_files_config_column_view_preferred_column_width }}"
+
+      - key: /io/elementary/files/column-view/zoom-level
+        value: "'{{ pantheon_files_config_column_view_zoom_level }}'"
+
+      - key: /io/elementary/files/file-chooser/last-folder-uri
+        value: "'{{ pantheon_files_config_file_chooser_last_folder_uri }}'"
+
+      - key: /io/elementary/files/icon-view/default-zoom-level
+        value: "'{{ pantheon_files_config_icon_view_default_zoom_level }}'"
+
+      - key: /io/elementary/files/icon-view/maximum-zoom-level
+        value: "'{{ pantheon_files_config_icon_view_maximum_zoom_level }}'"
+
+      - key: /io/elementary/files/icon-view/minimum-zoom-level
+        value: "'{{ pantheon_files_config_icon_view_minimum_zoom_level }}'"
+
+      - key: /io/elementary/files/icon-view/zoom-level
+        value: "'{{ pantheon_files_config_icon_view_zoom_level }}'"
+
+      - key: /io/elementary/files/list-view/default-zoom-level
+        value: "'{{ pantheon_files_config_list_view_default_zoom_level }}'"
+
+      - key: /io/elementary/files/list-view/maximum-zoom-level
+        value: "'{{ pantheon_files_config_list_view_maximum_zoom_level }}'"
+
+      - key: /io/elementary/files/list-view/minimum-zoom-level
+        value: "'{{ pantheon_files_config_list_view_minimum_zoom_level }}'"
+
+      - key: /io/elementary/files/list-view/zoom-level
+        value: "'{{ pantheon_files_config_list_view_zoom_level }}'"
+
+      - key: /io/elementary/files/preferences/active-tab-position
+        value: "{{ pantheon_files_config_preferences_active_tab_position }}"
+
+      - key: /io/elementary/files/preferences/date-format
+        value: "'{{ pantheon_files_config_preferences_date_format }}'"
+
+      - key: /io/elementary/files/preferences/default-viewmode
+        value: "'{{ pantheon_files_config_preferences_default_viewmode }}'"
+
+      - key: /io/elementary/files/preferences/hide-local-thumbnails
+        value: "{{ pantheon_files_config_preferences_hide_local_thumbnails | string | lower }}"
+
+      - key: /io/elementary/files/preferences/minimum-sidebar-width
+        value: "{{ pantheon_files_config_preferences_minimum_sidebar_width }}"
+
+      - key: /io/elementary/files/preferences/restore-tabs
+        value: "{{ pantheon_files_config_preferences_restore_tabs | string | lower }}"
+
+      - key: /io/elementary/files/preferences/show-hiddenfiles
+        value: "{{ pantheon_files_config_preferences_show_hiddenfiles | string | lower }}"
+
+      - key: /io/elementary/files/preferences/show-remote-thumbnails
+        value: "{{ pantheon_files_config_preferences_show_remote_thumbnails | string | lower }}"
+
+      - key: /io/elementary/files/preferences/show-sidebar
+        value: "{{ pantheon_files_config_preferences_show_sidebar | string | lower }}"
+
+      - key: /io/elementary/files/preferences/sidebar-cat-devices-expander
+        value: "{{ pantheon_files_config_preferences_sidebar_cat_devices_expander | string | lower }}"
+
+      - key: /io/elementary/files/preferences/sidebar-cat-network-expander
+        value: "{{ pantheon_files_config_preferences_sidebar_cat_network_expander | string | lower }}"
+
+      - key: /io/elementary/files/preferences/sidebar-cat-personal-expander
+        value: "{{ pantheon_files_config_preferences_sidebar_cat_personal_expander | string | lower }}"
+
+      - key: /io/elementary/files/preferences/sidebar-width
+        value: "{{ pantheon_files_config_preferences_sidebar_width }}"
+
+      - key: /io/elementary/files/preferences/single-click
+        value: "{{ pantheon_files_config_preferences_single_click | string | lower }}"
+
+      - key: /io/elementary/files/preferences/tab-info-list
+        value: "{{ pantheon_files_config_preferences_tab_info_list }}"
+
+      - key: /io/elementary/files/preferences/window-position
+        value: "{{ pantheon_files_config_preferences_window_position }}"
+
+      - key: /io/elementary/files/preferences/window-size
+        value: "{{ pantheon_files_config_preferences_window_size }}"
+
+      - key: /io/elementary/files/preferences/window-state
+        value: "'{{ pantheon_files_config_preferences_window_state }}'"

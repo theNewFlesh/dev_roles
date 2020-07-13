@@ -1,0 +1,18 @@
+- name: "Debian | ensure {{ ansible_user_dir }}/.local/share/contractor exists"
+  file:
+    dest: "{{ ansible_user_dir }}/.local/share/contractor"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  tags:
+    - config
+
+- name: "Debian | add file actions"
+  template:
+    src: ../templates/action.contract.j2
+    dest: "{{ ansible_user_dir }}/.local/share/contractor/{{ item.name | regex_replace(' +', '_') }}.contract"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  with_items: "{{ contractor_config_items }}"
+  tags:
+    - config

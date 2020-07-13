@@ -1,6 +1,6 @@
 # Ansible Collection - the_new_flesh.dev_roles
 
-A collectiom of 54 Ansible for setting up a Ubuntu 16.04 or 20.04 machine for
+A collectiom of 56 Ansible for setting up a Ubuntu 16.04 or 20.04 machine for
 computer vision and visual effects development workflows.
 
 # Roles
@@ -16,6 +16,8 @@ computer vision and visual effects development workflows.
 | conda_config                     | config  | configures conda                                                         |              |
 | conky                            | install | installs conky                                                           |              |
 | conky_config                     | config  | configures conky                                                         |              |
+| contractor                       | install | installs contractor                                                      | apt          |
+| contractor_config                | config  | configures contractor                                                    |              |
 | cufflinks_config                 | config  | configures cufflinks                                                     |              |
 | dcc_plugin                       | install | installation of custom plugins for digital content creation applications |              |
 | dconf_config                     | config  | configures dconf                                                         |              |

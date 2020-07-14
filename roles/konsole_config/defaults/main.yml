@@ -9,6 +9,8 @@ konsole_font: Monaco
 konsole_font_size: 11
 konsole_cursor_color: 126,196,207
 konsole_shell: /bin/bash
+konsole_width: 100
+konsole_height: 100
 
 # dev.colorscheme
 konsole_background: 36,36,36

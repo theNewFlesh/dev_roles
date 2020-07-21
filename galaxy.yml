@@ -1,10 +1,10 @@
 namespace: the_new_flesh
 name: dev_roles
-version: 1.6.1
+version: 1.7.0
 readme: README.md
 authors:
     - "Alex Braun <alexander.g.braun@gmail.com>"
-description: A collectiom of 54 Ansible for setting up a Ubuntu 16.04 or 20.04 machine for computer vision and visual effects development workflows.
+description: A collectiom of 57 Ansible for setting up a Ubuntu 16.04 or 20.04 machine for computer vision and visual effects development workflows.
 dependencies: {}
 license:
     - "MIT"

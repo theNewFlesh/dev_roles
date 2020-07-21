@@ -2,7 +2,7 @@
   apt_repository:
     repo: ppa:alessandro-strada/ppa
     state: "{{ state }}"
-  when: ansible_family_os == "Debian"
+  when: ansible_os_family == "Debian"
   tags:
     - install
     - debian
@@ -11,7 +11,7 @@
   apt:
     name: google-drive-ocamlfuse
     state: "{{ state }}"
-  when: ansible_family_os == "Debian"
+  when: ansible_os_family == "Debian"
   tags:
     - install
     - debian

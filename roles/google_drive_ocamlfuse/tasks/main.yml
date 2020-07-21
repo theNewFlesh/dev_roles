@@ -1,0 +1,17 @@
+- name: "Debian | ensure alessandro-strada PPA is {{ state }}."
+  apt_repository:
+    repo: ppa:alessandro-strada/ppa
+    state: "{{ state }}"
+  when: ansible_family_os == "Debian"
+  tags:
+    - install
+    - debian
+
+- name: "Debian | ensure google-drive-ocamlfuse is {{ state }}."
+  apt:
+    name: google-drive-ocamlfuse
+    state: "{{ state }}"
+  when: ansible_family_os == "Debian"
+  tags:
+    - install
+    - debian

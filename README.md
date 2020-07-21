@@ -1,6 +1,6 @@
 # Ansible Collection - the_new_flesh.dev_roles
 
-A collectiom of 56 Ansible for setting up a Ubuntu 16.04 or 20.04 machine for
+A collectiom of 57 Ansible for setting up a Ubuntu 16.04 or 20.04 machine for
 computer vision and visual effects development workflows.
 
 # Roles
@@ -24,6 +24,7 @@ computer vision and visual effects development workflows.
 | foundry_licensing_utility        | install | installs foundry-licensing-utility                                       | deb          |
 | foundry_licensing_utility_config | config  | configures foundry                                                       |              |
 | gnome_tweak_tool                 | install | install gnome-tweak-tool                                                 | apt          |
+| google_drive_ocamlfuse           | install | install google-drive-ocamlfuse                                           | apt          |
 | gsettings_config                 | config  | configures gsettings                                                     |              |
 | handbrake                        | install | installs handbrake                                                       | snap         |
 | hardinfo                         | install | installs hardinfo                                                        | apt          |
